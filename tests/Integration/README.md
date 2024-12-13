@@ -21,6 +21,7 @@ It declares dialogs, property and settings pages.
   Loading integration tests for Ansys SCADE GUI Tools <version>.
   Integration tests for Ansys SCADE GUI Tools <version> loaded.
   ```
+* Launch the command `Tools/Test GUI Tools/Dialog...` and verify a dialog pops-up.
 
 ## Clean
 You may uninstall the package once the tests are completed:

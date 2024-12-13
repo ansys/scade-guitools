@@ -22,31 +22,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Test extension Ansys SCADE GUI Tools."""
+"""Provides metrics for designing dialogs and controls."""
 
-import traceback
-
-import scade
-from scade.tool.suite.gui.commands import Menu
-
-from ansys.scade.guitools import __version__
-
-# isort: split
-# test modules
-from dialog import CommandSampleDialog
-
-# display some banner
-scade.tabput('LOG', 'Loading integration tests for Ansys SCADE GUI Tools %s.\n' % __version__)
-
-
-def main():
-    Menu([CommandSampleDialog()], '&Tools/Test GUI Tools')
-
-
-try:
-    main()
-except BaseException as e:
-    scade.tabput('LOG', str(e) + '\n')
-    scade.tabput('LOG', traceback.format_exc() + '\n')
-else:
-    scade.tabput('LOG', 'Integration tests for Ansys SCADE GUI Tools %s loaded.\n' % __version__)
+# NC area (Non client area) of dialogs
+# If the bounding box of a dialog is 200x100, its client area is 184x61
+H_TITLE = 28
+NC_TOP = H_TITLE + 3
+NC_LEFT = 8
+NC_RIGHT = 8
+NC_BOTTOM = 8
