@@ -33,7 +33,7 @@ see :ref:`contribute_scade_guitools` for installing in developer mode.
 
        python -m pip install --user ansys-scade-guitools
 
-#. For Ansys SCADE releases 2024 R2 and below, complete the installation with
+#. For Ansys SCADE releases 2024 R1 and below, complete the installation with
    this command:
 
    .. code:: bash

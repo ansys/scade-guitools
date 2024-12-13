@@ -66,6 +66,13 @@ Documentation = "https://guitools.scade.docs.pyansys.com"
 Releases = "https://github.com/ansys/scade-guitools/releases"
 Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
+[project.entry-points."ansys.scade.registry"]
+srg = "ansys.scade.guitools:srg"
+
+[project.scripts]
+register_ansys_scade_guitools = "ansys.scade.guitools.register:main"
+unregister_ansys_scade_guitools = "ansys.scade.guitools.unregister:main"
+
 [tool.ruff]
 line-length = 100
 fix = true

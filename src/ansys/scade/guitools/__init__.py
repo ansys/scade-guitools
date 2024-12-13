@@ -24,6 +24,9 @@
 
 """Provides a Python library for extending the Ansys SCADE IDE GUI."""
 
+from pathlib import Path
+import sys
+
 try:
     import importlib.metadata as importlib_metadata
 except ModuleNotFoundError:
@@ -34,3 +37,29 @@ try:
 except importlib_metadata.PackageNotFoundError:
     # happens with pre-commit, the package is not installed in the virtual environment
     __version__ = '<unknown>'
+
+
+def get_srg_name() -> str:
+    """
+    Return the name of the registration file for Ansys SCADE IDE.
+
+    It addresses SCADE 2024 R1 and prior releases.
+    SCADE 2024 R2 and later use the package's
+    ``ansys.scade.registry`` entry point.
+    """
+    # registrations depending on Python interpreter
+    python_version = str(sys.version_info.major) + str(sys.version_info.minor)
+    suffix = '23r1' if python_version == '37' else '24r1'
+    return 'guitools%s.srg' % suffix
+
+
+def srg() -> str:
+    r"""
+    Return the path of the SCADE Studio registry file.
+
+    This function implements the entry point "ansys.scade.registry/srg"
+    introduced in SCADE 2024 R2. It avoids creating an explicit srg file
+    in ``%APPDATA%\Scade\Customize`` when the package is installed.
+    """
+    # the package's srg file is located in the same directory
+    return str(Path(__file__).parent / 'guitools.srg')
