@@ -150,6 +150,61 @@ However, the recommended way of checking documentation integrity is to use
 
     tox -e doc-html && your_browser_name .tox/doc_out/index.html
 
+Debug and integration test
+--------------------------
+Ansys SCADE GUI Tools needs to be registered to SCADE for integration testing.
+Indeed, the library is used in a SCADE IDE session.
+
+Install in user mode
+^^^^^^^^^^^^^^^^^^^^
+It is not possible to reuse the virtual environment setup for the repository.
+You must install the package in an environment accessible by SCADE, for
+example its own Python distribution, although this is not advised,
+or the Python 3.10 *user* distribution:
+
+.. code:: bash
+
+   <python310.exe>  -m pip install --user --editable .
+
+You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
+or Python 3.10 installation on your computer.
+
+If you are using Ansys SCADE 2024 R1 or below, you must perform one additional
+step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
+
+.. code:: bash
+
+   <python310.exe> -m ansys.scade.guitools.register
+
+Debug
+^^^^^
+
+.. note::
+
+   Describe the procedure to attach a debugger.
+
+Run the integration tests
+^^^^^^^^^^^^^^^^^^^^^^^^^
+These are manual tests. Refer to the test procedures, contained in each test
+directory as readme files.
+
+Uninstall
+^^^^^^^^^
+Once the test or debug sessions are completed, proceed as follows to uninstall the package:
+
+* If you are using Ansys SCADE 2024 R1 or below, you should remove the
+  registration files:
+
+  .. code:: bash
+
+     <python310.exe> -m ansys.scade.guitools.unregister
+
+* Uninstall the package:
+
+  .. code:: bash
+
+     python -m pip uninstall ansys.scade.guitools
+
 Distribute
 ----------
 If you would like to create either source or wheel files, start by installing
