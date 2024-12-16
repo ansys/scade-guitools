@@ -21,6 +21,9 @@ It declares dialogs, property and settings pages.
   Integration tests for Ansys SCADE GUI Tools <version> loaded.
   ```
 
+### Debug (optional)
+* Launch the command `Tools/Test GUI Tools/Attach to Debugger` to connect to a Python Debugger. Refer to [Debug](<https://guitools.scade.docs.pyansys.com/version/dev/contributing.html#debug>) for details.
+
 ### Dialog
 * Launch the command `Tools/Test GUI Tools/Dialog...` and verify the following dialog pops-up:
 

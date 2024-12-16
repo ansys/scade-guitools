@@ -178,10 +178,15 @@ step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
 
 Debug
 ^^^^^
+The debugging of SCADE Custom Extensions that run in the context of the SCADE IDE
+requires a different approach. You can use the module :mod:`enable_debugpy <ansys.scade.guitools.enable_debugpy>` that
+enables the usage of `debugpy`_, that is an implementation of the
+`Debug Adapter Protocol`_ for Python 3.
 
-.. note::
+Refer to the following links to setup a Python IDE supporting `debugpy`_:
 
-   Describe the procedure to attach a debugger.
+* `Visual Studio Code`_
+* `Visual Studio 2019 and greater`_
 
 Run the integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -244,3 +249,7 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _wheel file: https://github.com/ansys/scade-guitools/releases
+.. _Visual Studio Code: https://code.visualstudio.com/docs/python/debugging/
+.. _Visual Studio 2019 and greater: https://learn.microsoft.com/en-us/visualstudio/python/debugging-python-code-on-remote-linux-machines?view=vs-2022#attach-remotely-from-python-tools/
+.. _debugpy: https://pypi.org/project/debugpy/
+.. _Debug Adapter Protocol: https://microsoft.github.io/debug-adapter-protocol/

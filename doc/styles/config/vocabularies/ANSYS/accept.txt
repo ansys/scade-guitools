@@ -9,4 +9,5 @@ guitools
 isort
 pytest
 readme
+debugpy
 Unregisters

@@ -27,9 +27,10 @@
 import traceback
 
 import scade
-from scade.tool.suite.gui.commands import Menu
+from scade.tool.suite.gui.commands import Command, Menu
 
 from ansys.scade.guitools import __version__
+from ansys.scade.guitools.enable_debugpy import attach_to_debugger
 
 # isort: split
 # test modules
@@ -40,7 +41,22 @@ scade.tabput('LOG', 'Loading integration tests for Ansys SCADE GUI Tools %s.\n' 
 
 
 def main():
-    Menu([CommandSampleDialog()], '&Tools/Test GUI Tools')
+    Menu(
+        [CommandAttachToDebugger(), Command.SEPARATOR, CommandSampleDialog()],
+        '&Tools/Test GUI Tools',
+    )
+
+
+class CommandAttachToDebugger(Command):
+    """Defines a command to display a dialog box."""
+
+    def __init__(self):
+        label = 'Attach to Debugger'
+        super().__init__(name=label, status_message=label, tooltip_message=label)
+
+    def on_activate(self):
+        """Open the dialog."""
+        attach_to_debugger()
 
 
 try:
