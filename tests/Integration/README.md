@@ -24,10 +24,23 @@ It declares dialogs, property and settings pages.
 ### Debug (optional)
 * Launch the command `Tools/Test GUI Tools/Attach to Debugger` to connect to a Python Debugger. Refer to [Debug](<https://guitools.scade.docs.pyansys.com/version/dev/contributing.html#debug>) for details.
 
-### Dialog
-* Launch the command `Tools/Test GUI Tools/Dialog...` and verify the following dialog pops-up:
+### Dialog Box
+* Launch the command `Tools/Test GUI Tools/DialogBox...` and verify the following dialog pops-up:
 
-  ![Dialog](img/dialog.png)
+  ![DialogBox](img/dialog_box.png)
+
+* For each button on the left:
+
+  * Verify it opens a new dialog with the corresponding buttons.
+    Each button must close this second dialog without raising an exception.
+
+    The dialog hereafter corresponds to the button ``YES_NO``:
+
+      ![DialogBox](img/yes_no.png)
+
+  * Use the ``ESC`` key to close a dialog without button.
+
+* Close the test dialog with the ``Close`` button.
 
 ## Clean
 You may uninstall the package once the tests are completed:

@@ -22,12 +22,35 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides metrics for designing dialog boxes and controls."""
+"""
+Provides default metrics for designing dialog boxes and controls.
+
+These metrics may depend on your version of Windows or selected theme.
+"""
 
 # NC area (Non client area) of dialogs
 # If the bounding box of a dialog is 200x100, its client area is 184x61
 H_TITLE = 28
+"""Default height of the title area of a dialog box."""
 NC_TOP = H_TITLE + 3
+"""Non client area top margin of a dialog box."""
 NC_LEFT = 8
+"""Non client area left margin of a dialog box."""
 NC_RIGHT = 8
+"""Non client area right margin of a dialog box."""
 NC_BOTTOM = 8
+"""Non client area bottom margin of a dialog box."""
+
+RIGHT_MARGIN = 6
+"""Right margin of a dialog box or page."""
+LEFT_MARGIN = 6
+"""Left margin of a dialog box or page."""
+TOP_MARGIN = 7
+"""Top margin of a dialog box or page."""
+BOTTOM_MARGIN = 7
+"""Bottom margin of a dialog box or page."""
+
+BUTTON_HEIGHT = 23
+"""Default height of a push button control."""
+BUTTON_WIDTH = 75
+"""Default width of a push button control."""
