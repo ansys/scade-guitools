@@ -12,7 +12,6 @@ It declares dialogs, property and settings pages.
   This commands copies `guitools_ut_ext.srg` to `%APPDATA%\SCADE\Customize` and updates it according to your working directory.
 
 ## Test procedure
-
 ### Initialization
 * Run Ansys SCADE
 * Verify the `Messages` output tab displays the following text:
@@ -21,7 +20,11 @@ It declares dialogs, property and settings pages.
   Loading integration tests for Ansys SCADE GUI Tools <version>.
   Integration tests for Ansys SCADE GUI Tools <version> loaded.
   ```
-* Launch the command `Tools/Test GUI Tools/Dialog...` and verify a dialog pops-up.
+
+### Dialog
+* Launch the command `Tools/Test GUI Tools/Dialog...` and verify the following dialog pops-up:
+
+  ![Dialog](img/dialog.png)
 
 ## Clean
 You may uninstall the package once the tests are completed:

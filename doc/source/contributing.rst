@@ -164,7 +164,7 @@ or the Python 3.10 *user* distribution:
 
 .. code:: bash
 
-   <python310.exe>  -m pip install --user --editable .
+   <python310.exe> -m pip install --user --editable .
 
 You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
 or Python 3.10 installation on your computer.

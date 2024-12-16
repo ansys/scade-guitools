@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides metrics for designing dialogs and controls."""
+"""Provides metrics for designing dialog boxes and controls."""
 
 # NC area (Non client area) of dialogs
 # If the bounding box of a dialog is 200x100, its client area is 184x61

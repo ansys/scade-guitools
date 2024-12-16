@@ -8,3 +8,5 @@ SCADE
 guitools
 isort
 pytest
+readme
+Unregisters
