@@ -42,6 +42,13 @@ It declares dialogs, property and settings pages.
 
 * Close the test dialog with the ``Close`` button.
 
+### Control
+* Launch the command `Tools/Test GUI Tools/Control...` and verify the following dialog pops-up:
+
+  ![Control](img/control.png)
+
+* Close the test dialog with the ``Close`` button.
+
 ## Clean
 You may uninstall the package once the tests are completed:
 

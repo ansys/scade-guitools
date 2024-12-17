@@ -24,51 +24,44 @@
 
 """Test extension Ansys SCADE GUI Tools."""
 
-import traceback
+from scade.tool.suite.gui.commands import Command
 
-import scade
-from scade.tool.suite.gui.commands import Command, Menu
-
-from ansys.scade.guitools import __version__
-from ansys.scade.guitools.enable_debugpy import attach_to_debugger
-
-# isort: split
-# test modules
-from test_control import CommandTestControl
-from test_dialog_box import CommandTestDialogBox
-
-# display some banner
-scade.tabput('LOG', 'Loading integration tests for Ansys SCADE GUI Tools %s.\n' % __version__)
+from ansys.scade.guitools.control import PushButton, StaticEdit
+import ansys.scade.guitools.csts as c
+from ansys.scade.guitools.dialog import DS, DialogBox
 
 
-def main():
-    Menu(
-        [
-            CommandTestDialogBox(),
-            CommandTestControl(),
-            Command.SEPARATOR,
-            CommandAttachToDebugger(),
-        ],
-        '&Tools/Test GUI Tools',
-    )
+class _TestControl(DialogBox):
+    """Defines a sample dialog box to test the controls."""
+
+    __test__ = False
+
+    def __init__(self):
+        super().__init__('TestControl', 300, 250, style=DS.CLOSE)
+
+    def on_build(self):
+        """Build the dialog."""
+        super().on_build()
+        x = c.LEFT_MARGIN
+        y = c.TOP_MARGIN
+        dy = 30
+        # add a push button
+        PushButton(self, 'Button', x, y)
+        y += dy
+        # add a static + edit
+        wl = 100
+        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
+        StaticEdit(self, 'Static', wl, x, y, w, name='Edit')
+        y += dy
 
 
-class CommandAttachToDebugger(Command):
+class CommandTestControl(Command):
     """Defines a command to display a dialog box."""
 
     def __init__(self):
-        label = 'Attach to Debugger'
-        super().__init__(name=label, status_message=label, tooltip_message=label)
+        label = 'Control'
+        super().__init__(name=f'&{label}...', status_message=label, tooltip_message=label)
 
     def on_activate(self):
         """Open the dialog."""
-        attach_to_debugger()
-
-
-try:
-    main()
-except BaseException as e:
-    scade.tabput('LOG', str(e) + '\n')
-    scade.tabput('LOG', traceback.format_exc() + '\n')
-else:
-    scade.tabput('LOG', 'Integration tests for Ansys SCADE GUI Tools %s loaded.\n' % __version__)
+        _TestControl().do_modal()

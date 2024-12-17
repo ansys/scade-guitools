@@ -54,3 +54,9 @@ BUTTON_HEIGHT = 23
 """Default height of a push button control."""
 BUTTON_WIDTH = 75
 """Default width of a push button control."""
+
+STATIC_HEIGHT = 16
+"""Default height of a static control."""
+
+EDIT_HEIGHT = 20
+"""Default height of an edit control."""

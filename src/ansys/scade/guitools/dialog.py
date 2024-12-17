@@ -92,9 +92,14 @@ class DialogBox(Dialog):
         """
         Return the bottom-most position of the dialog box.
 
-        This corresponds to the height of its client area.
+        This corresponds to the height of its client area
+        if there are no buttons, otherwise the vertical position
+        of the bottom buttons.
         """
-        return self.height - (c.NC_TOP + c.NC_BOTTOM)
+        bottom = self.height - (c.NC_TOP + c.NC_BOTTOM)
+        if self._style != DS.NONE:
+            bottom -= c.BUTTON_HEIGHT + c.BOTTOM_MARGIN
+        return bottom
 
     def on_build(self):
         """Add the specified dialog validation buttons."""
@@ -115,7 +120,7 @@ class DialogBox(Dialog):
             # coordinates relative to the client area
             # dialog's dimensions include the non-client area
             x = self.right - count * (c.BUTTON_WIDTH + separator)
-            y = self.bottom - c.BOTTOM_MARGIN - c.BUTTON_HEIGHT
+            y = self.bottom
             for label, callback, _ in selection:
                 button = Button(self, label, x, y, c.BUTTON_WIDTH, c.BUTTON_HEIGHT, callback)
                 self._buttons.append(button)

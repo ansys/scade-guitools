@@ -106,8 +106,8 @@ class CommandTestDialogBox(Command):
     """Defines a command to display a dialog box."""
 
     def __init__(self):
-        label = '&DialogBox'
-        super().__init__(name=f'{label}...', status_message=label, tooltip_message=label)
+        label = 'DialogBox'
+        super().__init__(name=f'&{label}...', status_message=label, tooltip_message=label)
 
     def on_activate(self):
         """Open the dialog."""
