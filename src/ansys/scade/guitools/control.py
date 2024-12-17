@@ -28,14 +28,16 @@ from enum import Enum
 import os
 from pathlib import Path
 import re
-from typing import Any
+from typing import Any, List, Optional
 
 from scade.tool.suite.gui.dialogs import file_open, file_save
 from scade.tool.suite.gui.widgets import (
     Button,
     CheckBox,
+    ComboBox as _ComboBox,
     EditBox,
     Label,
+    ObjectComboBox as _ObjectComboBox,
     Widget,
 )
 
@@ -90,7 +92,7 @@ class Edit(EditBox):
     Parameters
     ----------
     owner : Any
-        owner of edit control
+        owner of the edit control
 
     x : int
         Horizontal position of the edit control.
@@ -331,3 +333,180 @@ class CheckButton(CheckBox):
     ):
         super().__init__(owner, text, x, y, w, h, **kwargs)
         self.owner = owner
+
+
+class ComboBox(_ComboBox):
+    """
+    Defines a combo box control with a default height.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the combo box control
+
+    x : int
+        Horizontal position of the combo box control.
+
+    y : int
+        Vertical position of the combo box control.
+
+    w : int
+        Width of the combo box control.
+
+    h : int
+        Height of the combo box control, default csts.COMBO_BOX_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
+    """
+
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
+        super().__init__(owner, [], x, y, w, h, **kwargs)
+        self.owner = owner
+
+    def on_layout(self):
+        """Declare the constraints with respect to the owner."""
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
+
+
+class ObjectComboBox(_ObjectComboBox):
+    """
+    Defines a combo box control with a default height.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the combo box control
+
+    x : int
+        Horizontal position of the combo box control.
+
+    y : int
+        Vertical position of the combo box control.
+
+    w : int
+        Width of the combo box control.
+
+    h : int
+        Height of the combo box control, default csts.COMBO_BOX_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
+    """
+
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
+        super().__init__(owner, [], x, y, w, h, **kwargs)
+        self.owner = owner
+
+    def on_layout(self):
+        """Declare the constraints with respect to the owner."""
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
+
+
+class StaticComboBox(ComboBox):
+    """
+    Defines a bundle made of a static and a combo box control.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the control
+
+    text : str
+        Text of the static control.
+
+    wl : int
+        Width of the static control.
+
+    x : int
+        Horizontal position of the control.
+
+    y : int
+        Vertical position of the control.
+
+    w : int
+        Width of the control.
+
+    h : int
+        Height of the control, default csts.COMBO_BOX_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
+    """
+
+    def __init__(
+        self,
+        owner,
+        text: str,
+        wl: int,
+        x: int,
+        y: int,
+        w: int,
+        h: int = c.COMBO_BOX_HEIGHT,
+        **kwargs,
+    ):
+        self.label = Label(owner, text, x, y + 4, wl, c.STATIC_HEIGHT)
+        super().__init__(owner, x + wl, y, w - wl, h, **kwargs)
+        self.owner = owner
+
+    def set_visible(self, show: bool):
+        """Show or hide the control."""
+        super().set_visible(show)
+        self.label.set_visible(show)
+
+
+class StaticObjectComboBox(ObjectComboBox):
+    """
+    Defines a bundle made of a static and an object combo box control.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the control
+
+    text : str
+        Text of the static control.
+
+    wl : int
+        Width of the static control.
+
+    x : int
+        Horizontal position of the control.
+
+    y : int
+        Vertical position of the control.
+
+    w : int
+        Width of the control.
+
+    h : int
+        Height of the control, default csts.COMBO_BOX_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.ObjectComboBox``.
+    """
+
+    def __init__(
+        self,
+        owner,
+        text: str,
+        wl: int,
+        x: int,
+        y: int,
+        w: int,
+        h: int = c.COMBO_BOX_HEIGHT,
+        style: Optional[List[str]] = None,
+        **kwargs,
+    ):
+        if not style:
+            style = []
+        if 'dropdownlist' not in style:
+            style.append('dropdownlist')
+        self.label = Label(owner, text, x, y + 4, wl, c.STATIC_HEIGHT)
+        super().__init__(owner, x + wl, y, w - wl, h, style=style, **kwargs)
+        self.owner = owner
+
+    def set_visible(self, show: bool):
+        """Show or hide the control."""
+        super().set_visible(show)
+        self.label.set_visible(show)

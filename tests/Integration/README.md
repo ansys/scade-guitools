@@ -20,6 +20,7 @@ It declares dialogs, property and settings pages.
   Loading integration tests for Ansys SCADE GUI Tools <version>.
   Integration tests for Ansys SCADE GUI Tools <version> loaded.
   ```
+* Open ``Project.vsw``
 
 ### Debug (optional)
 * Launch the command `Tools/Test GUI Tools/Attach to Debugger` to connect to a Python Debugger. Refer to [Debug](<https://guitools.scade.docs.pyansys.com/version/dev/contributing.html#debug>) for details.
@@ -52,6 +53,8 @@ It declares dialogs, property and settings pages.
 * Move the content of Directory to Reference
 * Click on the ``...`` button and select ``grf.py``.
 * Verify the result is set to the absolute path of ``grf.py``.
+* Click the check box ``Hide FileSelector`` a couple of time,
+  and verify the line above is entirely hidden or displayed.
 * Close the test dialog with the ``Close`` button.
 
 ## Clean

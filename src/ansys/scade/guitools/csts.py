@@ -69,3 +69,6 @@ DOTS_WIDTH = 30
 
 CHECK_BUTTON_HEIGHT = 20
 """Default height of a check button control."""
+
+COMBO_BOX_HEIGHT = 130
+"""Default height of a combo box control."""

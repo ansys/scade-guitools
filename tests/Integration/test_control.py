@@ -24,9 +24,18 @@
 
 """Test extension Ansys SCADE GUI Tools."""
 
+from scade.model.project.stdproject import get_roots as get_projects
 from scade.tool.suite.gui.commands import Command
 
-from ansys.scade.guitools.control import FSM, CheckButton, FileSelector, PushButton, StaticEdit
+from ansys.scade.guitools.control import (
+    FSM,
+    CheckButton,
+    FileSelector,
+    PushButton,
+    StaticComboBox,
+    StaticEdit,
+    StaticObjectComboBox,
+)
 import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
 
@@ -49,7 +58,7 @@ class _TestControl(DialogBox):
     __test__ = False
 
     def __init__(self):
-        super().__init__('TestControl', 400, 250, style=DS.CLOSE)
+        super().__init__('TestControl', 400, 300, style=DS.CLOSE)
 
     def on_build(self):
         """Build the dialog."""
@@ -71,11 +80,33 @@ class _TestControl(DialogBox):
         self.ed_reference = StaticEdit(self, 'Reference', wl, x, y, w)
         y += dy
         filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
-        _TestFileSelector(self, 'Static', '.py', '', filter, FSM.OPEN, wl, x, y, w)
+        self.fs = _TestFileSelector(self, 'Static', '.py', '', filter, FSM.OPEN, wl, x, y, w)
         y += dy
         # add a check button
-        CheckButton(self, 'CheckButton', x, y, wl)
+        CheckButton(self, 'Hide FileSelector', x, y, wl, on_click=self.on_click_check)
         y += dy
+        # add a combo box control with the name of the files
+        projects = get_projects()
+        if projects:
+            files = projects[0].file_refs
+            paths = sorted([_.name for _ in files])
+        else:
+            files = []
+            paths = []
+        scb = StaticComboBox(self, 'Paths', wl, x, y, w)
+        y += dy
+        scb.set_items(paths)
+        if paths:
+            scb.set_selection(paths[0])
+        # add an object combo box control with the files
+        ocb = StaticObjectComboBox(self, 'Files', wl, x, y, w)
+        y += dy
+        ocb.set_items(files)
+        if files:
+            ocb.set_selection(files[0])
+
+    def on_click_check(self, button):
+        self.fs.set_visible(not button.get_check())
 
 
 class CommandTestControl(Command):
