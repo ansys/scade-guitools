@@ -31,7 +31,13 @@ import re
 from typing import Any
 
 from scade.tool.suite.gui.dialogs import file_open, file_save
-from scade.tool.suite.gui.widgets import Button, EditBox, Label, Widget
+from scade.tool.suite.gui.widgets import (
+    Button,
+    CheckBox as _CheckBox,
+    EditBox as _EditBox,
+    Label,
+    Widget,
+)
 
 import ansys.scade.guitools.csts as c
 
@@ -77,7 +83,7 @@ class PushButton(Button):
         super().__init__(owner, name, x, y, w, h, **kwargs)
 
 
-class StaticEdit(EditBox):
+class StaticEdit(_EditBox):
     """
     Defines a bundle made of a static and an edit control.
 
@@ -256,3 +262,38 @@ class FileSelector(StaticEdit):
         """Show or hide the control."""
         super().set_visible(show)
         self.btn_dots.set_visible(show)
+
+
+class CheckBox(_CheckBox):
+    """
+    Defines a check box control with a default height.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of check box
+
+    text : str
+        Text of check box.
+
+    x : int
+        Horizontal position of the check box.
+
+    y : int
+        Vertical position of the check box.
+
+    w : int
+        Width of the check box.
+
+    h : int
+        Height of the check box, default csts.BUTTON_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.CheckBox``.
+    """
+
+    def __init__(
+        self, owner, text: str, x: int, y: int, w: int, h: int = c.CHECK_BOX_HEIGHT, **kwargs
+    ):
+        super().__init__(owner, text, x, y, w, h, **kwargs)
+        self.owner = owner

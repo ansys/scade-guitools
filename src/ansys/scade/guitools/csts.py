@@ -66,3 +66,6 @@ DOTS_HEIGHT = EDIT_HEIGHT
 """Default height of the ``...`` push button control."""
 DOTS_WIDTH = 30
 """Default width of a ``...`` push button control."""
+
+CHECK_BOX_HEIGHT = 20
+"""Default height of a check box control."""
