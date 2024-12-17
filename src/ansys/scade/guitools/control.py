@@ -33,8 +33,8 @@ from typing import Any
 from scade.tool.suite.gui.dialogs import file_open, file_save
 from scade.tool.suite.gui.widgets import (
     Button,
-    CheckBox as _CheckBox,
-    EditBox as _EditBox,
+    CheckBox,
+    EditBox,
     Label,
     Widget,
 )
@@ -83,7 +83,41 @@ class PushButton(Button):
         super().__init__(owner, name, x, y, w, h, **kwargs)
 
 
-class StaticEdit(_EditBox):
+class Edit(EditBox):
+    """
+    Defines a edit control with a default height.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of edit control
+
+    x : int
+        Horizontal position of the edit control.
+
+    y : int
+        Vertical position of the edit control.
+
+    w : int
+        Width of the edit control.
+
+    h : int
+        Height of the edit control, default csts.EDIT_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.EditBox``.
+    """
+
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.EDIT_HEIGHT, **kwargs):
+        super().__init__(owner, x, y, w, h, **kwargs)
+        self.owner = owner
+
+    def on_layout(self):
+        """Declare the constraints with respect to the owner."""
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
+
+
+class StaticEdit(Edit):
     """
     Defines a bundle made of a static and an edit control.
 
@@ -128,10 +162,6 @@ class StaticEdit(_EditBox):
         self.label = Label(owner, text, x, y + 4, wl, h - 4)
         super().__init__(owner, x + wl, y, w - wl, h, **kwargs)
         self.owner = owner
-
-    def on_layout(self):
-        """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
 
     def set_visible(self, show: bool):
         """Show or hide the control."""
@@ -212,7 +242,11 @@ class FileSelector(StaticEdit):
     ):
         super().__init__(owner, text, wl, x, y, w - c.DOTS_WIDTH - self._SEPARATOR, h, **kwargs)
         x_dots = x + w - c.DOTS_WIDTH
-        self.btn_dots = Button(owner, '...', x_dots, y, c.DOTS_WIDTH, h, on_click=self.on_click)
+        # so that borders are aligned
+        y_dots = y - 1
+        self.btn_dots = Button(
+            owner, '...', x_dots, y_dots, c.DOTS_WIDTH, c.DOTS_HEIGHT, on_click=self.on_click
+        )
         self.owner = owner
         self.extension = extension
         self.directory = directory
@@ -264,36 +298,36 @@ class FileSelector(StaticEdit):
         self.btn_dots.set_visible(show)
 
 
-class CheckBox(_CheckBox):
+class CheckButton(CheckBox):
     """
-    Defines a check box control with a default height.
+    Defines a check button control with a default height.
 
     Parameters
     ----------
     owner : Any
-        owner of check box
+        owner of check button
 
     text : str
-        Text of check box.
+        Text of check button.
 
     x : int
-        Horizontal position of the check box.
+        Horizontal position of the check button.
 
     y : int
-        Vertical position of the check box.
+        Vertical position of the check button.
 
     w : int
-        Width of the check box.
+        Width of the check button.
 
     h : int
-        Height of the check box, default csts.BUTTON_HEIGHT.
+        Height of the check button, default csts.CHECK_BUTTON_HEIGHT.
 
     kwargs : Any
         Other parameters of ``scade.tool.suite.gui.widgets.CheckBox``.
     """
 
     def __init__(
-        self, owner, text: str, x: int, y: int, w: int, h: int = c.CHECK_BOX_HEIGHT, **kwargs
+        self, owner, text: str, x: int, y: int, w: int, h: int = c.CHECK_BUTTON_HEIGHT, **kwargs
     ):
         super().__init__(owner, text, x, y, w, h, **kwargs)
         self.owner = owner

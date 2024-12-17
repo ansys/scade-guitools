@@ -26,7 +26,7 @@
 
 from scade.tool.suite.gui.commands import Command
 
-from ansys.scade.guitools.control import FSM, CheckBox, FileSelector, PushButton, StaticEdit
+from ansys.scade.guitools.control import FSM, CheckButton, FileSelector, PushButton, StaticEdit
 import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
 
@@ -60,7 +60,7 @@ class _TestControl(DialogBox):
         wl = 150
         w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         # add a push button
-        PushButton(self, 'Button', x, y)
+        PushButton(self, 'PushButton', x, y)
         y += dy
         # add a static + edit
         StaticEdit(self, 'Static', wl, x, y, w, name='Edit')
@@ -73,8 +73,8 @@ class _TestControl(DialogBox):
         filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
         _TestFileSelector(self, 'Static', '.py', '', filter, FSM.OPEN, wl, x, y, w)
         y += dy
-        # add a check box
-        CheckBox(self, 'CheckBox', x, y, wl)
+        # add a check button
+        CheckButton(self, 'CheckButton', x, y, wl)
         y += dy
 
 
