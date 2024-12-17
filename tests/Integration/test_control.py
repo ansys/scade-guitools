@@ -26,9 +26,21 @@
 
 from scade.tool.suite.gui.commands import Command
 
-from ansys.scade.guitools.control import PushButton, StaticEdit
+from ansys.scade.guitools.control import FSM, FileSelector, PushButton, StaticEdit
 import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
+
+
+class _TestFileSelector(FileSelector):
+    """Hooks on_click."""
+
+    __test__ = False
+
+    def on_click(self, *args):
+        """Set the directory and reference attributes from the test dialog."""
+        self.directory = self.owner.ed_directory.get_name()
+        self.reference = self.owner.ed_reference.get_name()
+        super().on_click(*args)
 
 
 class _TestControl(DialogBox):
@@ -37,7 +49,7 @@ class _TestControl(DialogBox):
     __test__ = False
 
     def __init__(self):
-        super().__init__('TestControl', 300, 250, style=DS.CLOSE)
+        super().__init__('TestControl', 400, 250, style=DS.CLOSE)
 
     def on_build(self):
         """Build the dialog."""
@@ -45,14 +57,22 @@ class _TestControl(DialogBox):
         x = c.LEFT_MARGIN
         y = c.TOP_MARGIN
         dy = 30
+        wl = 150
+        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         # add a push button
         PushButton(self, 'Button', x, y)
         y += dy
         # add a static + edit
-        wl = 100
-        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         StaticEdit(self, 'Static', wl, x, y, w, name='Edit')
         y += dy
+        # add a file selector
+        y += dy
+        self.ed_directory = StaticEdit(self, 'Directory', wl, x, y, w, name='$(SCADE)/scripts')
+        y += dy
+        self.ed_reference = StaticEdit(self, 'Reference', wl, x, y, w)
+        y += dy
+        filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
+        _TestFileSelector(self, 'Static', '.py', '', filter, FSM.OPEN, wl, x, y, w)
 
 
 class CommandTestControl(Command):

@@ -60,3 +60,9 @@ STATIC_HEIGHT = 16
 
 EDIT_HEIGHT = 20
 """Default height of an edit control."""
+
+# EDIT_HEIGHT instead of BUTTON_HEIGHT since it is usually next to an edit control
+DOTS_HEIGHT = EDIT_HEIGHT
+"""Default height of the ``...`` push button control."""
+DOTS_WIDTH = 30
+"""Default width of a ``...`` push button control."""

@@ -47,6 +47,11 @@ It declares dialogs, property and settings pages.
 
   ![Control](img/control.png)
 
+* Click on the ``...`` button and select ``grf.py``.
+* Verify the result is set to the absolute path of ``grf.py``.
+* Move the content of Directory to Reference
+* Click on the ``...`` button and select ``grf.py``.
+* Verify the result is set to the absolute path of ``grf.py``.
 * Close the test dialog with the ``Close`` button.
 
 ## Clean
