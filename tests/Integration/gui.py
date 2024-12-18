@@ -36,6 +36,7 @@ from ansys.scade.guitools.enable_debugpy import attach_to_debugger
 # test modules
 from test_control import CommandTestControl
 from test_dialog_box import CommandTestDialogBox
+from test_settings import TestSettingsPage
 
 # display some banner
 scade.tabput('LOG', 'Loading integration tests for Ansys SCADE GUI Tools %s.\n' % __version__)
@@ -51,6 +52,7 @@ def main():
         ],
         '&Tools/Test GUI Tools',
     )
+    TestSettingsPage()
 
 
 class CommandAttachToDebugger(Command):

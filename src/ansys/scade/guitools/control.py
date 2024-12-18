@@ -46,7 +46,7 @@ import ansys.scade.guitools.csts as c
 
 class PushButton(Button):
     """
-    Defines a push button control with a default size.
+    Defines a button control with a default size.
 
     Parameters
     ----------
@@ -87,7 +87,7 @@ class PushButton(Button):
 
 class Edit(EditBox):
     """
-    Defines a edit control with a default height.
+    Defines a edit box control with a default height.
 
     Parameters
     ----------
@@ -302,7 +302,7 @@ class FileSelector(StaticEdit):
 
 class CheckButton(CheckBox):
     """
-    Defines a check button control with a default height.
+    Defines a check box control with a default height.
 
     Parameters
     ----------
@@ -333,6 +333,10 @@ class CheckButton(CheckBox):
     ):
         super().__init__(owner, text, x, y, w, h, **kwargs)
         self.owner = owner
+
+    def on_layout(self):
+        """Declare the constraints with respect to the owner."""
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
 
 
 class ComboBox(_ComboBox):
@@ -371,7 +375,7 @@ class ComboBox(_ComboBox):
 
 class ObjectComboBox(_ObjectComboBox):
     """
-    Defines a combo box control with a default height.
+    Defines an object combo box control with a default height.
 
     Parameters
     ----------

@@ -1,8 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="5" defaultConfiguration="3">
+<Project id="1" oid_count="24" defaultConfiguration="3">
 	<props>
 		<Prop id="2" name="@STUDIO:PRODUCT">
-			<value>GUITOOLS</value>
+			<value>QTE</value>
+		</Prop>
+		<Prop id="9" name="@STUDIO:TOOLCONF">
+			<value>Reporter</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="10" name="@STUDIO:TOOLCONF">
+			<value>Test Tool</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="11" name="@REPORTER:SCRIPT">
+			<value>$(PrjDir)\Reporter.tcl</value>
+			<configuration>3</configuration>
+		</Prop>
+		<Prop id="15" name="@REPORTER:SCRIPT">
+			<value>$(PrjDir)\Reporter.tcl</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="17" name="@TEST_GUI_TOOLS:FR">
+			<value>f4.py</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="20" name="@TEST_GUI_TOOLS:FR">
+			<value>f1.txt</value>
+			<configuration>3</configuration>
+		</Prop>
+		<Prop id="21" name="@TEST_GUI_TOOLS:FIELD">
+			<value>value</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="22" name="@TEST_GUI_TOOLS:FILE">
+			<value>test_settings.py</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="23" name="@TEST_GUI_TOOLS:OPTION">
+			<value>true</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="24" name="@TEST_GUI_TOOLS:PATH">
+			<value>f2.txt</value>
+			<configuration>14</configuration>
 		</Prop>
 	</props>
 	<roots>
@@ -12,10 +54,11 @@
 				<FileRef id="6" persistAs="f2.txt"/>
 				<FileRef id="7" persistAs="f3.json"/>
 				<FileRef id="8" persistAs="f4.py"/>
-                        </elements>
+			</elements>
 		</Folder>
 	</roots>
 	<configurations>
 		<Configuration id="3" name="Default"/>
+		<Configuration id="14" name="Values"/>
 	</configurations>
 </Project>

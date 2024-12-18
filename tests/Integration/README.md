@@ -57,6 +57,18 @@ It declares dialogs, property and settings pages.
   and verify the line above is entirely hidden or displayed.
 * Close the test dialog with the ``Close`` button.
 
+### Settings
+* Launch the command `Project/Reporter/Settings...`
+* Select the `Test SettingsPageEx` tab and verify is displays as follows:
+
+  ![Default](img/settings_default.png)
+
+* Select the `Values` configuration and verify the tab changes to:
+
+  ![Default](img/settings_values.png)
+
+* Close the settings dialog.
+
 ## Clean
 You may uninstall the package once the tests are completed:
 
