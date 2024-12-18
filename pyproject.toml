@@ -68,6 +68,8 @@ Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
 
 [project.entry-points."ansys.scade.registry"]
 srg = "ansys.scade.guitools:srg"
+register = "ansys.scade.guitools.register:register"
+unregister = "ansys.scade.guitools.unregister:unregister"
 
 [project.scripts]
 register_ansys_scade_guitools = "ansys.scade.guitools.register:main"

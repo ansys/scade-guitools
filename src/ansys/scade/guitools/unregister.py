@@ -33,6 +33,8 @@ SCADE 2024 R2 and later use the package's
 
 import os
 from pathlib import Path
+import sys
+from typing import Tuple
 
 from ansys.scade.guitools import get_srg_name
 
@@ -46,11 +48,21 @@ def _unregister_srg_file(name: str):
     dst.unlink(missing_ok=True)
 
 
-def main():
-    """Implement the ``ansys.scade.guitools.unregister`` packages's project script."""
+def unregister() -> Tuple[int, str]:
+    """Implement the ``ansys.scade.registry/unregister`` entry point."""
     # register the Code Generator extension registry files (SRG).
     _unregister_srg_file(get_srg_name())
+    return (0, '')
+
+
+def main() -> int:
+    """Implement the ``ansys.scade.guitools.unregister`` packages's project script."""
+    code, message = unregister()
+    if message:
+        print(message, file=sys.stderr if code else sys.stdout)
+    return code
 
 
 if __name__ == '__main__':
-    main()
+    code = main()
+    sys.exit(code)
