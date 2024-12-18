@@ -36,6 +36,7 @@ from ansys.scade.guitools.enable_debugpy import attach_to_debugger
 # test modules
 from test_control import CommandTestControl
 from test_dialog_box import CommandTestDialogBox
+from test_properties import TestPropertyPage
 from test_settings import TestSettingsPage
 
 # display some banner
@@ -53,6 +54,7 @@ def main():
         '&Tools/Test GUI Tools',
     )
     TestSettingsPage()
+    TestPropertyPage()
 
 
 class CommandAttachToDebugger(Command):

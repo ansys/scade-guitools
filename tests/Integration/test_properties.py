@@ -24,27 +24,19 @@
 
 """Test extension Ansys SCADE GUI Tools."""
 
-from pathlib import Path
-
-from scade.model.project.stdproject import get_roots as get_projects
-
 from ansys.scade.guitools.control import FSM, PushButton
 import ansys.scade.guitools.csts as c
-from ansys.scade.guitools.page import SettingsPageEx
+from ansys.scade.guitools.page import PropertyPageEx
 
 
-class TestSettingsPage(SettingsPageEx):
+class TestPropertyPage(PropertyPageEx):
     """Defines a sample test for the page and the layout of the controls."""
 
     def __init__(self):
-        super().__init__(150, 'Test SettingsPageEx')
-
-        # for get/set functions
-        self.ocb = None
-        self.files = []
+        super().__init__(50, 'Test PropertyPageEx')
 
     def on_build(self):
-        """Build the settings page."""
+        """Build the property page with a few controls."""
         # call the base class' method: mandatory
         super().on_build()
 
@@ -57,42 +49,9 @@ class TestSettingsPage(SettingsPageEx):
         self.controls.append(pb)
         y += dy
         # add a static + edit
-        field = self.add_static_edit(y, 'Field')
+        self.add_static_edit(y, 'Field')
         y += dy
         # add a file selector
         filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
-        reference = str(Path(__file__).parent)
-        file = self.add_file_selector(y, 'File', '.py', '', filter, FSM.OPEN, reference=reference)
+        self.add_file_selector(y, 'File', '.py', '', filter, FSM.OPEN)
         y += dy
-        # add a check button
-        option = self.add_check_button(y, 'Option')
-        y += dy
-        # add a combo box control with the name of the files
-        projects = get_projects()
-        self.files = projects[0].file_refs
-        paths = sorted([_.name for _ in self.files])
-        scb = self.add_static_combo_box(y, 'Paths')
-        y += dy
-        scb.set_items(paths)
-        # add an object combo box control with the files
-        self.ocb = self.add_static_object_combo_box(y, 'Files')
-        y += dy
-        self.ocb.set_items(self.files)
-
-        # properties
-        tool = 'TEST_GUI_TOOLS'
-        self.declare_property(field.get_name, field.set_name, tool, 'FIELD', '')
-        self.declare_property(file.get_name, file.set_name, tool, 'FILE', '')
-        self.declare_property(option.get_check, option.set_check, tool, 'OPTION', False)
-        self.declare_property(scb.get_name, scb.set_name, tool, 'PATH', '')
-        # use dedicated handlers
-        self.declare_property(self.ocb.get_name, self.ocb_set_selection, tool, 'FR', '')
-
-    def ocb_set_selection(self, name: str):
-        assert self.ocb
-        for file in self.files:
-            if file.name == name:
-                break
-        else:
-            file = None  # self.files[0]
-        self.ocb.set_selection(file)

@@ -27,6 +27,7 @@
 from typing import Any, Callable
 
 from scade.model.project.stdproject import Configuration, Project
+from scade.tool.suite.gui.properties import Page as PropertyPage
 from scade.tool.suite.gui.settings import Page as SettingsPage
 
 from ansys.scade.guitools.control import (
@@ -168,7 +169,7 @@ class SettingsPageEx(SettingsPage, ContainerPage):
 
     def on_build(self):
         """
-        Reset the lists used for persistence ou resizing.
+        Reset the lists used for persistence or resizing.
 
         This method **must** be called by the derived classes' ``on_build`` methods.
         """
@@ -226,14 +227,6 @@ class SettingsPageEx(SettingsPage, ContainerPage):
         """
         self.properties.append((pfnget, pfnset, tool, name, default))
 
-    def reset_properties(self):
-        """
-        Reset the declared properties.
-
-        This function **must** be called in the on_build function.
-        """
-        self.properties = []
-
     def on_display(self, project: Project, configuration: Configuration):
         """Update the page with the properties read from the project."""
         for _, pfnset, tool, name, default in self.properties:
@@ -251,3 +244,33 @@ class SettingsPageEx(SettingsPage, ContainerPage):
                 project.set_bool_tool_prop_def(tool, name, value, default, configuration)
             else:
                 project.set_scalar_tool_prop_def(tool, name, value, default, configuration)
+
+
+class PropertyPageEx(PropertyPage, ContainerPage):
+    """
+    Provides a base class for property pages.
+
+    This class also provides means to manage the sizing
+    of most common controls.
+
+    .. Note::
+
+        Do not forget to call ``super().on_build()`` in your ``on_build``
+        redefinition. Otherwise, you may experience random crashes.
+    """
+
+    def __init__(self, label_width: int, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        super(PropertyPage, self).__init__(label_width)
+
+    def on_build(self):
+        """
+        Reset the lists used for resizing.
+
+        This method **must** be called by the derived classes' ``on_build`` methods.
+        """
+        self.controls = []
+
+    def on_layout(self):
+        """Specify how controls are moved or resized."""
+        self.layout_controls()

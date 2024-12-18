@@ -59,15 +59,24 @@ It declares dialogs, property and settings pages.
 
 ### Settings
 * Launch the command `Project/Reporter/Settings...`
-* Select the `Test SettingsPageEx` tab and verify is displays as follows:
+* Select the `Test SettingsPageEx` tab and verify is displayed as follows:
 
   ![Default](img/settings_default.png)
 
+* Resize the window and verify the controls are resized as expected.
 * Select the `Values` configuration and verify the tab changes to:
 
   ![Default](img/settings_values.png)
 
 * Close the settings dialog.
+
+### Properties
+* Ensure the `Properties` window is displayed
+* Verify the `Test PropertyPageEx` tab is displayed as follows:
+
+  ![Default](img/properties.png)
+
+* Resize the window and verify the controls are resized as expected.
 
 ## Clean
 You may uninstall the package once the tests are completed:
