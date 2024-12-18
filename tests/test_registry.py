@@ -1,4 +1,6 @@
-# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2021 - 2024 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,8 +22,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ansys.scade.guitools import __version__
+"""Unit tests for ``registry``."""
+
+import ansys.scade.guitools.registry as registry
 
 
-def test_pkg_version():
-    assert __version__ == '2.0.dev0'
+def test_registry():
+    attributes = registry.get_key_attributes('Studio/Work Interfaces/GUIHOST2')
+    assert attributes == {'pathname': 'ETCUST.DLL', 'version': '24200'}
