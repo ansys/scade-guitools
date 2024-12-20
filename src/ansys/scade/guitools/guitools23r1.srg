@@ -1,0 +1,7 @@
+[Studio/Work Interfaces/GUIHOST2_23R1]
+"Pathname"="ETCUST.DLL"
+"Version"="21200"
+"Expire"="23200"
+
+[Custom/Studio/Extensions/GUIHOST2_23R1]
+"Pathname"="%TARGETDIR%/guihost.py"

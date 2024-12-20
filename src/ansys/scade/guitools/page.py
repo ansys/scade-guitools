@@ -24,9 +24,19 @@
 
 """Extension for the Page classes."""
 
-from typing import Any, Callable
+from abc import abstractmethod
+import json
+from typing import (
+    Any,
+    Callable,
+    List,
+    Optional,
+    Tuple,  # noqa  # used in a type annotation
+    Union,
+)
 
 from scade.model.project.stdproject import Configuration, Project
+import scade.model.suite as suite
 from scade.tool.suite.gui.properties import Page as PropertyPage
 from scade.tool.suite.gui.settings import Page as SettingsPage
 
@@ -42,9 +52,12 @@ from ansys.scade.guitools.control import (
     StaticObjectComboBox,
 )
 import ansys.scade.guitools.csts as c
+from ansys.scade.guitools.interfaces import IGuiHostClient
 
 # width of fields, second column: unused since the controls are sized automatically
 _WF = 100
+
+Page = Union[PropertyPage, SettingsPage]
 
 
 class ContainerPage:
@@ -58,23 +71,30 @@ class ContainerPage:
 
     Parameters
     ----------
+    page : Page | None
+        Owner page for controls.
+
+        If this parameter is not known at initialization, make sure
+        the attribute ``self.page`` is defined before creating any control.
+
     label_width : int
         Width of the first column.
     """
 
-    def __init__(self, label_width: int):
+    def __init__(self, page: Optional[Page], label_width: int):
+        self.page = page
         self.label_width = label_width
         self.controls = []
 
     def add_edit(self, y: int, **kwargs) -> Edit:
         """Add a :class:`Edit <ansys.scade.guitools.control.Edit>` control to the page."""
-        edit = Edit(self, c.LEFT_MARGIN, y, _WF, **kwargs)
+        edit = Edit(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(edit)
         return edit
 
     def add_static_edit(self, y: int, text: str, **kwargs) -> StaticEdit:
         """Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page."""
-        edit = StaticEdit(self, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
+        edit = StaticEdit(self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(edit)
         return edit
 
@@ -83,7 +103,7 @@ class ContainerPage:
     ) -> FileSelector:
         """Add a :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` to the page."""
         file = FileSelector(
-            self,
+            self.page,
             text,
             extension,
             dir,
@@ -100,31 +120,33 @@ class ContainerPage:
 
     def add_check_button(self, y: int, text: str, **kwargs) -> CheckButton:
         """Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page."""
-        cb = CheckButton(self, text, c.LEFT_MARGIN, y, _WF, **kwargs)
+        cb = CheckButton(self.page, text, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_combo_box(self, y: int, text: str, **kwargs) -> ComboBox:
         """Add a :class:`ComboBox <ansys.scade.guitools.control.ComboBox>` control to the page."""
-        cb = ComboBox(self, c.LEFT_MARGIN, y, _WF, **kwargs)
+        cb = ComboBox(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_object_combo_box(self, y: int, text: str, **kwargs) -> ObjectComboBox:
         """Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page."""
-        cb = ObjectComboBox(self, c.LEFT_MARGIN, y, _WF, **kwargs)
+        cb = ObjectComboBox(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_static_combo_box(self, y: int, text: str, **kwargs) -> StaticComboBox:
         """Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page."""
-        cb = StaticComboBox(self, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
+        cb = StaticComboBox(self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_static_object_combo_box(self, y: int, text: str, **kwargs) -> StaticObjectComboBox:
         """Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page."""
-        cb = StaticObjectComboBox(self, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
+        cb = StaticObjectComboBox(
+            self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs
+        )
         self.controls.append(cb)
         return cb
 
@@ -163,7 +185,7 @@ class SettingsPageEx(SettingsPage, ContainerPage):
 
     def __init__(self, label_width: int, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        super(SettingsPage, self).__init__(label_width)
+        super(SettingsPage, self).__init__(self, label_width)
         # get, set, tool, prop, prop_default
         self.properties = []  # type: List[Tuple[Callable, Callable, str, str, str]]
 
@@ -261,7 +283,7 @@ class PropertyPageEx(PropertyPage, ContainerPage):
 
     def __init__(self, label_width: int, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        super(PropertyPage, self).__init__(label_width)
+        super(PropertyPage, self).__init__(self, label_width)
 
     def on_build(self):
         """
@@ -274,3 +296,172 @@ class PropertyPageEx(PropertyPage, ContainerPage):
     def on_layout(self):
         """Specify how controls are moved or resized."""
         self.layout_controls()
+
+
+class GuiHostClientPage(IGuiHostClient, ContainerPage):
+    """Default implementation for GuiHost pages."""
+
+    def __init__(self, *args, **kwargs):
+        super(IGuiHostClient, self).__init__(page=None, *args, **kwargs)
+
+    def get_selected_models(self, models: List[Any]) -> List[Any]:
+        """
+        Return a new list of models from the selection.
+
+        For example, replace selected graphical elements by their
+        associated semantic ones.
+
+        Parameters
+        ----------
+        models : List[Any]
+            List of selected objects in the IDE.
+
+        Returns
+        -------
+        List[Any]
+            List of objects to consider.
+        """
+        return models
+
+    def is_available(self, models: List[Any]) -> bool:
+        """
+        Return whether the page is available for the current selection.
+
+        Parameters
+        ----------
+        models : List[Any]
+            List of selected objects in the IDE.
+        """
+        return len(self.get_selected_models(models)) > 0
+
+    def set_models(self, models: List[Any]):
+        """
+        Declare the models the page should consider.
+
+        Parameters
+        ----------
+        models : List[Any]
+            List of selected objects in the IDE.
+        """
+        self.models = self.get_selected_models(models)
+
+    def show(self, show: bool):
+        """
+        Show or hide the page.
+
+        This consists in showing or hiding the contained controls.
+
+        Parameters
+        ----------
+        show : bool
+            Whether the page should be shown or hidden.
+        """
+        self.show_controls(show)
+
+    def on_layout(self):
+        """Declare the contained control's constraints."""
+        self.layout_controls()
+
+    def on_display(self):
+        """Update the page with the properties read from the models."""
+        pass
+
+    def on_validate(self):
+        """Update the models with the properties read from the page."""
+        pass
+
+    def on_build(self, page: PropertyPage, y: int):
+        """
+        Reset the list of controls.
+
+        This method **must** be called by the derived classes' ``on_build`` methods, if any.
+
+        The abstract ``on_build_ex`` method avoids redefining ``on_build`` in most cases.
+        """
+        # update page that wasn't known at initialization
+        self.page = page
+        # reset the list of controls
+        self.controls = []
+        # build the controls
+        self.on_build_ex(y)
+
+    def on_close(self):
+        """Perform any cleaning before the page is closed."""
+        pass
+
+    @abstractmethod
+    def on_build_ex(self, y: int):
+        """
+        Build the controls.
+
+        Parameters
+        ----------
+        y : int
+            Start vertical position.
+        """
+        raise NotImplementedError
+
+
+class ScadeGuiHostClientPage(GuiHostClientPage):
+    """Default implementation for GuiHost pages."""
+
+    def __init__(self, pragma: str, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.pragma = pragma
+        # get, set, name, default, empty
+        self.properties = []  # type: List[Tuple[Callable, Callable, str, str, str]]
+
+    def on_build(self, page: PropertyPage, y: int):
+        """Reset the list of properties before building the page."""
+        # reset the list of properties
+        self.properties = []
+        super().on_build(page, y)
+
+    def on_display(self):
+        """Update the page with the properties read from the models."""
+        assert self.models
+        # TODO:  what if several models?
+        properties = self.get_properties(self.models[0])
+        for _, pfnset, name, default, empty in self.properties:
+            value = properties.get(name, default)
+            if not value and empty:
+                value = empty
+            pfnset(value)
+
+    def on_validate(self):
+        """Update the models with the properties read from the page."""
+        properties = {}
+        for pfnget, _, name, default, empty in self.properties:
+            value = pfnget()
+            if value == empty:
+                value = default
+            if value != default:
+                properties[name] = value
+        # TODO:  what if several models?
+        for model in self.models:
+            self.set_properties(model, properties)
+
+    def get_properties(self, object: suite.Object) -> dict:
+        """To do."""
+        text = object.get_pragma_text(self.pragma)
+        if not text:
+            return {}
+        return json.loads(text)
+
+    def set_properties(self, object: suite.Object, properties: dict):
+        """To do."""
+        if not properties:
+            object.remove_pragma_text(self.pragma)
+        else:
+            text = json.dumps(properties, sort_keys=True).strip('\n')
+            # {{ object.set_pragma_text(self.tool, text)
+            # the function set_pragma_text flags the model as
+            # modified even if an identical pragma already exists
+            pragma = object.find_pragma(self.pragma)
+            if not pragma:
+                pragma = suite.TextPragma()
+                pragma.id = self.pragma
+                pragma.object = object
+            if pragma.text != text:
+                pragma.text = text
+            # }}

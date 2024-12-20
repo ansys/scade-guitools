@@ -72,3 +72,6 @@ CHECK_BUTTON_HEIGHT = 20
 
 COMBO_BOX_HEIGHT = 130
 """Default height of a combo box control."""
+
+DY = 30
+"""Default vertical offset between 2 lines."""

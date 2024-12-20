@@ -22,11 +22,46 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Unit tests for ``registry``."""
+"""Provides GuiHost client pages for tests."""
 
-import ansys.scade.guitools.registry as registry
+from guihost_ut.test_client import PageAll, PagePython, PageTxt
 
 
-def test_registry():
-    attributes = registry.get_key_attributes('Studio/Work Interfaces/GUIHOST2')
-    assert attributes == {'pathname': 'ETCUST.DLL', 'version': '24200'}
+def pages() -> list:
+    r"""
+    Return the list of GuiHost client pages.
+
+    This function implements the entry point "ansys.scade.guihost/pages".
+    """
+    return [PAGE_TXT, PAGE_ALL, PAGE_PY]
+
+
+# page for text files (TXT)
+PAGE_TXT = {
+    'version': 24200,
+    'expire': 25100,
+    'page': 'Misc.',
+    'category': 'Text',
+    'optional': False,
+    'class': PageTxt,
+}
+
+# page for all files (*)
+PAGE_ALL = {
+    'version': 24200,
+    'expire': 25100,
+    'page': 'Misc.',
+    'category': 'All',
+    'optional': False,
+    'class': PageAll,
+}
+
+# page for Python files (PY)
+PAGE_PY = {
+    'version': 24200,
+    'expire': 25100,
+    'page': 'Programming',
+    'category': 'Python',
+    'optional': True,
+    'class': PagePython,
+}
