@@ -375,7 +375,10 @@ class ComboBox(_ComboBox):
 
 class ObjectComboBox(_ObjectComboBox):
     """
-    Defines an object combo box control with a default height.
+    Defines an object combo box control with a default height and extensions for serialization.
+
+    This class provides an optional map for accessing an item with a string. This allows
+    to persist the current selection in a file, or restore it from a value.
 
     Parameters
     ----------
@@ -401,10 +404,39 @@ class ObjectComboBox(_ObjectComboBox):
     def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
+        self.items = []  # type: List[Any]
+        self.names = []  # type: List[str]
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
         self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
+
+    def set_items(self, items: List[Any], names: Optional[List[str]] = None):
+        """
+        Set the combo box items, with an optional mapping.
+
+        This mapping is used for serializing the selected item.
+        """
+        super().set_items(items)
+        self.items = items
+        self.names = names if names else []
+
+    def get_selected_name(self) -> str:
+        """Return the name of the selected item."""
+        item = self.get_selection()
+        try:
+            name = self.names[self.items.index(item)]
+        except ValueError:
+            name = ''
+        return name
+
+    def select_name(self, name: str):
+        """Select the item corresponding to name."""
+        try:
+            item = self.items[self.names.index(name)]
+        except ValueError:
+            item = None
+        self.set_selection(item)
 
 
 class StaticComboBox(ComboBox):

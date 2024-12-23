@@ -24,8 +24,14 @@
 
 """Test extension Ansys SCADE GUI Tools."""
 
+from pathlib import Path
+from typing import Any, List
+
+from scade.model.project.stdproject import Project
+
 from ansys.scade.guitools.control import FSM, PushButton
 import ansys.scade.guitools.csts as c
+from ansys.scade.guitools.data import ProjectPropertiesDataExchange
 from ansys.scade.guitools.page import PropertyPageEx
 
 
@@ -35,11 +41,8 @@ class TestPropertyPage(PropertyPageEx):
     def __init__(self):
         super().__init__(50, 'Test PropertyPageEx')
 
-    def on_build(self):
+    def on_build_ex(self) -> ProjectPropertiesDataExchange:
         """Build the property page with a few controls."""
-        # call the base class' method: mandatory
-        super().on_build()
-
         # alignment for the first line
         y = c.TOP_MARGIN
         dy = 30
@@ -49,9 +52,20 @@ class TestPropertyPage(PropertyPageEx):
         self.controls.append(pb)
         y += dy
         # add a static + edit
-        self.add_static_edit(y, 'Field')
+        field = self.add_static_edit(y, 'Field')
         y += dy
         # add a file selector
         filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
-        self.add_file_selector(y, 'File', '.py', '', filter, FSM.OPEN)
+        reference = str(Path(__file__).parent)
+        fs = self.add_file_selector(y, 'File', '.py', '', filter, FSM.OPEN, reference=reference)
         y += dy
+
+        # serialization
+        pp = ProjectPropertiesDataExchange('MY_TOOL')
+        pp.ddx_control(field, 'MY_FIELD', '')
+        pp.ddx_control(fs, 'MY_FILTER', '')
+        return pp
+
+    def is_available(self, models: List[Any]) -> bool:
+        """Return whether the page is available for the current selection."""
+        return len(models) == 1 and isinstance(models[0], Project)

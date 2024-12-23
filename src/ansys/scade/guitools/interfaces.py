@@ -22,12 +22,75 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Interfaces for GUI Host pages."""
+"""Interfaces for GUI Host pages and data persistence."""
 
 from abc import ABC, abstractmethod
 from typing import Any, List
 
+from scade.model.project.stdproject import Configuration, Project
 from scade.tool.suite.gui.properties import Page as PropertyPage
+
+
+class ISettingsDataExchange(ABC):
+    """Interface for exchanging data between a settings page and the model."""
+
+    @abstractmethod
+    def model_to_page(self, project: Project, configuration: Configuration):
+        """
+        Update the page with the properties read from the project for a given configuration.
+
+        Parameters
+        ----------
+        project : Project
+            Input Project.
+
+        configuration : Configuration
+            Input configuration.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def page_to_model(self, project: Project, configuration: Configuration):
+        """
+        Update the project with the properties read from the page for a given configuration.
+
+        Parameters
+        ----------
+        project : Project
+            Input Project.
+
+        configuration : Configuration
+            Input configuration.
+        """
+        raise NotImplementedError
+
+
+class IPropertiesDataExchange(ABC):
+    """Interface for exchanging data between a property page and the model."""
+
+    @abstractmethod
+    def model_to_page(self, model: Any):
+        """
+        Update the page with the properties read from the model.
+
+        Parameters
+        ----------
+        model : Any
+            Selected model element.
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def page_to_model(self, model: Any):
+        """
+        Update the model with the properties read from the page.
+
+        Parameters
+        ----------
+        model : Any
+            Selected model element.
+        """
+        raise NotImplementedError
 
 
 class IGuiHostClient(ABC):

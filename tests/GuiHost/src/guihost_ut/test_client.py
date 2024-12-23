@@ -25,11 +25,11 @@
 """Test extension Ansys SCADE GUI Tools."""
 
 from pathlib import Path
-from typing import Any, List
+from typing import Any, List, Optional
 
 from scade.model.project.stdproject import FileRef
 
-from ansys.scade.guitools.page import GuiHostClientPage
+from ansys.scade.guitools.page import GuiHostClientPage, IPropertiesDataExchange
 
 
 class TestGuiHostClientPage(GuiHostClientPage):
@@ -42,9 +42,10 @@ class TestGuiHostClientPage(GuiHostClientPage):
         self.label = label
         self.ext = ext
 
-    def on_build_ex(self, y: int):
+    def on_build_ex(self, y: int) -> Optional[IPropertiesDataExchange]:
         """Build the controls."""
         self.ed_file = self.add_static_edit(y, self.label)
+        return None
 
     def get_selected_models(self, models: List[Any]) -> List[Any]:
         """Filter anything but files."""

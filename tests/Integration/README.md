@@ -72,6 +72,7 @@ It declares dialogs, property and settings pages.
 
 ### Properties
 * Ensure the `Properties` window is displayed
+* Select ``Project.etp``
 * Verify the `Test PropertyPageEx` tab is displayed as follows:
 
   ![Default](img/properties.png)

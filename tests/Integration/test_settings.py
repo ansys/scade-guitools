@@ -30,6 +30,7 @@ from scade.model.project.stdproject import get_roots as get_projects
 
 from ansys.scade.guitools.control import FSM, PushButton
 import ansys.scade.guitools.csts as c
+from ansys.scade.guitools.data import SettingsDataExchange
 from ansys.scade.guitools.page import SettingsPageEx
 
 
@@ -39,15 +40,8 @@ class TestSettingsPage(SettingsPageEx):
     def __init__(self):
         super().__init__(150, 'Test SettingsPageEx')
 
-        # for get/set functions
-        self.ocb = None
-        self.files = []
-
-    def on_build(self):
+    def on_build_ex(self) -> SettingsDataExchange:
         """Build the settings page."""
-        # call the base class' method: mandatory
-        super().on_build()
-
         # alignment for the first line
         y = c.TOP_MARGIN
         dy = 30
@@ -69,30 +63,22 @@ class TestSettingsPage(SettingsPageEx):
         y += dy
         # add a combo box control with the name of the files
         projects = get_projects()
-        self.files = projects[0].file_refs
-        paths = sorted([_.name for _ in self.files])
+        files = projects[0].file_refs
+        paths = [_.name for _ in files]
         scb = self.add_static_combo_box(y, 'Paths')
         y += dy
-        scb.set_items(paths)
+        scb.set_items(sorted(paths))
         # add an object combo box control with the files
-        self.ocb = self.add_static_object_combo_box(y, 'Files')
+        ocb = self.add_static_object_combo_box(y, 'Files')
         y += dy
-        self.ocb.set_items(self.files)
+        ocb.set_items(files, paths)
 
-        # properties
+        # persistence
         tool = 'TEST_GUI_TOOLS'
-        self.declare_property(field.get_name, field.set_name, tool, 'FIELD', '')
-        self.declare_property(file.get_name, file.set_name, tool, 'FILE', '')
-        self.declare_property(option.get_check, option.set_check, tool, 'OPTION', False)
-        self.declare_property(scb.get_name, scb.set_name, tool, 'PATH', '')
-        # use dedicated handlers
-        self.declare_property(self.ocb.get_name, self.ocb_set_selection, tool, 'FR', '')
-
-    def ocb_set_selection(self, name: str):
-        assert self.ocb
-        for file in self.files:
-            if file.name == name:
-                break
-        else:
-            file = None  # self.files[0]
-        self.ocb.set_selection(file)
+        ddx = SettingsDataExchange(tool)
+        ddx.ddx_control(field, 'FIELD', '')
+        ddx.ddx_control(file, 'FILE', '')
+        ddx.ddx_control(option, 'OPTION', False)
+        ddx.ddx_control(scb, 'PATH', '')
+        ddx.ddx_control(ocb, 'FR', '')
+        return ddx

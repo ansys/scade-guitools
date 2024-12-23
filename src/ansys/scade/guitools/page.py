@@ -25,18 +25,10 @@
 """Extension for the Page classes."""
 
 from abc import abstractmethod
-import json
-from typing import (
-    Any,
-    Callable,
-    List,
-    Optional,
-    Tuple,  # noqa  # used in a type annotation
-    Union,
-)
+from collections.abc import Callable
+from typing import Any, List, Optional, Union
 
 from scade.model.project.stdproject import Configuration, Project
-import scade.model.suite as suite
 from scade.tool.suite.gui.properties import Page as PropertyPage
 from scade.tool.suite.gui.settings import Page as SettingsPage
 
@@ -52,12 +44,21 @@ from ansys.scade.guitools.control import (
     StaticObjectComboBox,
 )
 import ansys.scade.guitools.csts as c
-from ansys.scade.guitools.interfaces import IGuiHostClient
+from ansys.scade.guitools.interfaces import (
+    IGuiHostClient,
+    IPropertiesDataExchange,
+    ISettingsDataExchange,
+)
 
 # width of fields, second column: unused since the controls are sized automatically
 _WF = 100
 
 Page = Union[PropertyPage, SettingsPage]
+
+Getter = Callable[[], Any]
+"""Signature for getting control's value."""
+Setter = Callable[[Any], None]
+"""Signature for setting control's value."""
 
 
 class ContainerPage:
@@ -173,99 +174,46 @@ class SettingsPageEx(SettingsPage, ContainerPage):
     """
     Provides a base class for settings pages.
 
-    This class also provides means to manage the persistence
-    of most common controls in the project.
-
-    .. Note::
-
-        Do not forget to call ``super().on_build()`` in your ``on_build``
-        redefinition. Otherwise, you may experience crashes the next time
-        the settings dialog is open.
+    It introduces a new abstract method that must be implemented
+    for building the controls.
     """
 
     def __init__(self, label_width: int, *args, **kwargs):
         super().__init__(*args, **kwargs)
         super(SettingsPage, self).__init__(self, label_width)
-        # get, set, tool, prop, prop_default
-        self.properties = []  # type: List[Tuple[Callable, Callable, str, str, str]]
+        self.ddx = None  # type: Optional[ISettingsDataExchange]
 
     def on_build(self):
-        """
-        Reset the lists used for persistence or resizing.
-
-        This method **must** be called by the derived classes' ``on_build`` methods.
-        """
+        """Build the settings page."""
+        # reset the list of controls
         self.controls = []
-        self.properties = []
+        self.ddx = self.on_build_ex()
 
     def on_layout(self):
         """Specify how controls are moved or resized."""
         self.layout_controls()
 
-    def declare_property(
-        self, pfnget: Callable, pfnset: Callable, tool: str, name: str, default: Any
-    ):
-        """
-        Declare a scalar property for automatic management.
-
-        When the page is displayed, it is updated with the declared properties
-        that are read from the project.
-        When the page is validated, the project is updated with the declared
-        properties that are read from its controls.
-
-        The values are persisted in the project as *Tool Properties*, that are
-        properties named as ``@<TOOL>:<NAME>``, associated to a configuration.
-
-        Example
-        -------
-
-        .. code-block::
-
-            edit = self.add_edit(y)
-            self.declare_property(edit.get_name, edit.set_name, 'MY_TOOL', 'MY_PROP', '')
-            y += 30
-            cb = self.add_check_button(y, 'Option')
-            self.declare_property(cb.get_check, cb.set_check, 'MY_TOOL', 'MY_OPTION', False)
-            y += 30
-
-        Parameters
-        ----------
-        pfnget : Callable
-            Function to retrieve a value from a control such as ``Edit.get_name()``
-            or ``CheckBox.get_check()``.
-
-        pfnset : Callable
-            Function to set a value to a control such as ``Edit.set_name()``
-            or ``CheckBox.set_check()``.
-
-        tool : str
-            Name of the tool.
-
-        name :
-            Name of the property.
-
-        default : Any
-            Default value of the property.
-        """
-        self.properties.append((pfnget, pfnset, tool, name, default))
-
     def on_display(self, project: Project, configuration: Configuration):
         """Update the page with the properties read from the project."""
-        for _, pfnset, tool, name, default in self.properties:
-            if isinstance(default, bool):
-                value = project.get_bool_tool_prop_def(tool, name, default, configuration)
-            else:
-                value = project.get_scalar_tool_prop_def(tool, name, default, configuration)
-            pfnset(value)
+        if self.ddx:
+            self.ddx.model_to_page(project, configuration)
 
     def on_validate(self, project: Project, configuration: Configuration):
         """Update the project with the properties read from the page."""
-        for pfnget, _, tool, name, default in self.properties:
-            value = pfnget()
-            if isinstance(value, bool):
-                project.set_bool_tool_prop_def(tool, name, value, default, configuration)
-            else:
-                project.set_scalar_tool_prop_def(tool, name, value, default, configuration)
+        if self.ddx:
+            self.ddx.page_to_model(project, configuration)
+
+    @abstractmethod
+    def on_build_ex(self) -> Optional[ISettingsDataExchange]:
+        """
+        Build the controls and return an optional object for managing the persistence.
+
+        Returns
+        -------
+        Optional[ISettingsDataExchange]
+            Object for exchanging data between the project and the controls.
+        """
+        raise NotImplementedError
 
 
 class PropertyPageEx(PropertyPage, ContainerPage):
@@ -273,29 +221,67 @@ class PropertyPageEx(PropertyPage, ContainerPage):
     Provides a base class for property pages.
 
     This class also provides means to manage the sizing
-    of most common controls.
+    of most common controls and their serialization.
 
-    .. Note::
+    It introduces a new abstract method that must be implemented
+    for building the controls.
 
-        Do not forget to call ``super().on_build()`` in your ``on_build``
-        redefinition. Otherwise, you may experience random crashes.
+    Parameters
+    ----------
+    label_width : int
+        Width of the labels, displayed before the controls on the same line.
     """
 
     def __init__(self, label_width: int, *args, **kwargs):
         super().__init__(*args, **kwargs)
         super(PropertyPage, self).__init__(self, label_width)
+        self.ddx = None  # type: Optional[IPropertiesDataExchange]
+        self.models = []  # type: List[Any]
 
     def on_build(self):
-        """
-        Reset the lists used for resizing.
-
-        This method **must** be called by the derived classes' ``on_build`` methods.
-        """
+        """Build the properties page."""
+        # reset the list of controls
         self.controls = []
+        self.ddx = self.on_build_ex()
 
     def on_layout(self):
         """Specify how controls are moved or resized."""
         self.layout_controls()
+
+    def on_context(self, models: List[Any]):
+        """
+        Declare the models the page should consider.
+
+        Parameters
+        ----------
+        models : List[Any]
+            List of selected objects in the IDE.
+        """
+        self.models = models
+
+    def on_display(self):
+        """Update the page with the properties read from the models."""
+        if self.ddx:
+            for model in self.models:
+                self.ddx.model_to_page(model)
+
+    def on_validate(self):
+        """Update the models with the properties read from the page."""
+        if self.ddx:
+            for model in self.models:
+                self.ddx.page_to_model(model)
+
+    @abstractmethod
+    def on_build_ex(self) -> Optional[IPropertiesDataExchange]:
+        """
+        Build the controls and return an optional object for managing the persistence.
+
+        Returns
+        -------
+        Optional[IPropertiesDataExchange]
+            Object for exchanging data between the models and the controls.
+        """
+        raise NotImplementedError
 
 
 class GuiHostClientPage(IGuiHostClient, ContainerPage):
@@ -303,6 +289,7 @@ class GuiHostClientPage(IGuiHostClient, ContainerPage):
 
     def __init__(self, *args, **kwargs):
         super(IGuiHostClient, self).__init__(page=None, *args, **kwargs)
+        self.ddx = None  # type: Optional[IPropertiesDataExchange]
 
     def get_selected_models(self, models: List[Any]) -> List[Any]:
         """
@@ -364,26 +351,24 @@ class GuiHostClientPage(IGuiHostClient, ContainerPage):
 
     def on_display(self):
         """Update the page with the properties read from the models."""
-        pass
+        if self.ddx:
+            for model in self.models:
+                self.ddx.model_to_page(model)
 
     def on_validate(self):
         """Update the models with the properties read from the page."""
-        pass
+        if self.ddx:
+            for model in self.models:
+                self.ddx.page_to_model(model)
 
     def on_build(self, page: PropertyPage, y: int):
-        """
-        Reset the list of controls.
-
-        This method **must** be called by the derived classes' ``on_build`` methods, if any.
-
-        The abstract ``on_build_ex`` method avoids redefining ``on_build`` in most cases.
-        """
-        # update page that wasn't known at initialization
+        """Build the property page."""
+        # update page attribute that wasn't known at initialization
         self.page = page
         # reset the list of controls
         self.controls = []
         # build the controls
-        self.on_build_ex(y)
+        self.ddx = self.on_build_ex(y)
 
     def on_close(self):
         """Perform any cleaning before the page is closed."""
@@ -392,76 +377,16 @@ class GuiHostClientPage(IGuiHostClient, ContainerPage):
     @abstractmethod
     def on_build_ex(self, y: int):
         """
-        Build the controls.
+        Build the controls and return an optional object for managing the persistence.
 
         Parameters
         ----------
         y : int
             Start vertical position.
+
+        Returns
+        -------
+        Optional[IPropertiesDataExchange]
+            Object for exchanging data between the models and the controls.
         """
         raise NotImplementedError
-
-
-class ScadeGuiHostClientPage(GuiHostClientPage):
-    """Default implementation for GuiHost pages."""
-
-    def __init__(self, pragma: str, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.pragma = pragma
-        # get, set, name, default, empty
-        self.properties = []  # type: List[Tuple[Callable, Callable, str, str, str]]
-
-    def on_build(self, page: PropertyPage, y: int):
-        """Reset the list of properties before building the page."""
-        # reset the list of properties
-        self.properties = []
-        super().on_build(page, y)
-
-    def on_display(self):
-        """Update the page with the properties read from the models."""
-        assert self.models
-        # TODO:  what if several models?
-        properties = self.get_properties(self.models[0])
-        for _, pfnset, name, default, empty in self.properties:
-            value = properties.get(name, default)
-            if not value and empty:
-                value = empty
-            pfnset(value)
-
-    def on_validate(self):
-        """Update the models with the properties read from the page."""
-        properties = {}
-        for pfnget, _, name, default, empty in self.properties:
-            value = pfnget()
-            if value == empty:
-                value = default
-            if value != default:
-                properties[name] = value
-        # TODO:  what if several models?
-        for model in self.models:
-            self.set_properties(model, properties)
-
-    def get_properties(self, object: suite.Object) -> dict:
-        """To do."""
-        text = object.get_pragma_text(self.pragma)
-        if not text:
-            return {}
-        return json.loads(text)
-
-    def set_properties(self, object: suite.Object, properties: dict):
-        """To do."""
-        if not properties:
-            object.remove_pragma_text(self.pragma)
-        else:
-            text = json.dumps(properties, sort_keys=True).strip('\n')
-            # {{ object.set_pragma_text(self.tool, text)
-            # the function set_pragma_text flags the model as
-            # modified even if an identical pragma already exists
-            pragma = object.find_pragma(self.pragma)
-            if not pragma:
-                pragma = suite.TextPragma()
-                pragma.id = self.pragma
-                pragma.object = object
-            if pragma.text != text:
-                pragma.text = text
-            # }}

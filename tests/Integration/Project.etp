@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="24" defaultConfiguration="3">
+<Project id="1" oid_count="26" defaultConfiguration="3">
 	<props>
 		<Prop id="2" name="@STUDIO:PRODUCT">
 			<value>QTE</value>
@@ -22,14 +22,6 @@
 			<value>$(PrjDir)\Reporter.tcl</value>
 			<configuration>14</configuration>
 		</Prop>
-		<Prop id="17" name="@TEST_GUI_TOOLS:FR">
-			<value>f4.py</value>
-			<configuration>14</configuration>
-		</Prop>
-		<Prop id="20" name="@TEST_GUI_TOOLS:FR">
-			<value>f1.txt</value>
-			<configuration>3</configuration>
-		</Prop>
 		<Prop id="21" name="@TEST_GUI_TOOLS:FIELD">
 			<value>value</value>
 			<configuration>14</configuration>
@@ -45,6 +37,20 @@
 		<Prop id="24" name="@TEST_GUI_TOOLS:PATH">
 			<value>f2.txt</value>
 			<configuration>14</configuration>
+		</Prop>
+		<Prop id="17" name="@TEST_GUI_TOOLS:FR">
+			<value>f4.py</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="20" name="@TEST_GUI_TOOLS:FR">
+			<value>f1.txt</value>
+			<configuration>3</configuration>
+		</Prop>
+		<Prop id="25" name="@MY_TOOL:MY_FIELD">
+			<value>Field's value</value>
+		</Prop>
+		<Prop id="26" name="@MY_TOOL:MY_FILTER">
+			<value>test_settings.py</value>
 		</Prop>
 	</props>
 	<roots>
