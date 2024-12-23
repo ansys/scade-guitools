@@ -37,6 +37,8 @@ from ansys.scade.guitools.page import SettingsPageEx
 class TestSettingsPage(SettingsPageEx):
     """Defines a sample test for the page and the layout of the controls."""
 
+    __test__ = False
+
     def __init__(self):
         super().__init__(150, 'Test SettingsPageEx')
 
