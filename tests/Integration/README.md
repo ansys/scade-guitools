@@ -66,7 +66,7 @@ It declares dialogs, property and settings pages.
 * Resize the window and verify the controls are resized as expected.
 * Select the `Values` configuration and verify the tab changes to:
 
-  ![Default](img/settings_values.png)
+  ![Default](img/settings_value.png)
 
 * Close the settings dialog.
 
