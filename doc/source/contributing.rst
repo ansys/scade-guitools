@@ -186,7 +186,7 @@ enables the usage of `debugpy`_, that is an implementation of the
 Refer to the following links to setup a Python IDE supporting `debugpy`_:
 
 * `Visual Studio Code`_
-* `Visual Studio 2019 and greater`_
+* `Visual Studio 2019 and greater`_, section *Attach remotely from Python Tools*
 
 Run the integration tests
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -250,6 +250,6 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _wheel file: https://github.com/ansys/scade-guitools/releases
 .. _Visual Studio Code: https://code.visualstudio.com/docs/python/debugging/
-.. _Visual Studio 2019 and greater: https://learn.microsoft.com/en-us/visualstudio/python/debugging-python-code-on-remote-linux-machines?view=vs-2022#attach-remotely-from-python-tools/
+.. _Visual Studio 2019 and greater: https://learn.microsoft.com/en-us/visualstudio/python/debugging-python-code-on-remote-linux-machines/
 .. _debugpy: https://pypi.org/project/debugpy/
 .. _Debug Adapter Protocol: https://microsoft.github.io/debug-adapter-protocol/
