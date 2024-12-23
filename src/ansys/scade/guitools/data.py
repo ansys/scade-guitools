@@ -89,8 +89,8 @@ class DataExchange:
         When the page is displayed, the control is updated with the value read from the model.
         When the page is validated, the model is updated with the value read from the control.
 
-        Example
-        -------
+        Examples
+        --------
 
         .. code-block::
 
