@@ -36,6 +36,7 @@ from ansys.scade.guitools.enable_debugpy import attach_to_debugger
 # test modules
 from test_control import CommandTestControl
 from test_dialog_box import CommandTestDialogBox
+from test_pragmas import TestPragmaPropertyPage
 from test_properties import TestPropertyPage
 from test_settings import TestSettingsPage
 
@@ -55,6 +56,7 @@ def main():
     )
     TestSettingsPage()
     TestPropertyPage()
+    TestPragmaPropertyPage()
 
 
 class CommandAttachToDebugger(Command):

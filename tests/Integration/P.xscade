@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3" xmlns:test_guitools="unknown_address">
+	<declarations>
+		<Package name="P">
+			<pragmas>
+				<ed:Package oid="!ed/14/5573/D508/6769739773f8" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/8">
+					<diagrams>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/15/5573/D508/676973972caa" blockKind="constants"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/16/5573/D508/676973976e3e" blockKind="types"/>
+						<TreeDiagram landscape="false" format="A4 (210 297)" oid="!ed/17/5573/D508/6769739754f8" blockKind="sensors"/>
+					</diagrams>
+				</ed:Package>
+				<test_guitools:Pragma>
+					{&quot;id&quot;: &quot;31&quot;, &quot;sync&quot;: true}
+				</test_guitools:Pragma>
+			</pragmas>
+		</Package>
+	</declarations>
+</File>

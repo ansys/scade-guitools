@@ -79,6 +79,13 @@ It declares dialogs, property and settings pages.
 
 * Resize the window and verify the controls are resized as expected.
 
+### Pragmas
+* Ensure the `Properties` window is displayed
+* Select the ``P`` package
+* Verify the `Test Pragma` tab is displayed as follows:
+
+  ![Pragma](img/pragmas.png)
+
 ## Clean
 You may uninstall the package once the tests are completed:
 

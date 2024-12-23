@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="26" defaultConfiguration="3">
+<Project id="1" oid_count="35" defaultConfiguration="3">
 	<props>
 		<Prop id="2" name="@STUDIO:PRODUCT">
-			<value>QTE</value>
+			<value>SC</value>
 		</Prop>
 		<Prop id="9" name="@STUDIO:TOOLCONF">
 			<value>Reporter</value>
 			<value>3</value>
 			<value>14</value>
 		</Prop>
-		<Prop id="10" name="@STUDIO:TOOLCONF">
-			<value>Test Tool</value>
-			<value>3</value>
-			<value>14</value>
+		<Prop id="10" name="@SCADE:SAVEVERSION">
+			<value>SCADE65</value>
 		</Prop>
 		<Prop id="11" name="@REPORTER:SCRIPT">
 			<value>$(PrjDir)\Reporter.tcl</value>
@@ -52,16 +50,56 @@
 		<Prop id="26" name="@MY_TOOL:MY_FILTER">
 			<value>test_settings.py</value>
 		</Prop>
+		<Prop id="27" name="@STUDIO:TOOLCONF">
+			<value>Metrics and Rules Checker</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="28" name="@SCADE:NEWVARIABLESYMBOLS">
+			<value>false</value>
+		</Prop>
+		<Prop id="29" name="@STUDIO:TOOLCONF">
+			<value>Timing and Stack Analysis Tools</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="30" name="@STUDIO:TOOLCONF">
+			<value>DiffAnalyzer</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="31" name="@STUDIO:TOOLCONF">
+			<value>Code Generator</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="32" name="@STUDIO:TOOLCONF">
+			<value>Synchronization</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
+		<Prop id="33" name="@STUDIO:TOOLCONF">
+			<value>Import/Export</value>
+			<value>3</value>
+			<value>14</value>
+		</Prop>
 	</props>
 	<roots>
 		<Folder id="4" name="Files">
 			<elements>
 				<FileRef id="5" persistAs="f1.txt"/>
-				<FileRef id="6" persistAs="f2.txt"/>
+				<FileRef id="6" persistAs="f2.txt">
+					<props>
+						<Prop id="34" name="@ARCHIVE:FILE_SELECTION">
+							<value>INCLUDE</value>
+						</Prop>
+					</props>
+				</FileRef>
 				<FileRef id="7" persistAs="f3.json"/>
 				<FileRef id="8" persistAs="f4.py"/>
 			</elements>
 		</Folder>
+		<FileRef id="35" persistAs="P.xscade"/>
 	</roots>
 	<configurations>
 		<Configuration id="3" name="Default"/>
