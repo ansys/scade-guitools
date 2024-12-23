@@ -134,7 +134,7 @@ class ToolPropDataExchange(DataExchange):
     ``@<TOOL>:<NAME>``, where ``<TOOL>`` is a name for discriminating homonymous
     properties and ``<NAME>`` is the name of the property.
 
-    For exammple: ``@GENERATOR:TARGET_DIR``
+    For example: ``@GENERATOR:TARGET_DIR``
 
     Parameters
     ----------
