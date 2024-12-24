@@ -1,0 +1,7 @@
+[Studio/Work Interfaces/GUITOOLS_EXAMPLES_PAGE]
+"Pathname"="ETCUST.DLL"
+"Version"="24200"
+
+[Custom/Studio/Extensions/GUITOOLS_EXAMPLES_PAGE]
+"Package"="guitools.examples.page.page"
+"xPathname"="D:/AnsysDev/Nobackup/PyAnsys/guitools/examples/page/src/guitools/examples/page/page.py"

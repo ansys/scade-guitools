@@ -375,7 +375,7 @@ class GuiHostClientPage(IGuiHostClient, ContainerPage):
         pass
 
     @abstractmethod
-    def on_build_ex(self, y: int):
+    def on_build_ex(self, y: int) -> Optional[IPropertiesDataExchange]:
         """
         Build the controls and return an optional object for managing the persistence.
 

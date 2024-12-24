@@ -42,6 +42,10 @@ class EmptyDialogBox(DialogBox):
     def __init__(self, style: DS):
         super().__init__('Buttons', 300, 150, style=style)
 
+    def on_build_ex(self):
+        # empty
+        pass
+
     def on_click_close(self, *args):
         assert args[0].get_name().replace('&', '') == 'Close'
         super().on_click_close(*args)
@@ -75,7 +79,7 @@ class _TestDialogBox(DialogBox):
     def __init__(self):
         super().__init__('TestDialogBox', 300, 250)
 
-    def on_build(self):
+    def on_build_ex(self):
         """Build the dialog."""
         # add a button per style
         x = c.LEFT_MARGIN

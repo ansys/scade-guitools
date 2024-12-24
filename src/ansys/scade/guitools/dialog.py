@@ -24,6 +24,7 @@
 
 """Extension for the Dialog class."""
 
+from abc import abstractmethod
 from enum import Enum
 
 from scade.tool.suite.gui.dialogs import Dialog
@@ -102,7 +103,10 @@ class DialogBox(Dialog):
         return bottom
 
     def on_build(self):
-        """Add the specified dialog validation buttons."""
+        """Build the dialog with the specified dialog validation buttons."""
+        # build the controls
+        self.on_build_ex()
+        # add the validation buttons
         descriptions = [
             ('Close', self.on_click_close, (DS.CLOSE,)),
             ('OK', self.on_click_ok, (DS.OK_CANCEL,)),
@@ -149,3 +153,8 @@ class DialogBox(Dialog):
     def on_click_retry(self, *args):
         """Close the dialog when Retry is pressed."""
         self.close()
+
+    @abstractmethod
+    def on_build_ex(self):
+        """Build the controls."""
+        raise NotImplementedError

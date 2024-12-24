@@ -22,46 +22,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides GuiHost client pages for tests."""
+"""Example of property page."""
 
-from guihost_ut.test_client import PageAll, PagePython, PageTxt
+from pathlib import Path
 
 
-def pages() -> list:
-    r"""
-    Return the list of GuiHost client pages.
-
-    This function implements the entry point "ansys.scade.guihost/pages".
+def srg() -> str:
     """
-    return [PAGE_TXT, PAGE_ALL, PAGE_PY]
+    Return the path of the SCADE Studio registry file.
 
-
-# page for text files (TXT)
-PAGE_TXT = {
-    'version': 24200,
-    # 'expire': 25100,
-    'page': 'Misc.',
-    'category': 'Text',
-    'optional': False,
-    'class': PageTxt,
-}
-
-# page for all files (*)
-PAGE_ALL = {
-    'version': 24200,
-    # 'expire': 25100,
-    'page': 'Misc.',
-    'category': 'All',
-    'optional': False,
-    'class': PageAll,
-}
-
-# page for Python files (PY)
-PAGE_PY = {
-    'version': 24200,
-    # 'expire': 25100,
-    'page': 'Programming',
-    'category': 'Python',
-    'optional': True,
-    'class': PagePython,
-}
+    This function implements the entry point "ansys.scade.registry/srg"
+    introduced in SCADE 2024 R2.
+    """
+    # the package's srg file is located in the same directory
+    return str(Path(__file__).parent / 'page.srg')
