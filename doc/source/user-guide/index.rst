@@ -36,7 +36,7 @@ that comply with the framework. For example, the :class:`StaticEdit <ansys.scade
 bundles a static control for a label and an edit control for the value.
 
 The module provides several controls with the same pattern,
-for examples :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>`.
+for example :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>`.
 
 The :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` control is more complex since
 it bundles an additional push button ``...`` to call the ``file_open`` and ``file_save`` functions
@@ -70,7 +70,7 @@ the controls. The return value of this method is detailed in the next section.
 
 The page base classes define ``add_xxx`` methods to build controls in a simpler way.
 
-For example, the following code needed to add a
+For example, the following that adds a
 :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control in a dialog:
 
 .. code-block:: python
@@ -98,7 +98,7 @@ Persistence
 
 Dialog boxes are commonly used for prompting the user for command parameters.
 Settings and property pages aim at adding additional properties to a project or
-a model. Although these properties an be stored using a private syntax in a separate file,
+a model. Although these properties can be stored using a private syntax in a separate file,
 it is more convenient to use the means available in the SCADE environment:
 
 * Properties in a project file (ETP): These properties are usually attached to a project,

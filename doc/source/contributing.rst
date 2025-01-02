@@ -146,7 +146,7 @@ However, the recommended way of checking documentation integrity is to use
 
 .. code:: bash
 
-    tox -e doc-html && your_browser_name .tox/doc_out/index.html
+    tox -e doc-html && your_browser_name doc/_build/html/index.html
 
 Debug and integration test
 --------------------------
@@ -177,8 +177,8 @@ step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
 Debug
 ^^^^^
 The debugging of SCADE Custom Extensions that run in the context of the SCADE IDE
-requires a different approach. You can use the module :mod:`enable_debugpy <ansys.scade.guitools.enable_debugpy>` that
-enables the usage of `debugpy`_, that is an implementation of the
+requires a different approach. You can use the module :mod:`enable_debugpy <ansys.scade.guitools.enable_debugpy>` to
+enable the usage of `debugpy`_, that is an implementation of the
 `Debug Adapter Protocol`_ for Python 3.
 
 Refer to the following links to setup a Python IDE supporting `debugpy`_:
@@ -206,7 +206,7 @@ Once the test or debug sessions are completed, proceed as follows to uninstall t
 
   .. code:: bash
 
-     python -m pip uninstall ansys.scade.guitools
+     <python310.exe> -m pip uninstall ansys.scade.guitools
 
 Distribute
 ----------
