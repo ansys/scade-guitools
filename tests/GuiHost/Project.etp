@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project id="1" oid_count="8" defaultConfiguration="3">
+	<props>
+		<Prop id="2" name="@STUDIO:PRODUCT">
+			<value>GUIHOST</value>
+		</Prop>
+	</props>
+	<roots>
+		<Folder id="4" name="Files">
+			<elements>
+				<FileRef id="5" persistAs="f1.txt"/>
+				<FileRef id="6" persistAs="f2.txt"/>
+				<FileRef id="7" persistAs="f3.json"/>
+				<FileRef id="8" persistAs="f4.py"/>
+			</elements>
+		</Folder>
+	</roots>
+	<configurations>
+		<Configuration id="3" name="Default"/>
+	</configurations>
+</Project>

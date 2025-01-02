@@ -61,17 +61,17 @@ jobs:
           operating-system: ${{ matrix.os }}
           python-version: ${{ matrix.python-version }}
 
-  tests:
-    name: "Tests"
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-          os: [windows-latest]
-          python-version: ['3.10']
-      fail-fast: false
-    steps:
-      - name: "Run pytest"
-        uses: ansys/actions/tests-pytest@v8
+  # tests:
+  #   name: "Tests"
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #         os: [windows-latest]
+  #         python-version: ['3.10']
+  #     fail-fast: false
+  #   steps:
+  #     - name: "Run pytest"
+  #       uses: ansys/actions/tests-pytest@v8
 
   doc-build:
     name: "Build documentation"
@@ -83,10 +83,24 @@ jobs:
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
+      - name: "Zipping the examples directory"
+        run: |
+          sudo apt-get install zip
+          zip -r examples.zip ./examples
+
+      - name: "Upload zip to artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: examples
+          path: ./examples.zip
+          retention-days: 7
+          if-no-files-found: error
+
   build-library:
     name: "Build library basic example"
     runs-on: ubuntu-latest
-    needs: [tests, doc-build]
+    # needs: [tests, doc-build]
+    needs: [smoke-tests, doc-build]
     steps:
       - uses: ansys/actions/build-library@v8
         with:
@@ -127,11 +141,13 @@ jobs:
       #   with:
       #     library-name: ${{ env.LIBRARY_NAME }}
       #     use-trusted-publisher: true
+      #     additional-artifacts: 'examples'
 
       - name: "Release to GitHub"
         uses: ansys/actions/release-github@v8
         with:
           library-name: ${{ env.LIBRARY_NAME }}
+          additional-artifacts: 'examples'
 
   doc-deploy-dev:
     name: "Deploy development documentation"

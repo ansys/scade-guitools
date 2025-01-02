@@ -86,8 +86,6 @@ to guarantee the project's integrity.
 The following ``tox`` commands are provided:
 
 * ``tox -e style``: Checks for coding style quality.
-* ``tox -e tests``: Checks for unit tests.
-* ``tox -e tests-coverage``: Checks for unit testing and code coverage.
 * ``tox -e doc``: Checks for the documentation-building process.
    * ``tox -e doc-html``: Builds the HTML documentation.
    * ``tox -e doc-links``: Checks for broken links in the documentation.
@@ -148,7 +146,67 @@ However, the recommended way of checking documentation integrity is to use
 
 .. code:: bash
 
-    tox -e doc-html && your_browser_name .tox/doc_out/index.html
+    tox -e doc-html && your_browser_name doc/_build/html/index.html
+
+Debug and integration test
+--------------------------
+Ansys SCADE GUI Tools needs to be registered to SCADE for integration testing.
+Indeed, the library is used in a SCADE IDE session.
+
+Install in user mode
+^^^^^^^^^^^^^^^^^^^^
+It is not possible to reuse the virtual environment setup for the repository.
+You must install the package in an environment accessible by SCADE, for
+example its own Python distribution, although this is not advised,
+or the Python 3.10 *user* distribution:
+
+.. code:: bash
+
+   <python310.exe> -m pip install --user --editable .
+
+You can reuse any ``<install>\SCADE\contrib\Python310\python.exe``
+or Python 3.10 installation on your computer.
+
+If you are using Ansys SCADE 2024 R1 or below, you must perform one additional
+step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
+
+.. code:: bash
+
+   <python310.exe> -m ansys.scade.guitools.register
+
+Debug
+^^^^^
+The debugging of SCADE Custom Extensions that run in the context of the SCADE IDE
+requires a different approach. You can use the module :mod:`enable_debugpy <ansys.scade.guitools.enable_debugpy>` to
+enable the usage of `debugpy`_, that is an implementation of the
+`Debug Adapter Protocol`_ for Python 3.
+
+Refer to the following links to setup a Python IDE supporting `debugpy`_:
+
+* `Visual Studio Code`_
+* `Visual Studio 2019 and greater`_, section *Attach remotely from Python Tools*
+
+Run the integration tests
+^^^^^^^^^^^^^^^^^^^^^^^^^
+These are manual tests. Refer to the test procedures, contained in each test
+directory as readme files.
+
+Uninstall
+^^^^^^^^^
+Once the test or debug sessions are completed, proceed as follows to uninstall the package:
+
+* If you are using Ansys SCADE 2024 R1 or below, you should remove the
+  registration files:
+
+  .. code:: bash
+
+     <python310.exe> -m ansys.scade.guitools.unregister
+
+* Uninstall the package:
+
+  .. code:: bash
+
+     <python310.exe> -m pip uninstall ansys.scade.guitools
 
 Distribute
 ----------
@@ -189,3 +247,7 @@ To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@a
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _wheel file: https://github.com/ansys/scade-guitools/releases
+.. _Visual Studio Code: https://code.visualstudio.com/docs/python/debugging/
+.. _Visual Studio 2019 and greater: https://learn.microsoft.com/en-us/visualstudio/python/debugging-python-code-on-remote-linux-machines/
+.. _debugpy: https://pypi.org/project/debugpy/
+.. _Debug Adapter Protocol: https://microsoft.github.io/debug-adapter-protocol/

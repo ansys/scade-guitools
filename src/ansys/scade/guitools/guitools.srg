@@ -1,0 +1,6 @@
+[Studio/Work Interfaces/GUIHOST2]
+"Pathname"="ETCUST.DLL"
+"Version"="24200"
+
+[Custom/Studio/Extensions/GUIHOST2]
+"Package"="ansys.scade.guitools.guihost"

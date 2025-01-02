@@ -1,4 +1,6 @@
-# Copyright (C) 2023 - 2024 ANSYS, Inc. and/or its affiliates.
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2021 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -20,8 +22,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from ansys.scade.guitools import __version__
+"""Example of dialog box."""
+
+from pathlib import Path
 
 
-def test_pkg_version():
-    assert __version__ == '2.0.dev0'
+def srg() -> str:
+    """
+    Return the path of the SCADE Studio registry file.
+
+    This function implements the entry point "ansys.scade.registry/srg"
+    introduced in SCADE 2024 R2.
+    """
+    # the package's srg file is located in the same directory
+    return str(Path(__file__).parent / 'dialog.srg')

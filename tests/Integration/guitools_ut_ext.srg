@@ -1,0 +1,6 @@
+[Studio/Work Interfaces/GUITOOLS_UT_EXT]
+"Pathname"="ETCUST.DLL"
+"Version"="21200"
+
+[Custom/Studio/Extensions/GUITOOLS_UT_EXT]
+"Pathname"="%TARGETDIR%testguitools/gui.py"

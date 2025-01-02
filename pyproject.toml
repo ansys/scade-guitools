@@ -20,6 +20,7 @@ maintainers = [
 dependencies=[
     "importlib-metadata >= 1.0; python_version < '3.8'",
     "importlib-metadata >= 4.0; python_version >= '3.8'",
+    "ansys.scade.apitools",
 ]
 classifiers=[
     "Development Status :: 4 - Beta",
@@ -65,6 +66,15 @@ Discussions = "https://github.com/ansys/scade-guitools/discussions"
 Documentation = "https://guitools.scade.docs.pyansys.com"
 Releases = "https://github.com/ansys/scade-guitools/releases"
 Homepage = "https://www.ansys.com/products/embedded-software/ansys-scade-suite"
+
+[project.entry-points."ansys.scade.registry"]
+srg = "ansys.scade.guitools:srg"
+register = "ansys.scade.guitools.register:register"
+unregister = "ansys.scade.guitools.unregister:unregister"
+
+[project.scripts]
+register_ansys_scade_guitools = "ansys.scade.guitools.register:main"
+unregister_ansys_scade_guitools = "ansys.scade.guitools.unregister:main"
 
 [tool.ruff]
 line-length = 100

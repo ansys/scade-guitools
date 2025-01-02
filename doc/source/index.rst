@@ -1,6 +1,9 @@
 Ansys SCADE GUI Tools
 =====================
 
+Refer to *Customization-Related Python Commands* in section 5 of the *SCADE Python API Guide*
+in the SCADE Suite documentation for a complete reference on SCADE Python Extensions.
+
 .. grid:: 1 2 3 3
    :gutter: 1 2 3 3
    :padding: 1 2 3 3

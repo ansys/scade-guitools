@@ -1,0 +1,18 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name="guitools-examples-dialog"
+version="0.1.dev0"
+description ="Example of dialog box."
+readme="README.md"
+
+# 3.10
+requires-python = ">=3.10,<3.11"
+
+[tool.flit.module]
+name = "guitools.examples.dialog"
+
+[project.entry-points."ansys.scade.registry"]
+srg = "guitools.examples.dialog:srg"

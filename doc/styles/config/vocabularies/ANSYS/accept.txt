@@ -8,3 +8,11 @@ SCADE
 guitools
 isort
 pytest
+readme
+debugpy
+Unregisters
+resizable
+pragma
+Pragma
+pragmas
+Pragmas
