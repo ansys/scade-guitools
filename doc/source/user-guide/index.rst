@@ -24,9 +24,9 @@ The first column contains labels and the second one contains edit areas.
 The :mod:`csts <ansys.scade.guitools.csts>` module provides metrics, considered as guidelines
 for building consistent forms, such as:
 
- * Margins
- * Vertical offset for lines
- * Default height of controls
+* Margins
+* Vertical offset for lines
+* Default height of controls
 
 Controls
 --------
@@ -64,7 +64,7 @@ the ``Page`` class from ``scade.tool.suite.gui.properties``
 and persistence.
 
 To create a page, derive a class from :class:`PropertyPageEx <ansys.scade.guitools.page.PropertyPageEx>`
-or :class:`SettingsPageEx <ansys.scade.guitools.page.SettingsPageEx>`, and
+or :class:`SettingsPageEx <ansys.scade.guitools.page.SettingsPageEx>`,
 and define the :func:`on_build_ex <PropertyPageEx.on_build_ex>` method to build
 the controls. The return value of this method is detailed in the next section.
 
@@ -143,7 +143,7 @@ The page become difficult to maintain, for example if you want to add a third wr
 or if one of them is not available for all SCADE projects.
 
 This is a perfect use case for ``GuiHost``. This component creates dynamic property pages
-depending on registered clients and display a selector to activate a client independently
+depending on registered clients and displays a selector to activate a client independently
 of the others.
 
 The client page no longer implements the ``PropertyPage`` class but must derive from
