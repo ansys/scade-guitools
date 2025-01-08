@@ -26,14 +26,14 @@ in the SCADE Suite documentation for a complete reference on SCADE Python Extens
 
       Explore the Ansys SCADE GUI Tools API.
 
-   .. grid-item-card:: :material-regular:`group;1.25em` Contributing
+   .. grid-item-card:: :material-regular:`group;1.25em` Contribute
       :link: contributing
       :link-type: doc
 
       Learn how to contribute to Ansys SCADE GUI Tools.
 
 
-   .. grid-item-card:: :material-regular:`update;1.25em` Changelog
+   .. grid-item-card:: :material-regular:`update;1.25em` Release notes
       :link: changelog
       :link-type: doc
 
