@@ -26,7 +26,7 @@
 
 from abc import abstractmethod
 from collections.abc import Callable
-from typing import Any, List, Optional, Union
+from typing import Any, List, Optional, Tuple, Union
 
 from scade.model.project.stdproject import Configuration, Project
 from scade.tool.suite.gui.properties import Page as PropertyPage
@@ -38,10 +38,13 @@ from ansys.scade.guitools.control import (
     ComboBox,
     Edit,
     FileSelector,
+    GroupRadioBox,
     ObjectComboBox,
+    RadioBox,
     StaticComboBox,
     StaticEdit,
     StaticObjectComboBox,
+    StaticRadioBox,
 )
 import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.interfaces import (
@@ -150,6 +153,30 @@ class ContainerPage:
         )
         self.controls.append(cb)
         return cb
+
+    def add_radio_box(self, y: int, buttons: List[Tuple[Any, str]], **kwargs) -> RadioBox:
+        """Add a :class:`RadioBox <ansys.scade.guitools.control.RadioBox>` control to the page."""
+        rb = RadioBox(self.page, buttons, c.LEFT_MARGIN, y, _WF, **kwargs)
+        self.controls.append(rb)
+        return rb
+
+    def add_group_radio_box(
+        self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
+    ) -> GroupRadioBox:
+        """Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page."""
+        grb = GroupRadioBox(self.page, text, buttons, c.LEFT_MARGIN, y, _WF, **kwargs)
+        self.controls.append(grb)
+        return grb
+
+    def add_static_radio_box(
+        self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
+    ) -> StaticRadioBox:
+        """Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page."""
+        srb = StaticRadioBox(
+            self.page, text, self.label_width, buttons, c.LEFT_MARGIN, y, _WF, **kwargs
+        )
+        self.controls.append(srb)
+        return srb
 
     def add_control(self, control):
         """Add an existing control to the page's list of controls."""

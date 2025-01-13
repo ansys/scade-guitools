@@ -25,14 +25,19 @@
 """Extensions for the persistence of the settings and properties."""
 
 from collections.abc import Callable
-from typing import Any, Optional, Tuple
+from typing import (
+    Any,
+    List,  # noqa: F401  # used in a typing annotation
+    Optional,
+    Tuple,
+)
 
 from scade.model.project.stdproject import Configuration, Project, ProjectEntity
 import scade.model.suite as suite
 from scade.tool.suite.gui.widgets import CheckBox, EditBox, ListBox, RadioButton, Widget
 
 from ansys.scade.apitools.prop import get_pragma_json, set_pragma_json
-from ansys.scade.guitools.control import ComboBox, ObjectComboBox
+from ansys.scade.guitools.control import ComboBox, ObjectComboBox, RadioBox
 from ansys.scade.guitools.interfaces import IPropertiesDataExchange, ISettingsDataExchange
 
 Getter = Callable[[], Any]
@@ -76,6 +81,8 @@ class DataExchange:
             return (control.get_selection, control.set_selection)
         elif isinstance(control, ObjectComboBox):
             return (control.get_selected_name, control.select_name)
+        elif isinstance(control, RadioBox):
+            return (control.get_value, control.set_value)
         # TODO
         # elif isinstance(control, ObjectListBox):
         #     return (control.get_selected_names, control.select_names)

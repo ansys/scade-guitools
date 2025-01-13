@@ -41,6 +41,9 @@ NC_RIGHT = 8
 NC_BOTTOM = 8
 """Non client area bottom margin of a dialog box."""
 
+DY = 30
+"""Default vertical offset between 2 lines."""
+
 RIGHT_MARGIN = 6
 """Right margin of a dialog box or page."""
 LEFT_MARGIN = 6
@@ -73,5 +76,11 @@ CHECK_BUTTON_HEIGHT = 20
 COMBO_BOX_HEIGHT = 130
 """Default height of a combo box control."""
 
-DY = 30
-"""Default vertical offset between 2 lines."""
+RADIO_BUTTON_HEIGHT = 20
+"""Default height of a radio button control."""
+
+GROUP_RADIO_BOX_HEIGHT = RADIO_BUTTON_HEIGHT + STATIC_HEIGHT + BOTTOM_MARGIN
+"""Default height of a group radio box control."""
+
+RADIO_BOX_DY = GROUP_RADIO_BOX_HEIGHT + (DY - EDIT_HEIGHT)
+"""Default vertical offset for a group radio box control."""

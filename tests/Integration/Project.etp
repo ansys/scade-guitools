@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="35" defaultConfiguration="3">
+<Project id="1" oid_count="41" defaultConfiguration="3">
 	<props>
 		<Prop id="2" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -41,7 +41,7 @@
 			<configuration>14</configuration>
 		</Prop>
 		<Prop id="20" name="@TEST_GUI_TOOLS:FR">
-			<value>f1.txt</value>
+			<value>f4.py</value>
 			<configuration>3</configuration>
 		</Prop>
 		<Prop id="25" name="@MY_TOOL:MY_FIELD">
@@ -82,6 +82,25 @@
 			<value>Import/Export</value>
 			<value>3</value>
 			<value>14</value>
+		</Prop>
+		<Prop id="36" name="@TEST_GUI_TOOLS:COLOR">
+			<value>BLUE</value>
+			<configuration>3</configuration>
+		</Prop>
+		<Prop id="37" name="@TEST_GUI_TOOLS:COLOR">
+			<value>WHITE</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="39" name="@TEST_GUI_TOOLS:ORDER">
+			<value>2</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="40" name="@TEST_GUI_TOOLS:BUTTONS">
+			<value>Three</value>
+			<configuration>14</configuration>
+		</Prop>
+		<Prop id="41" name="@MY_TOOL:MY_ORDER">
+			<value>2</value>
 		</Prop>
 	</props>
 	<roots>

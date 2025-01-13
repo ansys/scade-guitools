@@ -61,11 +61,15 @@ class TestPropertyPage(PropertyPageEx):
         reference = str(Path(__file__).parent)
         fs = self.add_file_selector(y, 'File', '.py', '', filter, FSM.OPEN, reference=reference)
         y += dy
+        # add radio buttons
+        order = self.add_group_radio_box(y, 'Order', [('1', '&First'), ('2', '&Second')])
+        y += c.RADIO_BOX_DY
 
         # serialization
         pp = ProjectPropertiesDataExchange('MY_TOOL')
         pp.ddx_control(field, 'MY_FIELD', '')
         pp.ddx_control(fs, 'MY_FILTER', '')
+        pp.ddx_control(order, 'MY_ORDER', '1')
         return pp
 
     def is_available(self, models: List[Any]) -> bool:
