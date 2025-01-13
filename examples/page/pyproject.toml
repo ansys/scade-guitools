@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="guitools-examples-page"
-version="0.1.dev0"
+version="0.1.0"
 description ="Example of property page."
 readme="README.md"
 
