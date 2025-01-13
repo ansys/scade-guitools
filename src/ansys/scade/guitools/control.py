@@ -28,7 +28,13 @@ from enum import Enum
 import os
 from pathlib import Path
 import re
-from typing import Any, List, Optional
+from typing import (
+    Any,
+    Dict,  # noqa: F401  #used in a typing annotation
+    List,
+    Optional,
+    Tuple,
+)
 
 from scade.tool.suite.gui.dialogs import file_open, file_save
 from scade.tool.suite.gui.widgets import (
@@ -36,8 +42,10 @@ from scade.tool.suite.gui.widgets import (
     CheckBox,
     ComboBox as _ComboBox,
     EditBox,
+    GroupBox,
     Label,
     ObjectComboBox as _ObjectComboBox,
+    RadioButton,
     Widget,
 )
 
@@ -546,3 +554,223 @@ class StaticObjectComboBox(ObjectComboBox):
         """Show or hide the control."""
         super().set_visible(show)
         self.label.set_visible(show)
+
+
+class RadioBox(GroupBox):
+    """
+    Defines a bundle made of a group and a set of radio button controls.
+
+    The group is hidden when text is empty.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the control
+
+    buttons : list[tuple[str, str]]
+        Descriptions of the buttons: value and text associated to the buttons.
+
+    x : int
+        Horizontal position of the control.
+
+    y : int
+        Vertical position of the control.
+
+    w : int
+        Width of the control.
+
+    h : int
+        Height of the control, default 0
+
+    text : str
+        Text of the group control, default empty.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+    """
+
+    def __init__(
+        self,
+        owner,
+        buttons: List[Tuple[str, str]],
+        x: int,
+        y: int,
+        w: int,
+        text: str = '',
+        h: int = c.GROUP_RADIO_BOX_HEIGHT,
+    ):
+        if text:
+            # group visible
+            offset_x = c.LEFT_MARGIN
+            offset_y = c.STATIC_HEIGHT
+            # width for buttons
+            width = w - c.LEFT_MARGIN - c.RIGHT_MARGIN
+        else:
+            # group not visible
+            offset_x = 0
+            offset_y = 0
+            width = w
+            h = 0
+
+        n = len(buttons)
+        wb = int(width / n) if n > 0 else width
+        self.buttons = {}  # type: Dict[str, RadioButton]
+        self.owner = owner
+        self.text = text
+        # the group is used to set relative constraints
+        super().__init__(owner, text, x, y, w, h)
+        x = x + offset_x
+        y = y + offset_y
+        for value, text in buttons:
+            button = RadioButton(owner, text, x, y, wb, c.RADIO_BUTTON_HEIGHT)
+            self.buttons[value] = button
+            x += wb
+        Widget.group(self.buttons.values())
+
+    def on_layout(self):
+        """Declare the constraints with respect to the owner."""
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
+        prev = None
+        count = len(self.buttons)
+        margin = c.LEFT_MARGIN + c.RIGHT_MARGIN if self.text else 0
+        for button in self.buttons.values():
+            if prev:
+                button.set_constraint(Widget.LEFT, prev, Widget.RIGHT, 0)
+            # wrong signature for set_constraint(), mul parameter must be float
+            button.set_constraint(
+                Widget.WIDTH, self, Widget.WIDTH, -int(margin / count), 1.0 / count
+            )
+            # button.set_constraint(Widget.WIDTH, self, Widget.WIDTH, 0, 1. / count)
+            prev = button
+
+    def set_visible(self, show: bool):
+        """Show or hide the control."""
+        self.set_visible(show)
+        for button in self.buttons.values():
+            button.set_visible(show)
+
+    def get_value(self) -> str:
+        """Return the value of the selected button, or ``""`` when none is selected."""
+        for value, button in self.buttons.items():
+            if button.get_check():
+                return value
+        else:
+            return ''
+
+    def set_value(self, value: str):
+        """
+        Select the button corresponding to the input value.
+
+        * No button is selected when ``value`` is ``""``.
+        * The first button is selected if ``value`` does not correspond to any button.
+
+        Parameters
+        ----------
+        value : str
+            Input value corresponding to a button.
+        """
+        if value == '':
+            # uncheck all buttons
+            for button in self.buttons.values():
+                button.set_check(False)
+        else:
+            if value not in self.buttons:
+                value = list(self.buttons.keys())[0]
+            for v, button in self.buttons.items():
+                button.set_check(v == value)
+
+
+class GroupRadioBox(RadioBox):
+    """
+    Defines a bundle made of a group and a set of radio button controls.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the control
+
+    text : str
+        Text of the group control.
+
+    buttons : list[tuple[str, str]]
+        Descriptions of the buttons: value and text associated to the buttons.
+
+    x : int
+        Horizontal position of the control.
+
+    y : int
+        Vertical position of the control.
+
+    w : int
+        Width of the control.
+
+    h : int
+        Height of the control, default csts.RADIO_BOX_HEIGHT.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+    """
+
+    def __init__(
+        self,
+        owner,
+        text: str,
+        buttons: List[Tuple[str, str]],
+        x: int,
+        y: int,
+        w: int,
+        h: int = c.GROUP_RADIO_BOX_HEIGHT,
+    ):
+        super().__init__(owner, buttons, x, y, w, text=text, h=h)
+
+
+class StaticRadioBox(RadioBox):
+    """
+    Defines a bundle made of a static and a group of radio button controls.
+
+    The group is not visible and is used to set relative constraints.
+
+    Parameters
+    ----------
+    owner : Any
+        owner of the control
+
+    text : str
+        Text of the static control.
+
+    wl : int
+        Width of the static control.
+
+    buttons : list[tuple[str, str]]
+        Descriptions of the buttons: value and text associated to the buttons.
+
+    x : int
+        Horizontal position of the control.
+
+    y : int
+        Vertical position of the control.
+
+    w : int
+        Width of the control.
+
+    kwargs : Any
+        Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+    """
+
+    def __init__(
+        self,
+        owner,
+        text: str,
+        wl: int,
+        buttons: List[Tuple[str, str]],
+        x: int,
+        y: int,
+        w: int,
+    ):
+        self.label = Label(owner, text, x=x, y=y + 4, w=wl, h=c.STATIC_HEIGHT)
+        super().__init__(owner, buttons, x + wl, y, w - wl)
+
+    def set_visible(self, show: bool):
+        """Show or hide the control."""
+        self.label.set_visible(show)
+        super().set_visible(show)

@@ -31,10 +31,13 @@ from ansys.scade.guitools.control import (
     FSM,
     CheckButton,
     FileSelector,
+    GroupRadioBox,
     PushButton,
+    RadioBox,
     StaticComboBox,
     StaticEdit,
     StaticObjectComboBox,
+    StaticRadioBox,
 )
 import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
@@ -58,14 +61,13 @@ class _TestControl(DialogBox):
     __test__ = False
 
     def __init__(self):
-        super().__init__('TestControl', 400, 300, style=DS.CLOSE)
+        super().__init__('TestControl', 400, 400, style=DS.CLOSE)
 
-    def on_build(self):
+    def on_build_ex(self):
         """Build the dialog."""
-        super().on_build()
         x = c.LEFT_MARGIN
         y = c.TOP_MARGIN
-        dy = 30
+        dy = c.DY
         wl = 150
         w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         # add a push button
@@ -94,6 +96,7 @@ class _TestControl(DialogBox):
             files = []
             paths = []
         scb = StaticComboBox(self, 'Paths', wl, x, y, w)
+        # can't use dy here, get the vertical margin from other xontrol)
         y += dy
         scb.set_items(paths)
         if paths:
@@ -104,6 +107,23 @@ class _TestControl(DialogBox):
         ocb.set_items(files)
         if files:
             ocb.set_selection(files[0])
+        # add a group radio box with two buttons
+        grb = GroupRadioBox(self, 'Radio box', [('1', '&First'), ('2', '&Second')], x, y, w)
+        grb.set_value('2')
+        y += c.RADIO_BOX_DY
+        # add a static radio box with three buttons
+        srb = StaticRadioBox(
+            self, 'Buttons', wl, [('One', '&One'), ('Two', 'T&wo'), ('Three', '&Three')], x, y, w
+        )
+        # select one value
+        srb.set_value('One')
+        # and make sure everything can be unselected, for example for multiple selection management
+        srb.set_value('')
+        y += dy
+        # add a radio box with one button
+        rb = RadioBox(self, [('SINGLE', '&Button')], x, y, w)
+        rb.set_value('<UNKNOWN>')
+        y += dy
 
     def on_click_check(self, button):
         self.fs.set_visible(not button.get_check())

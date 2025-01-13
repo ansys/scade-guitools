@@ -11,7 +11,7 @@
 					</diagrams>
 				</ed:Package>
 				<test_guitools:Pragma>
-					{&quot;id&quot;: &quot;31&quot;, &quot;sync&quot;: true}
+					{&quot;color&quot;: &quot;white&quot;, &quot;id&quot;: &quot;31&quot;, &quot;sync&quot;: true}
 				</test_guitools:Pragma>
 			</pragmas>
 		</Package>

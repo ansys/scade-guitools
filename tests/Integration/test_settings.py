@@ -74,6 +74,17 @@ class TestSettingsPage(SettingsPageEx):
         ocb = self.add_static_object_combo_box(y, 'Files')
         y += dy
         ocb.set_items(files, paths)
+        # add a simple radio box
+        rb = self.add_radio_box(y, [('BLUE', '&Blue'), ('WHITE', '&White'), ('RED', '&Red')])
+        y += dy
+        # add a group radio box
+        grb = self.add_group_radio_box(y, 'Order', [('1', '&First'), ('2', '&Second')])
+        y += c.RADIO_BOX_DY
+        # add a static radio box
+        srb = self.add_static_radio_box(
+            y, 'Buttons', [('One', '&One'), ('Two', 'T&wo'), ('Three', '&Three')]
+        )
+        y += dy
 
         # persistence
         tool = 'TEST_GUI_TOOLS'
@@ -83,4 +94,7 @@ class TestSettingsPage(SettingsPageEx):
         ddx.ddx_control(option, 'OPTION', False)
         ddx.ddx_control(scb, 'PATH', '')
         ddx.ddx_control(ocb, 'FR', '')
+        ddx.ddx_control(rb, 'COLOR', '')
+        ddx.ddx_control(grb, 'ORDER', '1')
+        ddx.ddx_control(srb, 'BUTTONS', 'One')
         return ddx

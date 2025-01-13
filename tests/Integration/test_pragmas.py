@@ -53,12 +53,18 @@ class TestPragmaPropertyPage(PropertyPageEx):
         # add a check button
         sync = self.add_check_button(y, '&Synchronize:')
         y += c.DY
+        # add radio buttons
+        color = self.add_static_radio_box(
+            y, '&Color', [('blue', '&Blue'), ('white', '&White'), ('red', '&Red')]
+        )
+        y += c.DY
 
         # serialization
         pp = ScadePropertiesDataExchange('test_guitools')
         pp.ddx_control(target, 'target', '', '<target name>')
         pp.ddx_control(id, 'id', '9')
         pp.ddx_control(sync, 'sync', False)
+        pp.ddx_control(color, 'color', 'blue')
         return pp
 
     def is_available(self, models: List[Any]) -> bool:
