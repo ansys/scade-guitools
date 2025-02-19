@@ -23,7 +23,7 @@
 """
 Registers the Ansys SCADE GUI Tools extension registry files (SRG).
 
-Refer to the :ref:`installation <getting-started/index:install in user mode>`
+Refer to the :ref:`installation <getting_started_install_user>`
 steps for more information.
 
 It addresses SCADE 2024 R1 and prior releases.

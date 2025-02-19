@@ -23,7 +23,7 @@
 """
 Enables remote debugging with ``debugpy``.
 
-Refer to :ref:`Debug <contributing:debug>` for more information.
+Refer to :ref:`Debug <contributing_debug>` for more information.
 """
 
 import os

@@ -174,6 +174,8 @@ step, to install a registration file in ``%APPDATA%\SCADE\Customize``:
 
    <python310.exe> -m ansys.scade.guitools.register
 
+.. _contributing_debug:
+
 Debug
 ^^^^^
 The debugging of SCADE Custom Extensions that run in the context of the SCADE IDE
