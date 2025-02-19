@@ -119,16 +119,16 @@ The following example illustrates the edition of two integration properties for 
 
     def on_build_ex(self) -> IPropertiesDataExchange:
         # build the controls
-        y += csts.TOP_MARGIN
-        ed_topic = self.add_check_button(y, 'Is topic')
+        y = csts.TOP_MARGIN
+        cb_topic = self.add_check_button(y, 'Is topic')
         y += csts.DY
         ed_name = self.add_static_edit(y, 'Topic name:')
         # persistence
-        dx = ScadePropertiesDataExchange('my_pragma_id')
-        dx.bind_control(ed_topic, name='topic', default=False)
-        dx.bind_control(ed_name, name='name', default='')
+        pdx = ScadePropertiesDataExchange('my_pragma_id')
+        pdx.bind_control(cb_topic, name='topic', default=False)
+        pdx.bind_control(ed_name, name='name', default='')
 
-        return dx
+        return pdx
 
 ``GuiHost``
 -----------
