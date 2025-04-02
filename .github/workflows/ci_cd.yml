@@ -21,10 +21,10 @@ jobs:
 
   pr-name:
     if: github.event_name == 'pull_request'
-    name: Check the name of the PR
+    name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - name: Check commit name
+      - name: "Check commit name"
         uses: ansys/actions/check-pr-title@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -44,6 +44,21 @@ jobs:
       - uses: ansys/actions/doc-style@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  update-changelog:
+    name: "Update CHANGELOG (on release)"
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: ansys/actions/doc-deploy-changelog@v8
+        with:
+          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
+          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
   smoke-tests:
     name: "Build and Smoke tests"
@@ -107,20 +122,6 @@ jobs:
           library-name: ${{ env.LIBRARY_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
-  update-changelog:
-    name: "Update CHANGELOG (on release)"
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - uses: ansys/actions/doc-deploy-changelog@v8
-        with:
-          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
-          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
-          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
-
   release:
     name: "Release project"
     runs-on: ubuntu-latest
@@ -148,6 +149,7 @@ jobs:
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           additional-artifacts: 'examples'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   doc-deploy-dev:
     name: "Deploy development documentation"
