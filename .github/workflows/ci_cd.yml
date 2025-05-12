@@ -124,11 +124,13 @@ jobs:
 
   release:
     name: "Release project"
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
     runs-on: ubuntu-latest
     needs: [build-library, update-changelog]
-    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    permissions:
+      id-token: write
+      contents: write
     steps:
-
       - name: "Release to private PyPI"
         uses: ansys/actions/release-pypi-private@v9
         with:
