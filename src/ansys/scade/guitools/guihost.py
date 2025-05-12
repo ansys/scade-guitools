@@ -225,7 +225,7 @@ def main():
     # get the current version and convert it to the format of srg files
     std_version = get_scade_version() * 100
 
-    # load the page descriptions from the registered enntry points
+    # load the page descriptions from the registered entry points
     group = 'ansys.scade.guihost'
     descriptions = sum(
         [_.load()() for _ in importlib_metadata.entry_points(group=group) if _.name == 'pages'], []
