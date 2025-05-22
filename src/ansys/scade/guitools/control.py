@@ -36,7 +36,7 @@ from typing import (
     Tuple,
 )
 
-from scade.tool.suite.gui.dialogs import file_open, file_save
+from scade.tool.suite.gui.dialogs import browse_directory, file_open, file_save
 from scade.tool.suite.gui.widgets import (
     Button,
     CheckBox,
@@ -182,7 +182,7 @@ class StaticEdit(Edit):
 class FSM(Enum):
     """Mode for the file selector."""
 
-    OPEN, SAVE = range(2)
+    OPEN, SAVE, DIR = range(3)
 
 
 class FileSelector(StaticEdit):
@@ -199,15 +199,18 @@ class FileSelector(StaticEdit):
 
     extension : str
         Default extension of the files.
+        This option is ignored when ``mode`` is ``FSM.DIR``.
 
     directory : str
         Initial directory of the file selector dialog box, or the current directory when empty.
 
     filter : str
         Description of the format of the visible files in the file selector dialog box.
+        This option is ignored when ``mode`` is ``FSM.DIR``.
 
     mode : FSM
-        Mode of the file seclector dialog box, either ``FSM.LOAD`` or ``FSM.SAVE``.
+        Mode of the file seclector dialog box, either ``FSM.LOAD``, ``FSM.SAVE``,
+        or ``FSM.DIR`` for browsing directories.
 
     wl : int
         Width of the static control.
@@ -284,8 +287,11 @@ class FileSelector(StaticEdit):
         directory = str(Path(directory))
         if self.mode == FSM.SAVE:
             path = file_save(name, self.extension, directory, self.filter)
-        else:
+        elif self.mode == FSM.OPEN:
             path = file_open(self.filter, directory)
+        else:
+            assert self.mode == FSM.DIR
+            path = browse_directory(directory)
         if path:
             if reference:
                 try:

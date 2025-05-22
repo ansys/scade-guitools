@@ -48,13 +48,15 @@ It declares dialogs, property and settings pages.
 
   ![Control](img/control.png)
 
-* Click on the ``...`` button and select ``grf.py``.
+* Click on the File's ``...`` button and select ``grf.py``.
 * Verify the result is set to the absolute path of ``grf.py``.
 * Move the content of Directory to Reference
-* Click on the ``...`` button and select ``grf.py``.
+* Click on the File's ``...`` button and select ``grf.py``.
 * Verify the result is set to the absolute path of ``grf.py``.
 * Click the check box ``Hide FileSelector`` a couple of time,
   and verify the line above is entirely hidden or displayed.
+* Click on the Directory's ``...`` button.
+* Verify you can browse and select directories.
 * Close the test dialog with the ``Close`` button.
 
 ### Settings
