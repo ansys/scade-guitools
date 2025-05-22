@@ -62,6 +62,8 @@ class TestSettingsPage(SettingsPageEx):
         y += dy
         # add a check button
         option = self.add_check_button(y, 'Option')
+        # add a check button, same line, second column
+        self.add_check_button(y, 'Second Option', x=c.LEFT_MARGIN + self.label_width)
         y += dy
         # add a combo box control with the name of the files
         projects = get_projects()

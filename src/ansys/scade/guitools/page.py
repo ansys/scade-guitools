@@ -92,13 +92,16 @@ class ContainerPage:
 
     def add_edit(self, y: int, **kwargs) -> Edit:
         """Add a :class:`Edit <ansys.scade.guitools.control.Edit>` control to the page."""
-        edit = Edit(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        edit = Edit(self.page, x, y, _WF, **kwargs)
         self.controls.append(edit)
         return edit
 
     def add_static_edit(self, y: int, text: str, **kwargs) -> StaticEdit:
         """Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page."""
-        edit = StaticEdit(self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
+        wl = kwargs.pop('wl', self.label_width)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        edit = StaticEdit(self.page, text, wl, x, y, _WF, **kwargs)
         self.controls.append(edit)
         return edit
 
@@ -106,6 +109,8 @@ class ContainerPage:
         self, y: int, text: str, extension: str, dir: str, filter: str, mode: FSM, **kwargs
     ) -> FileSelector:
         """Add a :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` to the page."""
+        wl = kwargs.pop('wl', self.label_width)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
         file = FileSelector(
             self.page,
             text,
@@ -113,8 +118,8 @@ class ContainerPage:
             dir,
             filter,
             mode,
-            self.label_width,
-            c.LEFT_MARGIN,
+            wl,
+            x,
             y,
             _WF,
             **kwargs,
@@ -124,39 +129,45 @@ class ContainerPage:
 
     def add_check_button(self, y: int, text: str, **kwargs) -> CheckButton:
         """Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page."""
-        cb = CheckButton(self.page, text, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        cb = CheckButton(self.page, text, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_combo_box(self, y: int, text: str, **kwargs) -> ComboBox:
         """Add a :class:`ComboBox <ansys.scade.guitools.control.ComboBox>` control to the page."""
-        cb = ComboBox(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        cb = ComboBox(self.page, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_object_combo_box(self, y: int, text: str, **kwargs) -> ObjectComboBox:
         """Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page."""
-        cb = ObjectComboBox(self.page, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        cb = ObjectComboBox(self.page, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_static_combo_box(self, y: int, text: str, **kwargs) -> StaticComboBox:
         """Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page."""
-        cb = StaticComboBox(self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs)
+        wl = kwargs.pop('wl', self.label_width)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        cb = StaticComboBox(self.page, text, wl, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_static_object_combo_box(self, y: int, text: str, **kwargs) -> StaticObjectComboBox:
         """Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page."""
-        cb = StaticObjectComboBox(
-            self.page, text, self.label_width, c.LEFT_MARGIN, y, _WF, **kwargs
-        )
+        wl = kwargs.pop('wl', self.label_width)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        cb = StaticObjectComboBox(self.page, text, wl, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_radio_box(self, y: int, buttons: List[Tuple[Any, str]], **kwargs) -> RadioBox:
         """Add a :class:`RadioBox <ansys.scade.guitools.control.RadioBox>` control to the page."""
-        rb = RadioBox(self.page, buttons, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        rb = RadioBox(self.page, buttons, x, y, _WF, **kwargs)
         self.controls.append(rb)
         return rb
 
@@ -164,7 +175,8 @@ class ContainerPage:
         self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
     ) -> GroupRadioBox:
         """Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page."""
-        grb = GroupRadioBox(self.page, text, buttons, c.LEFT_MARGIN, y, _WF, **kwargs)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        grb = GroupRadioBox(self.page, text, buttons, x, y, _WF, **kwargs)
         self.controls.append(grb)
         return grb
 
@@ -172,9 +184,9 @@ class ContainerPage:
         self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
     ) -> StaticRadioBox:
         """Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page."""
-        srb = StaticRadioBox(
-            self.page, text, self.label_width, buttons, c.LEFT_MARGIN, y, _WF, **kwargs
-        )
+        wl = kwargs.pop('wl', self.label_width)
+        x = kwargs.pop('x', c.LEFT_MARGIN)
+        srb = StaticRadioBox(self.page, text, wl, buttons, x, y, _WF, **kwargs)
         self.controls.append(srb)
         return srb
 
