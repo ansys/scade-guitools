@@ -342,10 +342,6 @@ class CheckButton(CheckBox):
         super().__init__(owner, text, x, y, w, h, **kwargs)
         self.owner = owner
 
-    def on_layout(self):
-        """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
-
 
 class ComboBox(_ComboBox):
     """
