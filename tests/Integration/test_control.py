@@ -61,7 +61,7 @@ class _TestControl(DialogBox):
     __test__ = False
 
     def __init__(self):
-        super().__init__('TestControl', 400, 400, style=DS.CLOSE)
+        super().__init__('TestControl', 400, 430, style=DS.CLOSE)
 
     def on_build_ex(self):
         """Build the dialog."""
@@ -82,10 +82,13 @@ class _TestControl(DialogBox):
         self.ed_reference = StaticEdit(self, 'Reference', wl, x, y, w)
         y += dy
         filter = 'Python files (*.py)|*.py|All Files (*.*)|*.*||'
-        self.fs = _TestFileSelector(self, 'Static', '.py', '', filter, FSM.OPEN, wl, x, y, w)
+        self.fs = _TestFileSelector(self, 'File', '.py', '', filter, FSM.OPEN, wl, x, y, w)
         y += dy
         # add a check button
         CheckButton(self, 'Hide FileSelector', x, y, wl, on_click=self.on_click_check)
+        y += dy
+        # add a directory selector
+        self.ds = _TestFileSelector(self, 'Directory', '', '', '', FSM.DIR, wl, x, y, w)
         y += dy
         # add a combo box control with the name of the files
         projects = get_projects()
