@@ -50,6 +50,7 @@ class DataExchange:
     """Base class for accessing controls' data."""
 
     def __init__(self):
+        """Initialize the data exchange instance."""
         # get, set, name, default, empty
         self.properties = []  # type: List[Tuple[Getter, Setter, str, Any, Any]]
 
@@ -83,7 +84,8 @@ class DataExchange:
             return (control.get_selected_name, control.select_name)
         elif isinstance(control, RadioBox):
             return (control.get_value, control.set_value)
-        # TODO
+        # TODO(Jean Henry): keep or remove logic
+        # https://github.com/ansys/scade-guitools/issues/26
         # elif isinstance(control, ObjectListBox):
         #     return (control.get_selected_names, control.select_names)
 
@@ -95,6 +97,20 @@ class DataExchange:
 
         When the page is displayed, the control is updated with the value read from the model.
         When the page is validated, the model is updated with the value read from the control.
+
+        Parameters
+        ----------
+        control : Widget
+            Control associated to the property.
+
+        name :
+            Name of the property.
+
+        default : Any
+            Default value of the property.
+
+        empty : Any | None
+            Value to display when it is empty, default ``default``.
 
         Examples
         --------
@@ -110,20 +126,6 @@ class DataExchange:
             cb = self.add_check_button(y, 'Option')
             self.tp.ddx_control(cb, name='MY_OPTION', default=False)
             y += csts.DY
-
-        Parameters
-        ----------
-        control : Widget
-            Control associated to the property.
-
-        name :
-            Name of the property.
-
-        default : Any
-            Default value of the property.
-
-        empty : Any | None
-            Value to display when it is empty, default ``default``.
         """
         pfnget, pfnset = self.get_control_accessors(control)
         if pfnget:
@@ -150,6 +152,7 @@ class ToolPropDataExchange(DataExchange):
     """
 
     def __init__(self, tool: str):
+        """Initialize the tool property data exchange instance."""
         super().__init__()
         self.tool = tool
 
@@ -186,6 +189,7 @@ class SettingsDataExchange(ISettingsDataExchange, ToolPropDataExchange):
     """Default implementation for managing the persistence of most usual controls in the project."""
 
     def __init__(self, tool: str):
+        """Initialize the settings data exchange instance."""
         super().__init__(tool)
         # super(IPropertiesDataExchange, self).__init__(self, tool)
 
@@ -202,6 +206,7 @@ class ProjectPropertiesDataExchange(IPropertiesDataExchange, ToolPropDataExchang
     """Default implementation for managing the persistence of most usual controls in the project."""
 
     def __init__(self, tool: str):
+        """Initialize the project properties data exchange instance."""
         super().__init__(tool)
         # super(IPropertiesDataExchange, self).__init__(self, tool)
 
@@ -228,6 +233,7 @@ class PragmaDataExchange(DataExchange):
     """
 
     def __init__(self, id: str):
+        """Initialize the pragma data exchange instance."""
         super().__init__()
         self.id = id
 
@@ -261,6 +267,7 @@ class ScadePropertiesDataExchange(IPropertiesDataExchange, PragmaDataExchange):
     """Default implementation for managing the persistence of most usual controls in the model."""
 
     def __init__(self, id: str):
+        """Initialize the SCADE properties data exchange instance."""
         super().__init__(id)
         # super(IPropertiesDataExchange, self).__init__(self, id)
 

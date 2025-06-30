@@ -6,6 +6,8 @@ For information on getting a licensed copy, see the
 `Ansys SCADE Suite <https://www.ansys.com/products/embedded-software/ansys-scade-suite>`_
 page on the Ansys website.
 
+.. TODO: add >= Python 3.12 support upon 2026 R1 release
+
 Requirements
 ------------
 The ``ansys-scade-guitools`` package supports only the versions of Python delivered with

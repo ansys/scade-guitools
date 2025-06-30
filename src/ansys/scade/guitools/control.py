@@ -90,6 +90,7 @@ class PushButton(Button):
         h: int = c.BUTTON_HEIGHT,
         **kwargs,
     ):
+        """Initialize the push button with the given parameters."""
         super().__init__(owner, name, x, y, w, h, **kwargs)
 
 
@@ -119,6 +120,7 @@ class Edit(EditBox):
     """
 
     def __init__(self, owner, x: int, y: int, w: int, h: int = c.EDIT_HEIGHT, **kwargs):
+        """Initialize the edit control with the given parameters."""
         super().__init__(owner, x, y, w, h, **kwargs)
         self.owner = owner
 
@@ -169,6 +171,7 @@ class StaticEdit(Edit):
         h: int = c.EDIT_HEIGHT,
         **kwargs,
     ):
+        """Initialize the static edit control with the given parameters."""
         self.label = Label(owner, text, x, y + 4, wl, h - 4)
         super().__init__(owner, x + wl, y, w - wl, h, **kwargs)
         self.owner = owner
@@ -253,6 +256,7 @@ class FileSelector(StaticEdit):
         reference: str = '',
         **kwargs,
     ):
+        """Initialize the file selector with the given parameters."""
         super().__init__(owner, text, wl, x, y, w - c.DOTS_WIDTH - self._SEPARATOR, h, **kwargs)
         x_dots = x + w - c.DOTS_WIDTH
         # so that borders are aligned
@@ -271,6 +275,7 @@ class FileSelector(StaticEdit):
         """Call the Windows standard open or save selection commands."""
 
         def expand_vars(name: str) -> str:
+            """Expand environment variables in the given string."""
             # rename $(...) by ${...}
             name = re.sub(r'\$\(([^\)/\\\$]*)\)', r'${\1}', name)
             # resolve the environment variables, if any
@@ -345,6 +350,7 @@ class CheckButton(CheckBox):
     def __init__(
         self, owner, text: str, x: int, y: int, w: int, h: int = c.CHECK_BUTTON_HEIGHT, **kwargs
     ):
+        """Initialize the check button with the given parameters."""
         super().__init__(owner, text, x, y, w, h, **kwargs)
         self.owner = owner
 
@@ -375,6 +381,7 @@ class ComboBox(_ComboBox):
     """
 
     def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
+        """Initialize the combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
 
@@ -412,6 +419,7 @@ class ObjectComboBox(_ObjectComboBox):
     """
 
     def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
+        """Initialize the object combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
         self.items = []  # type: List[Any]
@@ -491,6 +499,7 @@ class StaticComboBox(ComboBox):
         h: int = c.COMBO_BOX_HEIGHT,
         **kwargs,
     ):
+        """Initialize the static combo box with the given parameters."""
         self.label = Label(owner, text, x, y + 4, wl, c.STATIC_HEIGHT)
         super().__init__(owner, x + wl, y, w - wl, h, **kwargs)
         self.owner = owner
@@ -544,6 +553,7 @@ class StaticObjectComboBox(ObjectComboBox):
         style: Optional[List[str]] = None,
         **kwargs,
     ):
+        """Initialize the static object combo box with the given parameters."""
         if not style:
             style = []
         if 'dropdownlist' not in style:
@@ -601,6 +611,7 @@ class RadioBox(GroupBox):
         text: str = '',
         h: int = c.GROUP_RADIO_BOX_HEIGHT,
     ):
+        """Initialize the radio box with the given parameters."""
         if text:
             # group visible
             offset_x = c.LEFT_MARGIN
@@ -723,6 +734,7 @@ class GroupRadioBox(RadioBox):
         w: int,
         h: int = c.GROUP_RADIO_BOX_HEIGHT,
     ):
+        """Initialize the group radio box with the given parameters."""
         super().__init__(owner, buttons, x, y, w, text=text, h=h)
 
 
@@ -769,6 +781,7 @@ class StaticRadioBox(RadioBox):
         y: int,
         w: int,
     ):
+        """Initialize the static radio box with the given parameters."""
         self.label = Label(owner, text, x=x, y=y + 4, w=wl, h=c.STATIC_HEIGHT)
         super().__init__(owner, buttons, x + wl, y, w - wl)
 

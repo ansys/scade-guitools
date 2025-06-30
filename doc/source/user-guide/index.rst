@@ -130,8 +130,8 @@ The following example illustrates the edition of two integration properties for 
 
         return pdx
 
-``GuiHost``
------------
+GuiHost
+-------
 
 Consider the following use case: you design two SCADE Code Generator wrappers,
 one for ``DDS`` and the other one for ``gRPC``. You might want to add integration properties

@@ -27,6 +27,7 @@ Refer to :ref:`Debug <contributing_debug>` for more information.
 """
 
 import os
+from pathlib import Path
 
 import debugpy
 
@@ -34,9 +35,10 @@ os.environ['PYDEVD_LOAD_NATIVE_LIB'] = '0'
 os.environ['PYDEVD_USE_CYTHON'] = '0'
 
 # get the python interpreter, can't use sys.executable which is VCS.EXE
-_os_module_path = os.path.dirname(os.path.realpath(os.__file__))
-_python_exe = os.path.join(_os_module_path, '..', 'python.exe')
-debugpy.configure(python=_python_exe)
+_os_module_path = Path(os.__file__).resolve().parent
+_python_exe = _os_module_path / '..' / 'python.exe'
+
+debugpy.configure(python=str(_python_exe))
 
 
 def attach_to_debugger(port: int = 5678):

@@ -53,6 +53,7 @@ class ProxyPageClient:
     """
 
     def __init__(self, category: str, client: IGuiHostClient):
+        """Initialize the proxy with a category and a client."""
         self.category = category
         self.client = client
 
@@ -78,6 +79,7 @@ class HostPage(PropertyPageEx):
     """
 
     def __init__(self, name: str, optional: bool, *args, **kwargs):
+        """Initialize the host page."""
         super().__init__(50, name=name, *args, **kwargs)
         self.optional = optional
 
