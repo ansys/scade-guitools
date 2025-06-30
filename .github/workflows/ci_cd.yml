@@ -97,7 +97,6 @@ jobs:
       - uses: ansys/actions/doc-build@v9
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
-          use-python-cache: false
 
       - name: "Zipping the examples directory"
         run: |
