@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2021 - 2025 ANSYS, Inconstants. and/or its affiliates.
+# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
-#
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -257,12 +257,20 @@ class FileSelector(StaticEdit):
         **kwargs,
     ):
         """Initialize the file selector with the given parameters."""
-        super().__init__(owner, text, wl, x, y, w - constants.DOTS_WIDTH - self._SEPARATOR, h, **kwargs)
+        super().__init__(
+            owner, text, wl, x, y, w - constants.DOTS_WIDTH - self._SEPARATOR, h, **kwargs
+        )
         x_dots = x + w - constants.DOTS_WIDTH
         # so that borders are aligned
         y_dots = y - 1
         self.btn_dots = Button(
-            owner, '...', x_dots, y_dots, constants.DOTS_WIDTH, constants.DOTS_HEIGHT, on_click=self.on_click
+            owner,
+            '...',
+            x_dots,
+            y_dots,
+            constants.DOTS_WIDTH,
+            constants.DOTS_HEIGHT,
+            on_click=self.on_click,
         )
         self.owner = owner
         self.extension = extension
@@ -307,7 +315,9 @@ class FileSelector(StaticEdit):
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.btn_dots.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN)
+        self.btn_dots.set_constraint(
+            Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN
+        )
         self.btn_dots.set_constraint(
             Widget.LEFT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN - constants.DOTS_WIDTH
         )
@@ -348,7 +358,14 @@ class CheckButton(CheckBox):
     """
 
     def __init__(
-        self, owner, text: str, x: int, y: int, w: int, h: int = constants.CHECK_BUTTON_HEIGHT, **kwargs
+        self,
+        owner,
+        text: str,
+        x: int,
+        y: int,
+        w: int,
+        h: int = constants.CHECK_BUTTON_HEIGHT,
+        **kwargs,
     ):
         """Initialize the check button with the given parameters."""
         super().__init__(owner, text, x, y, w, h, **kwargs)
@@ -380,7 +397,9 @@ class ComboBox(_ComboBox):
         Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
     """
 
-    def __init__(self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs):
+    def __init__(
+        self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs
+    ):
         """Initialize the combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
@@ -418,7 +437,9 @@ class ObjectComboBox(_ObjectComboBox):
         Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
     """
 
-    def __init__(self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs):
+    def __init__(
+        self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs
+    ):
         """Initialize the object combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
