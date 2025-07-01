@@ -17,7 +17,7 @@ examples:
   - any:
       - changed-files:
           - any-glob-to-any-file: ['examples/**']
-          
+
 testing:
   - any:
       - changed-files:
