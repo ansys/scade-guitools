@@ -21,7 +21,7 @@ jobs:
 
   pr-name:
     if: github.event_name == 'pull_request'
-    name: Check PR title
+    name: "Check PR title"
     runs-on: ubuntu-latest
     steps:
       - name: "Check commit name"
@@ -76,18 +76,6 @@ jobs:
           operating-system: ${{ matrix.os }}
           python-version: ${{ matrix.python-version }}
 
-  # tests:
-  #   name: "Tests"
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #     matrix:
-  #         os: [windows-latest]
-  #         python-version: ['3.10']
-  #     fail-fast: false
-  #   steps:
-  #     - name: "Run pytest"
-  #       uses: ansys/actions/tests-pytest@v9
-
   doc-build:
     name: "Build documentation"
     runs-on: ubuntu-latest
@@ -131,28 +119,23 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - name: "Release to private PyPI"
-        uses: ansys/actions/release-pypi-private@v10
+
+      - name: "Download the library artifacts from build-library step"
+        uses: actions/download-artifact@v4
         with:
-          library-name: ${{ env.LIBRARY_NAME }}
-          twine-username: "__token__"
-          twine-token: ${{ secrets.PYANSYS_PYPI_PRIVATE_PAT }}
+          name: ${{ env.LIBRARY_NAME }}-artifacts
+          path: ${{ env.LIBRARY_NAME }}-artifacts
 
-      # not public yet
-      # - name: "Download the library artifacts from build-library step"
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: ${{ env.LIBRARY_NAME }}-artifacts
-      #     path: ${{ env.LIBRARY_NAME }}-artifacts
+      - name: "Display structure of downloaded files"
+        run: ls -Rla
 
-      # - name: "Upload artifacts to PyPI using trusted publisher"
-      #   uses: pypa/gh-action-pypi-publish@v1.12.4
-      #   with:
-      #     repository-url: "https://upload.pypi.org/legacy/"
-      #     print-hash: true
-      #     packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
-      #     skip-existing: false
-
+      - name: "Upload artifacts to PyPI using trusted publisher"
+        uses: pypa/gh-action-pypi-publish@v1.12.4
+        with:
+          repository-url: "https://upload.pypi.org/legacy/"
+          print-hash: true
+          packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
+          skip-existing: false
 
       - name: "Release to GitHub"
         uses: ansys/actions/release-github@v10
