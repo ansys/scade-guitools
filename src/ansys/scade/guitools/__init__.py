@@ -50,7 +50,7 @@ def get_srg_name() -> str:
     # registrations depending on Python interpreter
     python_version = str(sys.version_info.major) + str(sys.version_info.minor)
     suffix = '23r1' if python_version == '37' else '24r1'
-    return 'guitools%s.srg' % suffix
+    return f'guitools{suffix}.srg'
 
 
 def srg() -> str:

@@ -44,11 +44,11 @@ assert _APPDATA
 
 def _register_srg_file(srg: Path, install: Path):
     # copy the srg file to Customize and patch it with the installation directory.
-    text = srg.open().read()
+    text = srg.read_text(encoding='utf-8')
     text = text.replace('%TARGETDIR%', install.as_posix())
     dst = Path(_APPDATA, 'SCADE', 'Customize', srg.name)
     dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.open('w').write(text)
+    dst.write_text(text, encoding='utf-8')
 
 
 def register() -> Tuple[int, str]:

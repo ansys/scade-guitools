@@ -32,7 +32,7 @@ import scade
 from ansys.scade.apitools.info import get_scade_version
 from ansys.scade.guitools import __version__, importlib_metadata
 from ansys.scade.guitools.control import ComboBox
-import ansys.scade.guitools.csts as c
+import ansys.scade.guitools.csts as constants
 from ansys.scade.guitools.interfaces import IGuiHostClient
 from ansys.scade.guitools.page import PropertyPageEx
 
@@ -152,19 +152,19 @@ class HostPage(PropertyPageEx):
     def on_build(self):
         """Build the property page and its clients."""
         # alignment for the first line
-        y = c.TOP_MARGIN
+        y = constants.TOP_MARGIN
         self.cb_clients = self.add_static_combo_box(
             y, '&Tool:', style=['dropdownlist'], on_change_selection=self.on_sel_change
         )
         self.cb_clients.set_items(self.categories)
         if len(self.active_clients) > 1:
-            y += c.DY
+            y += constants.DY
         else:
             if self.optional:
                 self.cb_clients.set_visible(False)
             else:
                 self.cb_clients.set_enable(False)
-                y += c.DY
+                y += constants.DY
         for proxy in self.active_clients.values():
             proxy.client.on_build(self, y)
 
@@ -262,7 +262,7 @@ def main():
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', str(e) + '\n')
-    scade.tabput('LOG', traceback.format_exc() + '\n')
+    scade.tabput('LOG', f'{e}\n')
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')
 else:
-    scade.tabput('LOG', 'Loading GUI Host %s\n' % __version__)
+    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')

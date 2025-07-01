@@ -41,7 +41,7 @@ from test_properties import TestPropertyPage
 from test_settings import TestSettingsPage
 
 # display some banner
-scade.tabput('LOG', 'Loading integration tests for Ansys SCADE GUI Tools %s.\n' % __version__)
+scade.tabput('LOG', f'Loading integration tests for Ansys SCADE GUI Tools {__version__}.\n')
 
 
 def main():
@@ -74,7 +74,7 @@ class CommandAttachToDebugger(Command):
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', str(e) + '\n')
-    scade.tabput('LOG', traceback.format_exc() + '\n')
+    scade.tabput('LOG', f'{e}\n')
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')
 else:
-    scade.tabput('LOG', 'Integration tests for Ansys SCADE GUI Tools %s loaded.\n' % __version__)
+    scade.tabput('LOG', f'Integration tests for Ansys SCADE GUI Tools {__version__} loaded.\n')
