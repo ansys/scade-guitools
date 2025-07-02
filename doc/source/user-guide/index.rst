@@ -5,11 +5,11 @@ The main purpose of Ansys SCADE GUI Tools is to facilitate the building of forms
 dialog boxes, settings pages or property pages.
 It defines a simple framework and addresses the following topics:
 
-* Build easily the controls in a consistent way
-* Layout controls, especially for resizable pages
-* Manage the persistence of edited data
+* Building the controls easily and in a consistent way
+* Controlling layout, especially for resizable pages
+* Managing the persistence of edited data
 
-A separate component, ``GuiHost`` allows grouping independent property pages into a single one, with a selector.
+A separate component, :ref:`guihost` allows grouping independent property pages into a single one, with a selector.
 This minimizes the number of property pages in the IDE while providing a certain consistency.
 
 Layout
@@ -113,7 +113,7 @@ The :class:`DataExchange <ansys.scade.guitools.data.DataExchange>` base class de
 main binding services, specialized by derived classes for a usage
 in the context of settings or property pages.
 
-The following example illustrates the edition of two integration properties for a SCADE I/O:
+The following example illustrates the addition of two integration properties for a SCADE I/O:
 
 .. code-block:: python
 
@@ -129,6 +129,8 @@ The following example illustrates the edition of two integration properties for 
         pdx.bind_control(ed_name, name="name", default="")
 
         return pdx
+
+.. _guihost:
 
 GuiHost
 -------
