@@ -25,8 +25,12 @@ dependencies=[
 ]
 classifiers=[
     "Development Status :: 4 - Beta",
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Scientific/Engineering :: Embedded Software",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.10",
     "Operating System :: Microsoft :: Windows",
 ]
 keywords=["Scade", "IDE", "GUI", "Dialog", "Menu", "Toolbar", "Page", "Settings", "Properties"]
