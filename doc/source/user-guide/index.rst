@@ -76,14 +76,14 @@ For example, the following that adds a
 .. code-block:: python
 
     def on_build_ex(self):
-      # initial position and sizes
-      x = c.LEFT_MARGIN
-      y = c.TOP_MARGIN
-      # width of first column
-      wl = 100
-      # overall width: remove the margins
-      w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
-      ed_name = StaticEdit(self, 'Topic name:', wl, x, y, w)
+        # initial position and sizes
+        x = c.LEFT_MARGIN
+        y = c.TOP_MARGIN
+        # width of first column
+        wl = 100
+        # overall width: remove the margins
+        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
+        ed_name = StaticEdit(self, "Topic name:", wl, x, y, w)
 
 Can be written as follows in the context of a property page:
 
@@ -91,7 +91,7 @@ Can be written as follows in the context of a property page:
 
     # initial position
     y = c.TOP_MARGIN
-    ed_name = self.add_static_edit(y, 'Topic name:')
+    ed_name = self.add_static_edit(y, "Topic name:")
 
 Persistence
 -----------
@@ -120,13 +120,13 @@ The following example illustrates the edition of two integration properties for 
     def on_build_ex(self) -> IPropertiesDataExchange:
         # build the controls
         y = csts.TOP_MARGIN
-        cb_topic = self.add_check_button(y, 'Is topic')
+        cb_topic = self.add_check_button(y, "Is topic")
         y += csts.DY
-        ed_name = self.add_static_edit(y, 'Topic name:')
+        ed_name = self.add_static_edit(y, "Topic name:")
         # persistence
-        pdx = ScadePropertiesDataExchange('my_pragma_id')
-        pdx.bind_control(cb_topic, name='topic', default=False)
-        pdx.bind_control(ed_name, name='name', default='')
+        pdx = ScadePropertiesDataExchange("my_pragma_id")
+        pdx.bind_control(cb_topic, name="topic", default=False)
+        pdx.bind_control(ed_name, name="name", default="")
 
         return pdx
 
@@ -187,11 +187,12 @@ That you can implement in your package's ``src/my/module/__init__.py`` as follow
     from pages import MyDDSPage
 
     PAGE_DDS = {
-        'page': 'Integration',
-        'category': 'DDS',
-        'class': MyDDSPage,
-        'version': 24200,
+        "page": "Integration",
+        "category": "DDS",
+        "class": MyDDSPage,
+        "version": 24200,
     }
+
 
     def pages() -> list:
         """Return the list of GuiHost client pages provided by this package."""
