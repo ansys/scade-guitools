@@ -81,7 +81,10 @@ numpydoc_validate = True
 numpydoc_validation_checks = {
     'GL06',  # Found unknown section
     'GL07',  # Sections are in the wrong order.
-    'GL08',  # The object does not have a docstring
+    # TODO(Muhammed Adedigba): activate GL08 once numpydoc v1.9.0 bug is fixed
+    # https://github.com/numpy/numpydoc/issues/638
+    # https://github.com/ansys/scade-guitools/issues/26
+    # 'GL08',  # The object does not have a docstring
     'GL09',  # Deprecation warning should precede extended summary
     'GL10',  # reST directives {directives} must be followed by two colons
     'SS01',  # No summary found
