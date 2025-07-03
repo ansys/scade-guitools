@@ -30,7 +30,7 @@ from typing import Any, List
 from scade.model.project.stdproject import Project
 
 from ansys.scade.guitools.control import FSM, PushButton
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.data import ProjectPropertiesDataExchange
 from ansys.scade.guitools.page import PropertyPageEx
 
@@ -46,11 +46,11 @@ class TestPropertyPage(PropertyPageEx):
     def on_build_ex(self) -> ProjectPropertiesDataExchange:
         """Build the property page with a few controls."""
         # alignment for the first line
-        y = constants.TOP_MARGIN
+        y = c.TOP_MARGIN
         dy = 30
 
         # add a push button
-        pb = PushButton(self, 'PushButton', constants.LEFT_MARGIN, y)
+        pb = PushButton(self, 'PushButton', c.LEFT_MARGIN, y)
         self.controls.append(pb)
         y += dy
         # add a static + edit
@@ -63,7 +63,7 @@ class TestPropertyPage(PropertyPageEx):
         y += dy
         # add radio buttons
         order = self.add_group_radio_box(y, 'Order', [('1', '&First'), ('2', '&Second')])
-        y += constants.RADIO_BOX_DY
+        y += c.RADIO_BOX_DY
 
         # serialization
         pp = ProjectPropertiesDataExchange('MY_TOOL')

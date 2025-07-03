@@ -49,7 +49,7 @@ from scade.tool.suite.gui.widgets import (
     Widget,
 )
 
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 
 
 class PushButton(Button):
@@ -86,8 +86,8 @@ class PushButton(Button):
         name: str,
         x: int,
         y: int,
-        w: int = constants.BUTTON_WIDTH,
-        h: int = constants.BUTTON_HEIGHT,
+        w: int = c.BUTTON_WIDTH,
+        h: int = c.BUTTON_HEIGHT,
         **kwargs,
     ):
         """Initialize the push button with the given parameters."""
@@ -119,14 +119,14 @@ class Edit(EditBox):
         Other parameters of ``scade.tool.suite.gui.widgets.EditBox``.
     """
 
-    def __init__(self, owner, x: int, y: int, w: int, h: int = constants.EDIT_HEIGHT, **kwargs):
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.EDIT_HEIGHT, **kwargs):
         """Initialize the edit control with the given parameters."""
         super().__init__(owner, x, y, w, h, **kwargs)
         self.owner = owner
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN)
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
 
 
 class StaticEdit(Edit):
@@ -168,7 +168,7 @@ class StaticEdit(Edit):
         x: int,
         y: int,
         w: int,
-        h: int = constants.EDIT_HEIGHT,
+        h: int = c.EDIT_HEIGHT,
         **kwargs,
     ):
         """Initialize the static edit control with the given parameters."""
@@ -252,15 +252,15 @@ class FileSelector(StaticEdit):
         x: int,
         y: int,
         w: int,
-        h: int = constants.EDIT_HEIGHT,
+        h: int = c.EDIT_HEIGHT,
         reference: str = '',
         **kwargs,
     ):
         """Initialize the file selector with the given parameters."""
         super().__init__(
-            owner, text, wl, x, y, w - constants.DOTS_WIDTH - self._SEPARATOR, h, **kwargs
+            owner, text, wl, x, y, w - c.DOTS_WIDTH - self._SEPARATOR, h, **kwargs
         )
-        x_dots = x + w - constants.DOTS_WIDTH
+        x_dots = x + w - c.DOTS_WIDTH
         # so that borders are aligned
         y_dots = y - 1
         self.btn_dots = Button(
@@ -268,8 +268,8 @@ class FileSelector(StaticEdit):
             '...',
             x_dots,
             y_dots,
-            constants.DOTS_WIDTH,
-            constants.DOTS_HEIGHT,
+            c.DOTS_WIDTH,
+            c.DOTS_HEIGHT,
             on_click=self.on_click,
         )
         self.owner = owner
@@ -316,10 +316,10 @@ class FileSelector(StaticEdit):
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
         self.btn_dots.set_constraint(
-            Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN
+            Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN
         )
         self.btn_dots.set_constraint(
-            Widget.LEFT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN - constants.DOTS_WIDTH
+            Widget.LEFT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN - c.DOTS_WIDTH
         )
         self.set_constraint(Widget.RIGHT, self.btn_dots, Widget.LEFT, -self._SEPARATOR)
 
@@ -364,7 +364,7 @@ class CheckButton(CheckBox):
         x: int,
         y: int,
         w: int,
-        h: int = constants.CHECK_BUTTON_HEIGHT,
+        h: int = c.CHECK_BUTTON_HEIGHT,
         **kwargs,
     ):
         """Initialize the check button with the given parameters."""
@@ -398,7 +398,7 @@ class ComboBox(_ComboBox):
     """
 
     def __init__(
-        self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs
+        self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs
     ):
         """Initialize the combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
@@ -406,7 +406,7 @@ class ComboBox(_ComboBox):
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN)
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
 
 
 class ObjectComboBox(_ObjectComboBox):
@@ -438,7 +438,7 @@ class ObjectComboBox(_ObjectComboBox):
     """
 
     def __init__(
-        self, owner, x: int, y: int, w: int, h: int = constants.COMBO_BOX_HEIGHT, **kwargs
+        self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs
     ):
         """Initialize the object combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
@@ -448,7 +448,7 @@ class ObjectComboBox(_ObjectComboBox):
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN)
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
 
     def set_items(self, items: List[Any], names: Optional[List[str]] = None):
         """
@@ -517,11 +517,11 @@ class StaticComboBox(ComboBox):
         x: int,
         y: int,
         w: int,
-        h: int = constants.COMBO_BOX_HEIGHT,
+        h: int = c.COMBO_BOX_HEIGHT,
         **kwargs,
     ):
         """Initialize the static combo box with the given parameters."""
-        self.label = Label(owner, text, x, y + 4, wl, constants.STATIC_HEIGHT)
+        self.label = Label(owner, text, x, y + 4, wl, c.STATIC_HEIGHT)
         super().__init__(owner, x + wl, y, w - wl, h, **kwargs)
         self.owner = owner
 
@@ -570,7 +570,7 @@ class StaticObjectComboBox(ObjectComboBox):
         x: int,
         y: int,
         w: int,
-        h: int = constants.COMBO_BOX_HEIGHT,
+        h: int = c.COMBO_BOX_HEIGHT,
         style: Optional[List[str]] = None,
         **kwargs,
     ):
@@ -579,7 +579,7 @@ class StaticObjectComboBox(ObjectComboBox):
             style = []
         if 'dropdownlist' not in style:
             style.append('dropdownlist')
-        self.label = Label(owner, text, x, y + 4, wl, constants.STATIC_HEIGHT)
+        self.label = Label(owner, text, x, y + 4, wl, c.STATIC_HEIGHT)
         super().__init__(owner, x + wl, y, w - wl, h, style=style, **kwargs)
         self.owner = owner
 
@@ -630,15 +630,15 @@ class RadioBox(GroupBox):
         y: int,
         w: int,
         text: str = '',
-        h: int = constants.GROUP_RADIO_BOX_HEIGHT,
+        h: int = c.GROUP_RADIO_BOX_HEIGHT,
     ):
         """Initialize the radio box with the given parameters."""
         if text:
             # group visible
-            offset_x = constants.LEFT_MARGIN
-            offset_y = constants.STATIC_HEIGHT
+            offset_x = c.LEFT_MARGIN
+            offset_y = c.STATIC_HEIGHT
             # width for buttons
-            width = w - constants.LEFT_MARGIN - constants.RIGHT_MARGIN
+            width = w - c.LEFT_MARGIN - c.RIGHT_MARGIN
         else:
             # group not visible
             offset_x = 0
@@ -656,17 +656,17 @@ class RadioBox(GroupBox):
         x = x + offset_x
         y = y + offset_y
         for value, text in buttons:
-            button = RadioButton(owner, text, x, y, wb, constants.RADIO_BUTTON_HEIGHT)
+            button = RadioButton(owner, text, x, y, wb, c.RADIO_BUTTON_HEIGHT)
             self.buttons[value] = button
             x += wb
         Widget.group(self.buttons.values())
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -constants.RIGHT_MARGIN)
+        self.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
         prev = None
         count = len(self.buttons)
-        margin = constants.LEFT_MARGIN + constants.RIGHT_MARGIN if self.text else 0
+        margin = c.LEFT_MARGIN + c.RIGHT_MARGIN if self.text else 0
         for button in self.buttons.values():
             if prev:
                 button.set_constraint(Widget.LEFT, prev, Widget.RIGHT, 0)
@@ -753,7 +753,7 @@ class GroupRadioBox(RadioBox):
         x: int,
         y: int,
         w: int,
-        h: int = constants.GROUP_RADIO_BOX_HEIGHT,
+        h: int = c.GROUP_RADIO_BOX_HEIGHT,
     ):
         """Initialize the group radio box with the given parameters."""
         super().__init__(owner, buttons, x, y, w, text=text, h=h)
@@ -803,7 +803,7 @@ class StaticRadioBox(RadioBox):
         w: int,
     ):
         """Initialize the static radio box with the given parameters."""
-        self.label = Label(owner, text, x=x, y=y + 4, w=wl, h=constants.STATIC_HEIGHT)
+        self.label = Label(owner, text, x=x, y=y + 4, w=wl, h=c.STATIC_HEIGHT)
         super().__init__(owner, buttons, x + wl, y, w - wl)
 
     def set_visible(self, show: bool):

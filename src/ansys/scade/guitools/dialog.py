@@ -30,7 +30,7 @@ from enum import Enum
 from scade.tool.suite.gui.dialogs import Dialog
 from scade.tool.suite.gui.widgets import Button
 
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 
 
 class DS(Enum):
@@ -70,8 +70,8 @@ class DialogBox(Dialog):
         """Initialize the dialog box."""
         if not nc:
             # increase the bounding box with NC margins
-            width += constants.NC_RIGHT + constants.NC_LEFT
-            height += constants.NC_TOP + constants.NC_BOTTOM
+            width += c.NC_RIGHT + c.NC_LEFT
+            height += c.NC_TOP + c.NC_BOTTOM
         super().__init__(title, width, height, **kwargs)
 
         # store instantiation parameters
@@ -87,7 +87,7 @@ class DialogBox(Dialog):
 
         This corresponds to the width of its client area.
         """
-        return self.width - (constants.NC_RIGHT + constants.NC_LEFT)
+        return self.width - (c.NC_RIGHT + c.NC_LEFT)
 
     @property
     def bottom(self) -> int:
@@ -98,9 +98,9 @@ class DialogBox(Dialog):
         if there are no buttons, otherwise the vertical position
         of the bottom buttons.
         """
-        bottom = self.height - (constants.NC_TOP + constants.NC_BOTTOM)
+        bottom = self.height - (c.NC_TOP + c.NC_BOTTOM)
         if self._style != DS.NONE:
-            bottom -= constants.BUTTON_HEIGHT + constants.BOTTOM_MARGIN
+            bottom -= c.BUTTON_HEIGHT + c.BOTTOM_MARGIN
         return bottom
 
     def on_build(self):
@@ -119,19 +119,19 @@ class DialogBox(Dialog):
         selection = [_ for _ in descriptions if self._style in _[-1]]
         self._buttons = []
         # separation between two buttons
-        separator = constants.RIGHT_MARGIN
+        separator = c.RIGHT_MARGIN
         if selection:
             count = len(selection)
             # coordinates relative to the client area
             # dialog's dimensions include the non-client area
-            x = self.right - count * (constants.BUTTON_WIDTH + separator)
+            x = self.right - count * (c.BUTTON_WIDTH + separator)
             y = self.bottom
             for label, callback, _ in selection:
                 button = Button(
-                    self, label, x, y, constants.BUTTON_WIDTH, constants.BUTTON_HEIGHT, callback
+                    self, label, x, y, c.BUTTON_WIDTH, c.BUTTON_HEIGHT, callback
                 )
                 self._buttons.append(button)
-                x += constants.BUTTON_WIDTH + separator
+                x += c.BUTTON_WIDTH + separator
 
     def on_click_close(self, *args):
         """Close the dialog when Close is pressed."""

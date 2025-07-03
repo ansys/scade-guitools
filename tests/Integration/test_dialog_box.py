@@ -27,7 +27,7 @@
 from scade.tool.suite.gui.commands import Command
 from scade.tool.suite.gui.widgets import Button
 
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
 
 
@@ -82,17 +82,17 @@ class _TestDialogBox(DialogBox):
     def on_build_ex(self):
         """Build the dialog."""
         # add a button per style
-        x = constants.LEFT_MARGIN
-        y = constants.TOP_MARGIN
+        x = c.LEFT_MARGIN
+        y = c.TOP_MARGIN
         w = 200
-        h = constants.BUTTON_HEIGHT
+        h = c.BUTTON_HEIGHT
         for style in DS:
             Button(self, style.name, x, y, w, h, self.on_click_button)
-            y += constants.BUTTON_HEIGHT + constants.TOP_MARGIN
+            y += c.BUTTON_HEIGHT + c.TOP_MARGIN
 
         # add a Close button at the bottom-right position
-        w = constants.BUTTON_WIDTH
-        h = constants.BUTTON_HEIGHT
+        w = c.BUTTON_WIDTH
+        h = c.BUTTON_HEIGHT
         x = self.right - w
         y = self.bottom - h
         Button(self, '&Close', x, y, w, h, self.on_click_close)

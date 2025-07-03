@@ -29,7 +29,7 @@ from pathlib import Path
 from scade.model.project.stdproject import get_roots as get_projects
 
 from ansys.scade.guitools.control import FSM, PushButton
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.data import SettingsDataExchange
 from ansys.scade.guitools.page import SettingsPageEx
 
@@ -45,11 +45,11 @@ class TestSettingsPage(SettingsPageEx):
     def on_build_ex(self) -> SettingsDataExchange:
         """Build the settings page."""
         # alignment for the first line
-        y = constants.TOP_MARGIN
+        y = c.TOP_MARGIN
         dy = 30
 
         # add a push button
-        pb = PushButton(self, 'PushButton', constants.LEFT_MARGIN, y)
+        pb = PushButton(self, 'PushButton', c.LEFT_MARGIN, y)
         self.controls.append(pb)
         y += dy
         # add a static + edit
@@ -63,7 +63,7 @@ class TestSettingsPage(SettingsPageEx):
         # add a check button
         option = self.add_check_button(y, 'Option')
         # add a check button, same line, second column
-        self.add_check_button(y, 'Second Option', x=constants.LEFT_MARGIN + self.label_width)
+        self.add_check_button(y, 'Second Option', x=c.LEFT_MARGIN + self.label_width)
         y += dy
         # add a combo box control with the name of the files
         projects = get_projects()
@@ -81,7 +81,7 @@ class TestSettingsPage(SettingsPageEx):
         y += dy
         # add a group radio box
         grb = self.add_group_radio_box(y, 'Order', [('1', '&First'), ('2', '&Second')])
-        y += constants.RADIO_BOX_DY
+        y += c.RADIO_BOX_DY
         # add a static radio box
         srb = self.add_static_radio_box(
             y, 'Buttons', [('One', '&One'), ('Two', 'T&wo'), ('Three', '&Three')]

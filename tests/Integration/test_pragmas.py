@@ -28,7 +28,7 @@ from typing import Any, List
 
 import scade.model.suite as suite
 
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.data import ScadePropertiesDataExchange
 from ansys.scade.guitools.page import PropertyPageEx
 
@@ -42,22 +42,22 @@ class TestPragmaPropertyPage(PropertyPageEx):
     def on_build_ex(self) -> ScadePropertiesDataExchange:
         """Build the property page with a few controls."""
         # alignment for the first line
-        y = constants.TOP_MARGIN
+        y = c.TOP_MARGIN
 
         # add a static + edit
         target = self.add_static_edit(y, '&Target name:')
-        y += constants.DY
+        y += c.DY
         # add a static + edit
         id = self.add_static_edit(y, '&Id:')
-        y += constants.DY
+        y += c.DY
         # add a check button
         sync = self.add_check_button(y, '&Synchronize:')
-        y += constants.DY
+        y += c.DY
         # add radio buttons
         color = self.add_static_radio_box(
             y, '&Color', [('blue', '&Blue'), ('white', '&White'), ('red', '&Red')]
         )
-        y += constants.DY
+        y += c.DY
 
         # serialization
         pp = ScadePropertiesDataExchange('test_guitools')

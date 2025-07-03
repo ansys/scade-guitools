@@ -39,7 +39,7 @@ from ansys.scade.guitools.control import (
     StaticObjectComboBox,
     StaticRadioBox,
 )
-import ansys.scade.guitools.csts as constants
+import ansys.scade.guitools.csts as c
 from ansys.scade.guitools.dialog import DS, DialogBox
 
 
@@ -65,11 +65,11 @@ class _TestControl(DialogBox):
 
     def on_build_ex(self):
         """Build the dialog."""
-        x = constants.LEFT_MARGIN
-        y = constants.TOP_MARGIN
-        dy = constants.DY
+        x = c.LEFT_MARGIN
+        y = c.TOP_MARGIN
+        dy = c.DY
         wl = 150
-        w = self.right - constants.LEFT_MARGIN - constants.RIGHT_MARGIN
+        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         # add a push button
         PushButton(self, 'PushButton', x, y)
         y += dy
@@ -113,7 +113,7 @@ class _TestControl(DialogBox):
         # add a group radio box with two buttons
         grb = GroupRadioBox(self, 'Radio box', [('1', '&First'), ('2', '&Second')], x, y, w)
         grb.set_value('2')
-        y += constants.RADIO_BOX_DY
+        y += c.RADIO_BOX_DY
         # add a static radio box with three buttons
         srb = StaticRadioBox(
             self, 'Buttons', wl, [('One', '&One'), ('Two', 'T&wo'), ('Three', '&Three')], x, y, w
