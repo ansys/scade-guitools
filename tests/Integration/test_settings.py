@@ -84,7 +84,7 @@ class TestSettingsPage(SettingsPageEx):
         y += constants.RADIO_BOX_DY
         # add a static radio box
         srb = self.add_static_radio_box(
-            y, 'Buttons', [('One', '&One'), ('Two', '&Two'), ('Three', '&Three')]
+            y, 'Buttons', [('One', '&One'), ('Two', 'T&wo'), ('Three', '&Three')]
         )
         y += dy
 
