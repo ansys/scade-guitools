@@ -257,9 +257,7 @@ class FileSelector(StaticEdit):
         **kwargs,
     ):
         """Initialize the file selector with the given parameters."""
-        super().__init__(
-            owner, text, wl, x, y, w - c.DOTS_WIDTH - self._SEPARATOR, h, **kwargs
-        )
+        super().__init__(owner, text, wl, x, y, w - c.DOTS_WIDTH - self._SEPARATOR, h, **kwargs)
         x_dots = x + w - c.DOTS_WIDTH
         # so that borders are aligned
         y_dots = y - 1
@@ -315,9 +313,7 @@ class FileSelector(StaticEdit):
 
     def on_layout(self):
         """Declare the constraints with respect to the owner."""
-        self.btn_dots.set_constraint(
-            Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN
-        )
+        self.btn_dots.set_constraint(Widget.RIGHT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN)
         self.btn_dots.set_constraint(
             Widget.LEFT, self.owner, Widget.RIGHT, -c.RIGHT_MARGIN - c.DOTS_WIDTH
         )
@@ -397,9 +393,7 @@ class ComboBox(_ComboBox):
         Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
     """
 
-    def __init__(
-        self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs
-    ):
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
         """Initialize the combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner
@@ -437,9 +431,7 @@ class ObjectComboBox(_ObjectComboBox):
         Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
     """
 
-    def __init__(
-        self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs
-    ):
+    def __init__(self, owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs):
         """Initialize the object combo box with the given parameters."""
         super().__init__(owner, [], x, y, w, h, **kwargs)
         self.owner = owner

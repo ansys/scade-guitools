@@ -127,9 +127,7 @@ class DialogBox(Dialog):
             x = self.right - count * (c.BUTTON_WIDTH + separator)
             y = self.bottom
             for label, callback, _ in selection:
-                button = Button(
-                    self, label, x, y, c.BUTTON_WIDTH, c.BUTTON_HEIGHT, callback
-                )
+                button = Button(self, label, x, y, c.BUTTON_WIDTH, c.BUTTON_HEIGHT, callback)
                 self._buttons.append(button)
                 x += c.BUTTON_WIDTH + separator
 
