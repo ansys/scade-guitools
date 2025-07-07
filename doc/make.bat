@@ -12,6 +12,7 @@ set BUILDDIR=_build
 set APIDIR=api
 
 if "%1" == "" goto help
+if "%1" == "pdf" goto pdf
 if "%1" == "clean" goto clean
 
 %SPHINXBUILD% >NUL 2>NUL
@@ -28,6 +29,12 @@ if errorlevel 9009 (
 )
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
+
+:pdf
+%SPHINXBUILD% -M latex %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+cd "%BUILDDIR%\latex"
+for %%f in (*.tex) do (
+pdflatex "%%f" --interaction=nonstopmode)
 
 :clean
 rmdir /s /q %BUILDDIR% > /NUL 2>&1

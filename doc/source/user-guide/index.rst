@@ -5,11 +5,11 @@ The main purpose of Ansys SCADE GUI Tools is to facilitate the building of forms
 dialog boxes, settings pages or property pages.
 It defines a simple framework and addresses the following topics:
 
-* Build easily the controls in a consistent way
-* Layout controls, especially for resizable pages
-* Manage the persistence of edited data
+* Building the controls easily and in a consistent way
+* Controlling layout, especially for resizable pages
+* Managing the persistence of edited data
 
-A separate component, ``GuiHost`` allows grouping independent property pages into a single one, with a selector.
+A separate component, :ref:`guihost` allows grouping independent property pages into a single one, with a selector.
 This minimizes the number of property pages in the IDE while providing a certain consistency.
 
 Layout
@@ -76,14 +76,14 @@ For example, the following that adds a
 .. code-block:: python
 
     def on_build_ex(self):
-      # initial position and sizes
-      x = c.LEFT_MARGIN
-      y = c.TOP_MARGIN
-      # width of first column
-      wl = 100
-      # overall width: remove the margins
-      w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
-      ed_name = StaticEdit(self, 'Topic name:', wl, x, y, w)
+        # initial position and sizes
+        x = c.LEFT_MARGIN
+        y = c.TOP_MARGIN
+        # width of first column
+        wl = 100
+        # overall width: remove the margins
+        w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
+        ed_name = StaticEdit(self, "Topic name:", wl, x, y, w)
 
 Can be written as follows in the context of a property page:
 
@@ -91,7 +91,7 @@ Can be written as follows in the context of a property page:
 
     # initial position
     y = c.TOP_MARGIN
-    ed_name = self.add_static_edit(y, 'Topic name:')
+    ed_name = self.add_static_edit(y, "Topic name:")
 
 Persistence
 -----------
@@ -113,25 +113,27 @@ The :class:`DataExchange <ansys.scade.guitools.data.DataExchange>` base class de
 main binding services, specialized by derived classes for a usage
 in the context of settings or property pages.
 
-The following example illustrates the edition of two integration properties for a SCADE I/O:
+The following example illustrates the addition of two integration properties for a SCADE I/O:
 
 .. code-block:: python
 
     def on_build_ex(self) -> IPropertiesDataExchange:
         # build the controls
         y = csts.TOP_MARGIN
-        cb_topic = self.add_check_button(y, 'Is topic')
+        cb_topic = self.add_check_button(y, "Is topic")
         y += csts.DY
-        ed_name = self.add_static_edit(y, 'Topic name:')
+        ed_name = self.add_static_edit(y, "Topic name:")
         # persistence
-        pdx = ScadePropertiesDataExchange('my_pragma_id')
-        pdx.bind_control(cb_topic, name='topic', default=False)
-        pdx.bind_control(ed_name, name='name', default='')
+        pdx = ScadePropertiesDataExchange("my_pragma_id")
+        pdx.bind_control(cb_topic, name="topic", default=False)
+        pdx.bind_control(ed_name, name="name", default="")
 
         return pdx
 
-``GuiHost``
------------
+.. _guihost:
+
+GuiHost
+-------
 
 Consider the following use case: you design two SCADE Code Generator wrappers,
 one for ``DDS`` and the other one for ``gRPC``. You might want to add integration properties
@@ -187,11 +189,12 @@ That you can implement in your package's ``src/my/module/__init__.py`` as follow
     from pages import MyDDSPage
 
     PAGE_DDS = {
-        'page': 'Integration',
-        'category': 'DDS',
-        'class': MyDDSPage,
-        'version': 24200,
+        "page": "Integration",
+        "category": "DDS",
+        "class": MyDDSPage,
+        "version": 24200,
     }
+
 
     def pages() -> list:
         """Return the list of GuiHost client pages provided by this package."""

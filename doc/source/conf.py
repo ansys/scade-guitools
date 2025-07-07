@@ -49,7 +49,10 @@ html_theme_options = {
 }
 
 # Configuration for Sphinx autoapi
-# TODO autoapi_render_in_single_page = ["class", "enum", "exception", "function"]
+# TODO(Jean Henry): #026 is the issue number
+# https://github.com/ansys/scade-guitools/issues/26
+
+# autoapi_render_in_single_page = ["class", "enum", "exception", "function"]
 
 # Sphinx extensions
 extensions = [
@@ -66,13 +69,6 @@ suppress_warnings = ['autoapi.python_import_resolution']
 # Intersphinx mapping
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.10', None),
-    # kept here as an example
-    # "scipy": ("https://docs.scipy.org/doc/scipy/reference", None),
-    # "numpy": ("https://numpy.org/devdocs", None),
-    # "matplotlib": ("https://matplotlib.org/stable", None),
-    # "pandas": ("https://pandas.pydata.org/pandas-docs/stable", None),
-    # "pyvista": ("https://docs.pyvista.org/", None),
-    # "grpc": ("https://grpc.github.io/grpc/python/", None),
 }
 
 # numpydoc configuration
@@ -85,9 +81,10 @@ numpydoc_validate = True
 numpydoc_validation_checks = {
     'GL06',  # Found unknown section
     'GL07',  # Sections are in the wrong order.
-    # Disabled the docstring validation as most of the methods doesn't have the docstring
-    # TODO: Add docstring and enable GL08 validation
-    # "GL08",  # The object does not have a docstring
+    # TODO(Muhammed Adedigba): activate GL08 once numpydoc v1.9.0 bug is fixed
+    # https://github.com/numpy/numpydoc/issues/638
+    # https://github.com/ansys/scade-guitools/issues/26
+    #'GL08',  # The object does not have a docstring
     'GL09',  # Deprecation warning should precede extended summary
     'GL10',  # reST directives {directives} must be followed by two colons
     'SS01',  # No summary found
@@ -114,7 +111,8 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
-# TODO: remove ignore links after public release
+# TODO(Jean Henry): remove ignore links after public release
+# https://github.com/ansys/scade-guitools/issues/26
 linkcheck_ignore = [
     'https://github.com/ansys/scade-guitools',
     'https://github.com/ansys/scade-guitools/actions/workflows/ci_cd.yml',

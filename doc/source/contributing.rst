@@ -93,9 +93,9 @@ The following ``tox`` commands are provided:
 Use raw testing
 ^^^^^^^^^^^^^^^
 If required, from the command line, you can call style commands like
-`black`_, `isort`_, and `flake8`_. You can also call unit testing commands like `pytest`_.
-However, running these commands does not guarantee that your project is being tested in an
-isolated environment, which is the reason why tools like ``tox`` exist.
+`black`_, `isort`_, and `flake8`_.However, running these commands does
+not guarantee that your project is being tested in an isolated environment,
+which is the reason why tools like ``tox`` exist.
 
 Use ``pre-commit``
 ^^^^^^^^^^^^^^^^^^
@@ -118,13 +118,16 @@ This way, it's not possible for you to push code that fails the style checks::
   $ pre-commit install
   $ git commit -am "added my cool feature"
   Add License Headers......................................................Passed
-  ruff.....................................................................Passed
-  ruff-format..............................................................Passed
+  ruff check...............................................................Passed
+  ruff format..............................................................Passed
   codespell................................................................Passed
   check for merge conflicts................................................Passed
   debug statements (python)................................................Passed
   check yaml...............................................................Passed
   trim trailing whitespace.................................................Passed
+  Validate GitHub Workflows................................................Passed
+  check pre-commit.ci config...............................................Passed
+  blacken-docs.............................................................Passed
 
 Build documentation
 -------------------

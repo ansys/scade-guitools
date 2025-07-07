@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2021 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -67,6 +67,7 @@ class DialogBox(Dialog):
     def __init__(
         self, title: str, width: int, height: int, nc: bool = False, style: DS = DS.NONE, **kwargs
     ):
+        """Initialize the dialog box."""
         if not nc:
             # increase the bounding box with NC margins
             width += c.NC_RIGHT + c.NC_LEFT

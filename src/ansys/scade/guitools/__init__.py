@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2021 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -50,7 +50,7 @@ def get_srg_name() -> str:
     # registrations depending on Python interpreter
     python_version = str(sys.version_info.major) + str(sys.version_info.minor)
     suffix = '23r1' if python_version == '37' else '24r1'
-    return 'guitools%s.srg' % suffix
+    return f'guitools{suffix}.srg'
 
 
 def srg() -> str:

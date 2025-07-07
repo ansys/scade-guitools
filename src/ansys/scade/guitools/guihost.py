@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2021 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: MIT
 #
 #
@@ -53,6 +53,7 @@ class ProxyPageClient:
     """
 
     def __init__(self, category: str, client: IGuiHostClient):
+        """Initialize the proxy with a category and a client."""
         self.category = category
         self.client = client
 
@@ -78,6 +79,7 @@ class HostPage(PropertyPageEx):
     """
 
     def __init__(self, name: str, optional: bool, *args, **kwargs):
+        """Initialize the host page."""
         super().__init__(50, name=name, *args, **kwargs)
         self.optional = optional
 
@@ -260,7 +262,7 @@ def main():
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', str(e) + '\n')
-    scade.tabput('LOG', traceback.format_exc() + '\n')
+    scade.tabput('LOG', f'{e}\n')
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')
 else:
-    scade.tabput('LOG', 'Loading GUI Host %s\n' % __version__)
+    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')
