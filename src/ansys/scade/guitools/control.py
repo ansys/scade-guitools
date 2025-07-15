@@ -302,7 +302,7 @@ class FileSelector(StaticEdit):
         elif self.mode == FSM.OPEN:
             path = file_open(self.filter, directory)
         else:
-            assert self.mode == FSM.DIR
+            # assert self.mode == FSM.DIR
             path = browse_directory(directory)
         if path:
             if reference:

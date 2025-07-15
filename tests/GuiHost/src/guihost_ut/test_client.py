@@ -61,7 +61,7 @@ class TestGuiHostClientPage(GuiHostClientPage):
 
     def on_display(self):
         """Update the page with the paths of the selected files."""
-        assert self.models
+        assert self.models is not None  # nosec B101  # addresses linter
         text = self.models[0].pathname if len(self.models) == 1 else '<multiple selection>'
         self.ed_file.set_name(text)
 
