@@ -38,8 +38,8 @@ from typing import Tuple
 
 from ansys.scade.guitools import get_srg_name
 
-_APPDATA = os.getenv('APPDATA')
-assert _APPDATA
+# APPDATA must be defined
+_APPDATA = os.environ['APPDATA']
 
 
 def _register_srg_file(srg: Path, install: Path):

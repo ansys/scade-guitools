@@ -25,7 +25,7 @@
 """GUI server for property pages."""
 
 import traceback
-from typing import Any, List
+from typing import Any, Dict, List
 
 import scade
 
@@ -84,11 +84,11 @@ class HostPage(PropertyPageEx):
         self.optional = optional
 
         # registered clients
-        self.proxies = []  # type: List[ProxyPageClient]
+        self.proxies: List[ProxyPageClient] = []
         # active clients for the current selection, indexed by category
-        self.active_clients = {}  # type: Dict[str, ProxyPageClient]
+        self.active_clients: Dict[str, ProxyPageClient] = {}
         # active categories (sorted)
-        self.categories = []  # type: List[str]
+        self.categories: List[str] = []
         # current selected category
         self.category = ''
         # controls
@@ -259,10 +259,11 @@ def main():
         page.add_client(ProxyPageClient(category, cls))
 
 
+# scade is a CPython module defined dynamically
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', f'{e}\n')
-    scade.tabput('LOG', f'{traceback.format_exc()}\n')
+    scade.tabput('LOG', f'{e}\n')  # type: ignore
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')  # type: ignore
 else:
-    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')
+    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')  # type: ignore

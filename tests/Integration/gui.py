@@ -41,7 +41,8 @@ from test_properties import TestPropertyPage
 from test_settings import TestSettingsPage
 
 # display some banner
-scade.tabput('LOG', f'Loading integration tests for Ansys SCADE GUI Tools {__version__}.\n')
+# scade is a CPython module defined dynamically
+scade.tabput('LOG', f'Loading integration tests for Ansys SCADE GUI Tools {__version__}.\n')  # type: ignore
 
 
 def main():
@@ -74,7 +75,7 @@ class CommandAttachToDebugger(Command):
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', f'{e}\n')
-    scade.tabput('LOG', f'{traceback.format_exc()}\n')
+    scade.tabput('LOG', f'{e}\n')  # type: ignore
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')  # type: ignore
 else:
-    scade.tabput('LOG', f'Integration tests for Ansys SCADE GUI Tools {__version__} loaded.\n')
+    scade.tabput('LOG', f'Integration tests for Ansys SCADE GUI Tools {__version__} loaded.\n')  # type: ignore
