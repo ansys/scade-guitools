@@ -129,7 +129,7 @@ class DataExchange:
         """
         pfnget, pfnset = self.get_control_accessors(control)
         if pfnget:
-            assert pfnset
+            assert pfnset is not None  # nosec B101  # addresses linter
             if empty is None:
                 empty = default
             self.properties.append((pfnget, pfnset, name, default, empty))
@@ -244,7 +244,7 @@ class PragmaDataExchange(DataExchange):
             # defensive programming, json syntax error error not expected
             # assert False
             return
-        assert isinstance(data, dict)
+        assert isinstance(data, dict)  # nosec B101  # addresses linter
         for _, pfnset, name, default, empty in self.properties:
             value = data.get(name, default)
             if not value and empty:

@@ -74,7 +74,8 @@ class CommandExampleDialogBox(Command):
         # open the dialog box
         dlg.do_modal()
         # display the values
-        scade.tabput('LOG', f'f1 = "{dlg.f1}", f2 = "{dlg.f2}"\n')
+        # scade is a CPython module defined dynamically
+        scade.tabput('LOG', f'f1 = "{dlg.f1}", f2 = "{dlg.f2}"\n')  # type: ignore
 
 
 Menu([Command.SEPARATOR, CommandExampleDialogBox(), Command.SEPARATOR], '&Help/Examples')

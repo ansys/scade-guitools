@@ -25,7 +25,7 @@
 """GUI server for property pages."""
 
 import traceback
-from typing import Any, List
+from typing import Any, Dict, List
 
 import scade
 
@@ -84,11 +84,11 @@ class HostPage(PropertyPageEx):
         self.optional = optional
 
         # registered clients
-        self.proxies = []  # type: List[ProxyPageClient]
+        self.proxies: List[ProxyPageClient] = []
         # active clients for the current selection, indexed by category
-        self.active_clients = {}  # type: Dict[str, ProxyPageClient]
+        self.active_clients: Dict[str, ProxyPageClient] = {}
         # active categories (sorted)
-        self.categories = []  # type: List[str]
+        self.categories: List[str] = []
         # current selected category
         self.category = ''
         # controls
@@ -146,7 +146,7 @@ class HostPage(PropertyPageEx):
                 if not proxy.client.is_available(models):
                     if not models:
                         continue
-                assert proxy.client.is_available(models)
+                # assert proxy.client.is_available(models)
                 proxy.client.set_models(models)
 
     def on_build(self):
@@ -174,7 +174,7 @@ class HostPage(PropertyPageEx):
 
         Activate the last active client when possible.
         """
-        assert self.cb_clients
+        assert self.cb_clients is not None  # nosec B101  # addresses linter
         selected_proxy = self.active_clients.get(self.category)
         if not selected_proxy:
             self.category = self.categories[0]
@@ -196,7 +196,7 @@ class HostPage(PropertyPageEx):
 
     def on_layout(self):
         """Declare the contained control's constraints."""
-        assert self.cb_clients
+        assert self.cb_clients is not None  # nosec B101  # addresses linter
         self.cb_clients.on_layout()
         for proxy in self.active_clients.values():
             proxy.client.on_layout()
@@ -259,10 +259,11 @@ def main():
         page.add_client(ProxyPageClient(category, cls))
 
 
+# scade is a CPython module defined dynamically
 try:
     main()
 except BaseException as e:
-    scade.tabput('LOG', f'{e}\n')
-    scade.tabput('LOG', f'{traceback.format_exc()}\n')
+    scade.tabput('LOG', f'{e}\n')  # type: ignore
+    scade.tabput('LOG', f'{traceback.format_exc()}\n')  # type: ignore
 else:
-    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')
+    scade.tabput('LOG', f'Loading GUI Host {__version__}\n')  # type: ignore

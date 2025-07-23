@@ -287,7 +287,8 @@ class FileSelector(StaticEdit):
             # resolve the environment variables, if any
             return os.path.expandvars(name)
 
-        name = self.get_name()  # type: str  # wrong signature for get_name()
+        # wrong signature for Edit.get_name()
+        name: str = self.get_name()  # type: ignore
 
         name = expand_vars(name)
         directory = expand_vars(self.directory)
@@ -301,7 +302,7 @@ class FileSelector(StaticEdit):
         elif self.mode == FSM.OPEN:
             path = file_open(self.filter, directory)
         else:
-            assert self.mode == FSM.DIR
+            # assert self.mode == FSM.DIR
             path = browse_directory(directory)
         if path:
             if reference:
@@ -662,9 +663,13 @@ class RadioBox(GroupBox):
         for button in self.buttons.values():
             if prev:
                 button.set_constraint(Widget.LEFT, prev, Widget.RIGHT, 0)
-            # wrong signature for set_constraint(), mul parameter must be float
             button.set_constraint(
-                Widget.WIDTH, self, Widget.WIDTH, -int(margin / count), 1.0 / count
+                # wrong signature for set_constraint(), mul parameter must be float
+                Widget.WIDTH,
+                self,
+                Widget.WIDTH,
+                -int(margin / count),
+                1.0 / count,  # type: ignore
             )
             # button.set_constraint(Widget.WIDTH, self, Widget.WIDTH, 0, 1. / count)
             prev = button
