@@ -1,7 +1,10 @@
 name: GitHub CI
 on:
   pull_request:
-    types: [opened, reopened, synchronize, edited, labeled, closed]
+    # closed: removed since it might cancel the run related to merge on main
+    # --> skip doc-deploy-pr
+    # types: [opened, reopened, synchronize, edited, labeled, closed]
+    types: [opened, reopened, synchronize, edited, labeled]
   push:
     tags:
       - "*"
@@ -109,27 +112,28 @@ jobs:
           retention-days: 7
           if-no-files-found: error
 
-  doc-deploy-pr:
-    name: "Deploy PR documentation"
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    needs: doc-build
-    # Run when the PR is closed i.e. when doc-build job is skipped
-    # Also run only when appropriate label is added
-    if: |
-      always() &&
-      (needs.doc-build.result == 'success' || needs.doc-build.result == 'skipped') &&
-      contains(github.event.pull_request.labels.*.name, 'deploy-pr-doc')
-    steps:
-      - uses: ansys/actions/doc-deploy-pr@main
-        with:
-          cname: ${{ env.DOCUMENTATION_CNAME }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
-          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
-          maximum-pr-doc-deployments: 5
+  # temporary deployments are not deleted
+  # doc-deploy-pr:
+  #   name: "Deploy PR documentation"
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: write
+  #     pull-requests: write
+  #   needs: doc-build
+  #   # Run when the PR is closed i.e. when doc-build job is skipped
+  #   # Also run only when appropriate label is added
+  #   if: |
+  #     always() &&
+  #     (needs.doc-build.result == 'success' || needs.doc-build.result == 'skipped') &&
+  #     contains(github.event.pull_request.labels.*.name, 'deploy-pr-doc')
+  #   steps:
+  #     - uses: ansys/actions/doc-deploy-pr@main
+  #       with:
+  #         cname: ${{ env.DOCUMENTATION_CNAME }}
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+  #         bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+  #         maximum-pr-doc-deployments: 5
 
   build-library:
     name: "Build library basic example"
