@@ -38,7 +38,7 @@ keywords=["Scade", "IDE", "GUI", "Dialog", "Menu", "Toolbar", "Page", "Settings"
 [project.optional-dependencies]
 build = [
     "build==1.3.0",
-    "twine==6.1.0"
+    "twine==6.2.0"
 ]
 tests = [
     "debugpy",
