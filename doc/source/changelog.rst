@@ -9,6 +9,73 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.2.0 <https://github.com/ansys/scade-guitools/releases/tag/v2.2.0>`_ - October 17, 2025
+=========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Added
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Feat: tech review
+          - `#27 <https://github.com/ansys/scade-guitools/pull/27>`_
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Build(deps): bump numpydoc from 1.8.0 to 1.9.0 in the dependencies group
+          - `#29 <https://github.com/ansys/scade-guitools/pull/29>`_
+
+        * - Fix: license metadata specification
+          - `#30 <https://github.com/ansys/scade-guitools/pull/30>`_
+
+        * - Build(deps): Bump build from 1.2.2.post1 to 1.3.0 in the dependencies group
+          - `#33 <https://github.com/ansys/scade-guitools/pull/33>`_
+
+        * - Docs: Update ``CONTRIBUTORS.md`` with the latest contributors
+          - `#34 <https://github.com/ansys/scade-guitools/pull/34>`_
+
+        * - Ci: Deactivate doc-deploy-pr: prevent runs conflict when merging on main
+          - `#35 <https://github.com/ansys/scade-guitools/pull/35>`_
+
+        * - Ci: Bump the actions group with 4 updates
+          - `#37 <https://github.com/ansys/scade-guitools/pull/37>`_
+
+        * - Build(deps): Bump twine from 6.1.0 to 6.2.0 in the dependencies group
+          - `#38 <https://github.com/ansys/scade-guitools/pull/38>`_
+
+        * - Fix: Allow overriding default width when adding a check button to a page.
+          - `#39 <https://github.com/ansys/scade-guitools/pull/39>`_
+
+
+  .. tab-item:: Documentation
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - chore: update CHANGELOG for v2.1.0
+          - `#24 <https://github.com/ansys/scade-guitools/pull/24>`_
+
+
+  .. tab-item:: Test
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Fix: enhance robustness
+          - `#31 <https://github.com/ansys/scade-guitools/pull/31>`_
+
+
 `2.1.0 <https://github.com/ansys/scade-guitools/releases/tag/v2.1.0>`_ - May 22, 2025
 =====================================================================================
 
