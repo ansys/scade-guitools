@@ -130,7 +130,8 @@ class ContainerPage:
     def add_check_button(self, y: int, text: str, **kwargs) -> CheckButton:
         """Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page."""
         x = kwargs.pop('x', c.LEFT_MARGIN)
-        cb = CheckButton(self.page, text, x, y, _WF, **kwargs)
+        w = kwargs.pop('w', self.label_width)
+        cb = CheckButton(self.page, text, x, y, w, **kwargs)
         self.controls.append(cb)
         return cb
 
