@@ -1,0 +1,96 @@
+
+[Studio/Settings]
+
+"ShowAdvancedOptionPage"="true" 
+
+[Studio/Settings/Workspace]
+
+"DisplayStartupPage"="false" 
+
+[Scade/Styles/ScNetStyle2/Activation Block](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Activation Block/Activation]
+
+"FontColor"="(50,77,112)" 
+"FontBold"="false" 
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Assertion](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Assertion/Entity]
+
+"FontColor"="(216,0,0)" 
+
+[Scade/Styles/ScNetStyle2/Branch](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Branch/Entity]
+
+"FontColor"="(50,77,112)" 
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Action](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Action/Entity]
+
+"FontColor"="(50,77,112)" 
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Edge](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Edge/Entity]
+
+"FontColor"="(50,77,112)" 
+
+[Scade/Styles/ScNetStyle2/Predefined Operator](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Predefined Operator/Entity]
+
+"FillColor"="(152,198,231)" 
+
+[Scade/Styles/ScNetStyle2/Signal](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Signal/Entity]
+
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/State](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/State/Entity]
+
+"FillColor"="(174,180,210)" 
+
+[Scade/Styles/ScNetStyle2/Transition](kind=Style; Style=ScNetStyle2)
+
+
+[Scade/Styles/ScNetStyle2/Transition/Entity]
+
+"FontColor"="(50,77,112)" 
+
+[Scade/Styles/ScNetStyle2/Equation Set Style](kind=Style; Style=ScNetStyle2; BasedOn=Equation Set)
+
+
+[Scade/Styles/ScNetStyle2/Equation Set Style/Entity]
+
+"LineColor"="(0,0,128)" 
+"FillColor"="(0,0,128)" 
+"FontName"="Consolas" 
+"LineWidth"=2 
+"FontSize"=10 
+
+[Scade/Preferences/General]
+
+"DefaultType"="1" 
+
+[Scade/Preferences/General/FilesManagement]
+
+"AssocCreationFile"="false" 
+"PropagateNameChanges"="true" 
+"UseCreationDialogBox"="true" 

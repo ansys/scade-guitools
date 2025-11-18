@@ -118,7 +118,7 @@ source = ["ansys.scade.guitools"]
 show_missing = true
 
 [tool.pytest.ini_options]
-testpaths = "tests"
+testpaths = "tests/pytest"
 addopts = "-ra --cov=ansys.scade.guitools --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
 
 [tool.towncrier]

@@ -1,0 +1,29 @@
+{
+   "children": [
+      {
+         "children": [
+            {
+               "children": [
+                  {
+                     "children": [],
+                     "expanded": false,
+                     "icon_file": "",
+                     "name": "<Package> P",
+                     "user_date": null
+                  }
+               ],
+               "expanded": false,
+               "icon_file": "",
+               "name": "section",
+               "user_date": null
+            }
+         ],
+         "expanded": false,
+         "icon_file": "",
+         "name": "<Project> $(DIR)\\Model.etp",
+         "user_date": null
+      }
+   ],
+   "icon": "BROWSER.ico",
+   "name": "BROWSER"
+}
