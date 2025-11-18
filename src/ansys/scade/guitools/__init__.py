@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides a Python library for extending the Ansys SCADE IDE GUI."""
+"""Provides Python libraries to extend the Ansys SCADE IDE GUI."""
 
 from pathlib import Path
 import sys

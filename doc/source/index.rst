@@ -1,13 +1,13 @@
 Ansys SCADE GUI Tools
 =====================
 
-Ansys SCADE GUI Tools is a Python library for facilitating the development of
+Ansys SCADE GUI Tools is a Python library to facilitate the development of
 Ansys SCADE IDE graphical extensions, including:
 
 * Building of forms: dialog boxes, settings pages or property pages
 * Management of the persistence of edited data
 
-It embeds a SCADE Custom Extension, :ref:`guihost`, to group several property pages together.
+It also embeds a SCADE Custom Extension, :ref:`guihost`, to group several property pages together.
 
 Refer to *Customization-Related Python Commands* in section 5 of the *SCADE Python API Guide*
 in the SCADE Suite documentation for a complete reference on SCADE Python Extensions.

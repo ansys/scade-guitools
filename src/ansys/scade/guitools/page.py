@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Extension for the Page classes."""
+"""Provides an extension for the Page classes."""
 
 from abc import abstractmethod
 from collections.abc import Callable
@@ -335,7 +335,7 @@ class GuiHostClientPage(IGuiHostClient, ContainerPage):
         """
         Return a new list of models from the selection.
 
-        For example, replace selected graphical elements by their
+        For example, replaces selected graphical elements by their
         associated semantic ones.
 
         Parameters

@@ -2,15 +2,15 @@ User Guide
 ==========
 
 The main purpose of Ansys SCADE GUI Tools is to facilitate the building of forms in the SCADE IDE:
-dialog boxes, settings pages or property pages.
+dialog boxes, settings pages, or property pages.
 It defines a simple framework and addresses the following topics:
 
-* Building the controls easily and in a consistent way
+* Building controls easily and in a consistent way
 * Controlling layout, especially for resizable pages
 * Managing the persistence of edited data
 
-A separate component, :ref:`guihost` allows grouping independent property pages into a single one, with a selector.
-This minimizes the number of property pages in the IDE while providing a certain consistency.
+A separate component, :ref:`guihost`, allows grouping of independent property pages into a single one, with a selector.
+This minimizes the number of property pages in the IDE while providing consistency.
 
 Layout
 ------
@@ -22,7 +22,7 @@ The library promotes the construction of simple forms with the following structu
 
 The first column contains labels and the second one contains edit areas.
 The :mod:`csts <ansys.scade.guitools.csts>` module provides metrics, considered as guidelines
-for building consistent forms, such as:
+to build consistent forms, such as:
 
 * Margins
 * Vertical offset for lines
@@ -32,13 +32,13 @@ Controls
 --------
 
 The :mod:`control <ansys.scade.guitools.control>` module provides a set of controls
-that comply with the framework. For example, the :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` class
-bundles a static control for a label and an edit control for the value.
+that comply with the framework.
 
-The module provides several controls with the same pattern,
-for example :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>`.
+The module provides several controls with the same pattern.
+For example: the :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` class
+bundles a static control for a label and an edit control for the value and :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` has the same structure.
 
-The :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` control is more complex since
+The :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` control is more complex as
 it bundles an additional push button ``...`` to call the ``file_open`` and ``file_save`` functions
 from ``scade.tool.suite.gui.dialogs``.
 
@@ -70,7 +70,7 @@ the controls. The return value of this method is detailed in the next section.
 
 The page base classes define ``add_xxx`` methods to build controls in a simpler way.
 
-For example, the following that adds a
+For example, the following method that adds a
 :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control in a dialog:
 
 .. code-block:: python
@@ -85,7 +85,7 @@ For example, the following that adds a
         w = self.right - c.LEFT_MARGIN - c.RIGHT_MARGIN
         ed_name = StaticEdit(self, "Topic name:", wl, x, y, w)
 
-Can be written as follows in the context of a property page:
+can be written as follows in the context of a property page:
 
 .. code-block:: python
 
@@ -96,15 +96,13 @@ Can be written as follows in the context of a property page:
 Persistence
 -----------
 
-Dialog boxes are commonly used for prompting the user for command parameters.
-Settings and property pages aim at adding additional properties to a project or
+Dialog boxes are commonly used to prompt the user for command parameters.
+Settings and property pages aim at adding properties to a project or
 a model. Although these properties can be stored using a private syntax in a separate file,
 it is more convenient to use the means available in the SCADE environment:
 
-* Properties in a project file (ETP): These properties are usually attached to a project,
-  but they can apply to file or folders too. They can also be linked to a configuration.
-* Pragmas in a SCADE file (XSCADE or SCADE): These pragmas can be set to any model element
-  that is traceable. This corresponds more or less to any model element that can be selected
+* Properties in a project file (ETP): these properties are usually attached to a project, but they can also apply to file or folders. They can be linked to a configuration.
+* Pragmas in a SCADE file (XSCADE or SCADE): these pragmas can be set to any model element that is traceable. This corresponds more or less to any model element that can be selected
   in the SCADE browser.
 
 The :mod:`data <ansys.scade.guitools.data>` module provide classes for binding controls

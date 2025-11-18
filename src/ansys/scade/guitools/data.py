@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Extensions for the persistence of the settings and properties."""
+"""Provides extensions for the persistence of settings and properties."""
 
 from collections.abc import Callable
 from typing import (
@@ -41,13 +41,13 @@ from ansys.scade.guitools.control import ComboBox, ObjectComboBox, RadioBox
 from ansys.scade.guitools.interfaces import IPropertiesDataExchange, ISettingsDataExchange
 
 Getter = Callable[[], Any]
-"""Signature for getting control's value."""
+"""Signature for getting controls value."""
 Setter = Callable[[Any], None]
-"""Signature for setting control's value."""
+"""Signature for setting controls value."""
 
 
 class DataExchange:
-    """Base class for accessing controls' data."""
+    """Base class for accessing controls data."""
 
     def __init__(self):
         """Initialize the data exchange instance."""
@@ -64,7 +64,7 @@ class DataExchange:
         Parameters
         ----------
         control : Widget
-            input control
+            Input control.
 
         Returns
         -------
@@ -137,7 +137,7 @@ class DataExchange:
 
 class ToolPropDataExchange(DataExchange):
     """
-    Means for serializing values as project *tool properties*.
+    Means to serialize values as project *tool properties*.
 
     A *tool property* is a project property which name has the following syntax:
     ``@<TOOL>:<NAME>``, where ``<TOOL>`` is a name for discriminating homonymous
@@ -186,7 +186,7 @@ class ToolPropDataExchange(DataExchange):
 
 
 class SettingsDataExchange(ISettingsDataExchange, ToolPropDataExchange):
-    """Default implementation for managing the persistence of most usual controls in the project."""
+    """Default implementation to manage the persistence of most usual controls in the project."""
 
     def __init__(self, tool: str):
         """Initialize the settings data exchange instance."""
@@ -203,7 +203,7 @@ class SettingsDataExchange(ISettingsDataExchange, ToolPropDataExchange):
 
 
 class ProjectPropertiesDataExchange(IPropertiesDataExchange, ToolPropDataExchange):
-    """Default implementation for managing the persistence of most usual controls in the project."""
+    """Default implementation to manage the persistence of most usual controls in the project."""
 
     def __init__(self, tool: str):
         """Initialize the project properties data exchange instance."""
@@ -221,7 +221,7 @@ class ProjectPropertiesDataExchange(IPropertiesDataExchange, ToolPropDataExchang
 
 class PragmaDataExchange(DataExchange):
     """
-    Means for serializing values as SCADE Suite pragmas.
+    Means to serialize values as SCADE Suite pragmas.
 
     SCADE Suite pragmas are either text or XML. This class
     uses a textual pragma made of a json string.
@@ -264,7 +264,7 @@ class PragmaDataExchange(DataExchange):
 
 
 class ScadePropertiesDataExchange(IPropertiesDataExchange, PragmaDataExchange):
-    """Default implementation for managing the persistence of most usual controls in the model."""
+    """Default implementation to manage the persistence of most usual controls in the model."""
 
     def __init__(self, id: str):
         """Initialize the SCADE properties data exchange instance."""

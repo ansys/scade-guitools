@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""Provides extensions for existing controls or new ones."""
+"""Provides extensions for new or existing controls."""
 
 from enum import Enum
 import os
@@ -59,7 +59,7 @@ class PushButton(Button):
     Parameters
     ----------
     owner : Any
-        owner of the button
+        Owner of the button.
 
     name : str
         Name of the button.
@@ -101,7 +101,7 @@ class Edit(EditBox):
     Parameters
     ----------
     owner : Any
-        owner of the edit control
+        Owner of the edit control.
 
     x : int
         Horizontal position of the edit control.
@@ -136,7 +136,7 @@ class StaticEdit(Edit):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the static control.
@@ -195,7 +195,7 @@ class FileSelector(StaticEdit):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the static control.
@@ -333,7 +333,7 @@ class CheckButton(CheckBox):
     Parameters
     ----------
     owner : Any
-        owner of check button
+        Owner of check button.
 
     text : str
         Text of check button.
@@ -376,7 +376,7 @@ class ComboBox(_ComboBox):
     Parameters
     ----------
     owner : Any
-        owner of the combo box control
+        Owner of the combo box control.
 
     x : int
         Horizontal position of the combo box control.
@@ -408,13 +408,13 @@ class ObjectComboBox(_ObjectComboBox):
     """
     Defines an object combo box control with a default height and extensions for serialization.
 
-    This class provides an optional map for accessing an item with a string. This allows
+    This class provides an optional map to access an item with a string. This allows
     to persist the current selection in a file, or restore it from a value.
 
     Parameters
     ----------
     owner : Any
-        owner of the combo box control
+        Owner of the combo box control.
 
     x : int
         Horizontal position of the combo box control.
@@ -447,7 +447,7 @@ class ObjectComboBox(_ObjectComboBox):
         """
         Set the combo box items, with an optional mapping.
 
-        This mapping is used for serializing the selected item.
+        This mapping is used to serialize the selected item.
         """
         super().set_items(items)
         self.items = items
@@ -478,7 +478,7 @@ class StaticComboBox(ComboBox):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the static control.
@@ -531,7 +531,7 @@ class StaticObjectComboBox(ObjectComboBox):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the static control.
@@ -591,7 +591,7 @@ class RadioBox(GroupBox):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     buttons : list[tuple[str, str]]
         Descriptions of the buttons: value and text associated to the buttons.
@@ -606,7 +606,7 @@ class RadioBox(GroupBox):
         Width of the control.
 
     h : int
-        Height of the control, default 0
+        Height of the control, default 0.
 
     text : str
         Text of the group control, default empty.
@@ -718,7 +718,7 @@ class GroupRadioBox(RadioBox):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the group control.
@@ -765,7 +765,7 @@ class StaticRadioBox(RadioBox):
     Parameters
     ----------
     owner : Any
-        owner of the control
+        Owner of the control.
 
     text : str
         Text of the static control.

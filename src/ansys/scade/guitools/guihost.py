@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-"""GUI server for property pages."""
+"""Provides access to GUI server for property pages."""
 
 import traceback
 from typing import Any, Dict, List
