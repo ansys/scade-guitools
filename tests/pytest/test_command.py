@@ -26,7 +26,7 @@
 """
 Unit tests for Command abstraction.
 
-Make sure the module can be imported.
+Makes sure the module can be imported.
 """
 
 from ansys.scade.guitools.command import Command
