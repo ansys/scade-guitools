@@ -72,7 +72,11 @@ def run(ide: Ide):
     ide.tabput(tab_text, 'two\n')
     ide.output_log(tab_text, 'off')
     ref_ide = log_ide.with_suffix('.ref')
-    assert log_ide.read_text() == ref_ide.read_text()
+    if is_ide:
+        assert log_ide.read_text() == ref_ide.read_text()
+    else:
+        # not stubbed
+        pass
     # reports
     tab_report = 'REPORT'
     log_report = (cwd / tab_report).with_suffix('.log')
@@ -81,7 +85,11 @@ def run(ide: Ide):
     ide.report(op, op.get_full_path())
     ide.output_log(tab_report, 'off')
     ref_report = log_report.with_suffix('.ref')
-    assert log_report.read_text() == ref_report.read_text()
+    if is_ide:
+        assert log_report.read_text() == ref_report.read_text()
+    else:
+        # not stubbed
+        pass
     # browsers
     tab_browser = 'BROWSER'
     icon_file = (cwd / tab_browser).with_suffix('.ico')
