@@ -41,6 +41,11 @@ build = [
     "twine==6.2.0"
 ]
 tests = [
+    # 8.0.2 at most: https://github.com/microsoft/PTVS/issues/7853
+    "pytest >= 8.3.4; python_version >= '3.8'",
+    "pytest <= 7.4.4; python_version < '3.8'",
+    "pytest-cov >= 6.0.0; python_version >= '3.8'",
+    "pytest-cov <= 4.1.0; python_version < '3.8'",
     "debugpy",
 ]
 doc = [
