@@ -88,6 +88,31 @@ jobs:
           python-version: ${{ matrix.python-version }}
           attest-provenance: true
 
+  tests:
+    name: "Unit tests"
+    runs-on: [self-hosted, 'SCADE']
+    needs: [build-wheelhouse]
+    strategy:
+      matrix:
+        os: [windows-latest]
+        scade-version: ['25.2']
+      fail-fast: false
+    steps:
+      - name: "Install Git and clone project"
+        uses: actions/checkout@v5
+
+      - uses: ansys/scade-actions/scade-tests-pytest@v2
+        with:
+          checkout: false
+          scade-version: ${{ matrix.scade-version }}
+
+      - name: "Upload coverage reports to Codecov"
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ansys/scade-variants
+          files: .cov/xml
+
   doc-build:
     name: "Build documentation"
     runs-on: ubuntu-latest
@@ -139,7 +164,7 @@ jobs:
     name: "Build library basic example"
     runs-on: ubuntu-latest
     if: github.event.action != 'closed'
-    needs: [build-wheelhouse, doc-build]
+    needs: [tests, doc-build]
     permissions:
       attestations: write
       contents: read
