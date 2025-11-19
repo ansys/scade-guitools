@@ -31,6 +31,7 @@ to build consistent forms, such as:
 Controls
 --------
 .. vale off
+
 The :mod:`control <ansys.scade.guitools.control>` module provides a set of controls
 that comply with the framework.
 
