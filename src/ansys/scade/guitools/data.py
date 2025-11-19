@@ -41,9 +41,9 @@ from ansys.scade.guitools.control import ComboBox, ObjectComboBox, RadioBox
 from ansys.scade.guitools.interfaces import IPropertiesDataExchange, ISettingsDataExchange
 
 Getter = Callable[[], Any]
-"""Signature for getting controls value."""
+"""Signature for getting control value."""
 Setter = Callable[[Any], None]
-"""Signature for setting controls value."""
+"""Signature for setting control value."""
 
 
 class DataExchange:

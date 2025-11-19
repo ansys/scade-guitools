@@ -30,13 +30,15 @@ to build consistent forms, such as:
 
 Controls
 --------
-
+.. vale off
 The :mod:`control <ansys.scade.guitools.control>` module provides a set of controls
 that comply with the framework.
 
 The module provides several controls with the same pattern.
 For example: the :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` class
 bundles a static control for a label and an edit control for the value and :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` has the same structure.
+
+.. vale on
 
 The :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` control is more complex as
 it bundles an additional push button ``...`` to call the ``file_open`` and ``file_save`` functions
@@ -70,7 +72,7 @@ the controls. The return value of this method is detailed in the next section.
 
 The page base classes define ``add_xxx`` methods to build controls in a simpler way.
 
-For example, the following method that adds a
+For example, the following snippet that adds a
 :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control in a dialog:
 
 .. code-block:: python
