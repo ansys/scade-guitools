@@ -122,11 +122,18 @@ source = ["ansys.scade.guitools"]
 [tool.coverage.report]
 show_missing = true
 
-[tool.pytest.ini_options]
-testpaths = [
-    "tests/pytest",
+[tool.pytest]
+addopts = [
+    "--ignore=tests/GuiHost",
+    "--ignore=tests/Integration",
+    "-ra",
+    "--cov=ansys.scade.guitools",
+    "--cov-branch",
+    "--cov-report=html:.cov/html",
+    "--cov-report=xml:.cov/xml",
+    "--cov-report=term",
+    "-vv",
 ]
-addopts = "-ra --cov=ansys.scade.guitools --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
 
 [tool.towncrier]
 package = "ansys.scade.guitools"
