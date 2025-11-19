@@ -23,10 +23,12 @@
 # SOFTWARE.
 
 """
-SCADE IDE Command base class.
+Provides a SCADE IDE Command base class.
 
-This module provides a stub when a commands are instantiated in a command line
-environment, for unit testing for example.
+This module provides Command base class that stubs
+``scade.tool.suite.gui.commands.Command`` when not available.
+
+This allows to create unit tests for commands.
 """
 
 from ansys.scade.guitools.ide import Ide
@@ -39,7 +41,7 @@ except ImportError:
     scade.output('IDE stub activated\n')  # type: ignore
 
     class _Command:
-        """Stub for scade.tool.suite.gui.commands.Command."""
+        """Stub for ``scade.tool.suite.gui.commands.Command``."""
 
         def __init__(
             self,
