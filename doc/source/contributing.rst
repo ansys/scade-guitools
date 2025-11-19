@@ -85,15 +85,15 @@ to guarantee the project's integrity.
 
 The following ``tox`` commands are provided:
 
-* ``tox -e code-style``: Checks for coding style quality.
-* ``tox -e doc``: Checks for the documentation-building process.
-   * ``tox -e doc-html``: Builds the HTML documentation.
-   * ``tox -e doc-links``: Checks for broken links in the documentation.
+* ``tox -e code-style``: checks for coding style quality.
+* ``tox -e doc``: checks for the documentation-building process.
+   * ``tox -e doc-html``: builds the HTML documentation.
+   * ``tox -e doc-links``: checks for broken links in the documentation.
 
 Use raw testing
 ^^^^^^^^^^^^^^^
 If required, from the command line, you can call style commands like
-`black`_, `isort`_, and `flake8`_.However, running these commands does
+`black`_, `isort`_, and `flake8`_. However, running these commands does
 not guarantee that your project is being tested in an isolated environment,
 which is the reason why tools like ``tox`` exist.
 
@@ -113,7 +113,7 @@ You can also install this as a pre-commit hook by running this command::
 
   pre-commit install
 
-This way, it's not possible for you to push code that fails the style checks::
+This way, it is not possible for you to push code that fails the style checks::
 
   $ pre-commit install
   $ git commit -am "added my cool feature"
@@ -231,13 +231,13 @@ Use the `Ansys SCADE GUI Tools Issues <https://github.com/ansys/scade-guitools/i
 page to submit questions, report bugs, and request new features. When possible, use
 these templates:
 
-* Bug, problem, error: For filing a bug report
-* Documentation error: For requesting modifications to the documentation
-* Adding an example: For proposing a new example
-* New feature: For requesting enhancements to the code
+* Bug, problem, error: to file a bug report
+* Documentation error: to request modifications to the documentation
+* Adding an example: to propose a new example
+* New feature: to request enhancements to the code
 
 If your issue does not fit into one of these template categories, click
-the link for opening a blank issue.
+the link to open a blank issue.
 
 To reach the project support team, email `pyansys.core@ansys.com <pyansys.core@ansys.com>`_.
 
