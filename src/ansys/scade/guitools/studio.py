@@ -193,7 +193,7 @@ class Studio(Ide):
 
     @selection.setter
     def selection(self, selection: List[Any]):
-        """Stub scade.selection."""
+        """Stub ``scade.selection``."""
         scade.selection = selection
 
     def set_decoration(self, object_: suite.Object, name: str):
@@ -230,35 +230,35 @@ class Studio(Ide):
     def message_box(
         self, name: str, message: str, style: str = 'ok', icon: str = 'information'
     ) -> int:
-        """Stub scade.tool.suite.gui.dialogs.message_box."""
+        """Stub ``scade.tool.suite.gui.dialogs.message_box``."""
         return 0
 
     def file_open(self, filter: str = '', directory: str = '') -> str:
-        """Stub scade.tool.suite.gui.dialogs.file_open."""
+        """Stub ``scade.tool.suite.gui.dialogs.file_open``."""
         return ''
 
     def file_save(
         self, file_name: str, extension: str = '', directory: str = '', filter: str = ''
     ) -> str:
-        """Stub scade.tool.suite.gui.dialogs.file_save."""
+        """Stub ``scade.tool.suite.gui.dialogs.file_save``."""
         return ''
 
     def browse_directory(self, initial_directory: str = '') -> str:
-        """Stub scade.tool.suite.gui.dialogs.browse_directory."""
+        """Stub ``scade.tool.suite.gui.dialogs.browse_directory``."""
         return ''
 
     # Callback Registration
 
     def register_terminate_callable(self, callable):
-        """Stub scade.tool.suite.gui.register_terminate_callable."""
+        """Stub ``scade.tool.suite.gui.register_terminate_callable``."""
         pass
 
     def register_load_model_callable(self, callable):
-        """Stub scade.tool.suite.gui.register_load_model_callable."""
+        """Stub ``scade.tool.suite.gui.register_load_model_callable``."""
         pass
 
     def register_unload_model_callable(self, callable):
-        """Stub scade.tool.suite.gui.register_unload_model_callable."""
+        """Stub ``scade.tool.suite.gui.register_unload_model_callable``."""
         pass
 
     # API-Related Python Commands

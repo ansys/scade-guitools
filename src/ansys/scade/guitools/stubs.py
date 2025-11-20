@@ -87,7 +87,7 @@ class StubIde(Ide):
         name: str = '',
         icon_file: str = '',
     ):
-        """Stub scade.browser_report."""
+        """Stub ``scade.browser_report``."""
         assert self.browser_items is not None
         if isinstance(child_object, str):
             child = child_object
@@ -128,7 +128,7 @@ class StubIde(Ide):
         keep: bool = False,
         callback: Callable[[Any, Any], None] = None,  # type: ignore
     ):
-        """Stub scade.create_browser."""
+        """Stub ``scade.create_browser``."""
         self.browser = {
             'name': name,
             'icon': Path(icon_file).name if icon_file else '',
@@ -137,16 +137,16 @@ class StubIde(Ide):
         self.browser_items = {None: self.browser}
 
     def create_report(self, tab_name: str, *header: Tuple[str, int, int], check: bool = False):
-        """Stub scade.create_report."""
+        """Stub ``scade.create_report``."""
         self.report_tab = tab_name
         self.report_items = [[_[0] for _ in header]]
 
     def get_active_configuration(self, project: Project, tool_name: str) -> Optional[Configuration]:
-        """Stub scade.get_active_configuration."""
+        """Stub ``scade.get_active_configuration``."""
         return None
 
     def get_active_project(self) -> Project:
-        """Stub scade.get_active_project."""
+        """Stub ``scade.get_active_project``."""
         assert self.project is not None
         return self.project
 
@@ -212,7 +212,7 @@ class StubIde(Ide):
         self.decorations.append(name)
 
     def report(self, item: Any, *columns: str):
-        """Stub scade.report."""
+        """Stub ``scade.report``."""
         self.report_items.append([item] + list(columns))
 
     @property
@@ -222,7 +222,7 @@ class StubIde(Ide):
 
     @selection.setter
     def selection(self, selection: List[Any]):
-        """Stub scade.selection."""
+        """Stub ``scade.selection``."""
         self._selection = selection
 
     def set_decoration(self, object_: suite.Object, name: str):
@@ -249,7 +249,7 @@ class StubIde(Ide):
     def version(
         self, kind: str
     ) -> str:  # 'number' | 'folderName' | 'buildNumber' | 'endYear' | 'versionName' | 'copyright'
-        """Stub scade.version."""
+        """Stub ``scade.version``."""
         mapping = {
             'number': 'SCADE_STUDIO_NUMBER',
             'folderName': 'INSTALL_FOLDER',
@@ -300,11 +300,11 @@ class StubIde(Ide):
     # API-Related Python Commands
 
     def get_projects(self) -> List[Project]:
-        """Stub scade.model.project.stdproject.get_roots."""
+        """Stub ``scade.model.project.stdproject.get_roots``."""
         return [self.get_active_project()]
 
     def get_sessions(self) -> List[suite.Session]:
-        """Stub scade.model.suite.get_roots."""
+        """Stub ``scade.model.suite.get_roots``."""
         assert self.session is not None
         return [self.session]
 
