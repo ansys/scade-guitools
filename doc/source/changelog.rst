@@ -9,6 +9,41 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.3.0 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.0>`_ - November 20, 2025
+==========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Chore: update CHANGELOG for v2.2.0
+          - `#40 <https://github.com/ansys/scade-guitools/pull/40>`_
+
+        * - Ci: bump the actions group with 3 updates
+          - `#41 <https://github.com/ansys/scade-guitools/pull/41>`_
+
+        * - Build(deps): update sphinx-autoapi requirement from <=3.6.0 to <=3.6.1 in the dependencies group
+          - `#42 <https://github.com/ansys/scade-guitools/pull/42>`_
+
+        * - Docs: Documentation review and modifications scade-guitools
+          - `#43 <https://github.com/ansys/scade-guitools/pull/43>`_
+
+
+  .. tab-item:: Test
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Feat: Add an abstraction for SCADE specific commands for Python scripting
+          - `#44 <https://github.com/ansys/scade-guitools/pull/44>`_
+
+
 `2.2.0 <https://github.com/ansys/scade-guitools/releases/tag/v2.2.0>`_ - October 17, 2025
 =========================================================================================
 
