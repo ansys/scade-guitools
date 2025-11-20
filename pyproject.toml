@@ -41,6 +41,10 @@ build = [
     "twine==6.2.0"
 ]
 tests = [
+    "pytest >= 9.0.1; python_version >= '3.8'",
+    "pytest <= 7.4.4; python_version < '3.8'",
+    "pytest-cov >= 6.0.0; python_version >= '3.8'",
+    "pytest-cov <= 4.1.0; python_version < '3.8'",
     "debugpy",
 ]
 doc = [
@@ -117,9 +121,18 @@ source = ["ansys.scade.guitools"]
 [tool.coverage.report]
 show_missing = true
 
-[tool.pytest.ini_options]
-testpaths = "tests"
-addopts = "-ra --cov=ansys.scade.guitools --cov-report html:.cov/html --cov-branch --cov-report xml:.cov/xml --cov-report term -vv"
+[tool.pytest]
+addopts = [
+    "--ignore=tests/GuiHost",
+    "--ignore=tests/Integration",
+    "-ra",
+    "--cov=ansys.scade.guitools",
+    "--cov-branch",
+    "--cov-report=html:.cov/html",
+    "--cov-report=xml:.cov/xml",
+    "--cov-report=term",
+    "-vv",
+]
 
 [tool.towncrier]
 package = "ansys.scade.guitools"

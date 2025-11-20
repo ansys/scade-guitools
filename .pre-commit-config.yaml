@@ -40,7 +40,10 @@ repos:
   - id: debug-statements
   - id: check-yaml
   - id: trailing-whitespace
-    exclude: (?x)^(.*\.tot)$
+    exclude: (?x)^(
+            .*\.tot|
+            .*ide/TEXT.ref
+        )$
 
 - repo: https://github.com/python-jsonschema/check-jsonschema
   rev: 0.33.1

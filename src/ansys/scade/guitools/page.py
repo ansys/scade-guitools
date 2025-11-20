@@ -25,8 +25,7 @@
 """Provides an extension for the Page classes."""
 
 from abc import abstractmethod
-from collections.abc import Callable
-from typing import Any, List, Optional, Tuple, Union
+from typing import Any, Callable, List, Optional, Tuple, Union
 
 from scade.model.project.stdproject import Configuration, Project
 from scade.tool.suite.gui.properties import Page as PropertyPage

@@ -24,9 +24,9 @@
 
 """Provides extensions for the persistence of settings and properties."""
 
-from collections.abc import Callable
 from typing import (
     Any,
+    Callable,
     List,  # noqa: F401  # used in a typing annotation
     Optional,
     Tuple,
