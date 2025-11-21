@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="ansys-scade-guitools"
-version="2.3.0"
+version="2.3.1"
 description ="Python library for extending the Ansys SCADE IDE GUI."
 readme="README.rst"
 
