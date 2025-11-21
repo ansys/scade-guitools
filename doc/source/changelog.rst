@@ -9,6 +9,22 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.3.1 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.1>`_ - November 21, 2025
+==========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Chore: Fix project classifiers
+          - `#46 <https://github.com/ansys/scade-guitools/pull/46>`_
+
+
 `2.3.0 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.0>`_ - November 20, 2025
 ==========================================================================================
 
