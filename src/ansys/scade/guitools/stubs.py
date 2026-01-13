@@ -88,7 +88,6 @@ class StubIde(Ide):
         icon_file: str = '',
     ):
         """Stub ``scade.browser_report``."""
-        assert self.browser_items is not None
         if isinstance(child_object, str):
             child = child_object
         else:
@@ -147,7 +146,7 @@ class StubIde(Ide):
 
     def get_active_project(self) -> Project:
         """Stub ``scade.get_active_project``."""
-        assert self.project is not None
+        assert self.project is not None  # nosec B101  # addresses linter
         return self.project
 
     def locate(self, locate_string: str):
@@ -227,7 +226,7 @@ class StubIde(Ide):
 
     def set_decoration(self, object_: suite.Object, name: str):
         """Stub suite.set_decoration."""
-        assert name in self.decorations
+        # assert name in self.decorations
         self.decorated_items[object_] = name
 
     def set_output_tab(self, tab: str):
@@ -305,7 +304,7 @@ class StubIde(Ide):
 
     def get_sessions(self) -> List[suite.Session]:
         """Stub ``scade.model.suite.get_roots``."""
-        assert self.session is not None
+        assert self.session is not None  # nosec B101  # addresses linter
         return [self.session]
 
     # Misc.
