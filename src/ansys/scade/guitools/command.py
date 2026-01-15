@@ -59,6 +59,10 @@ except ImportError:
             """Return whether the command can be activated, ``True`` by default."""
             return True
 
+        def on_activate(self):
+            """Run the command."""
+            pass
+
 
 class Command(_Command):
     """
