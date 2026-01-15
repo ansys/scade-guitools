@@ -9,19 +9,19 @@
                      "expanded": false,
                      "icon_file": "",
                      "name": "<Package> P",
-                     "user_date": null
+                     "user_data": null
                   }
                ],
                "expanded": false,
                "icon_file": "",
                "name": "section",
-               "user_date": null
+               "user_data": null
             }
          ],
          "expanded": false,
          "icon_file": "",
          "name": "<Project> $(DIR)\\Model.etp",
-         "user_date": null
+         "user_data": null
       }
    ],
    "icon": "BROWSER.ico",
