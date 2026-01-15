@@ -104,7 +104,7 @@ class StubIde(Ide):
             'name': child,
             'icon_file': Path(icon_file).name if icon_file else '',
             'expanded': expanded,
-            'user_date': user_data,
+            'user_data': user_data,
             'children': [],
         }
         parent['children'].append(entry)
