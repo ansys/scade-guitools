@@ -9,6 +9,57 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.3.3 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.3>`_ - January 16, 2026
+=========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Maintenance missing or outdated \`check-vulnerabilities\` and \`check-actions-security\` ansys actions in ansys/scade-guitools (#32, #26)
+          - `#55 <https://github.com/ansys/scade-guitools/pull/55>`_
+
+
+  .. tab-item:: Miscellaneous
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Chore: update CHANGELOG for v2.3.1
+          - `#47 <https://github.com/ansys/scade-guitools/pull/47>`_
+
+        * - Docs: Update \`\`CONTRIBUTORS.md\`\` with the latest contributors
+          - `#48 <https://github.com/ansys/scade-guitools/pull/48>`_
+
+        * - Chore: Update missing or outdated files
+          - `#49 <https://github.com/ansys/scade-guitools/pull/49>`_
+
+        * - Ci: bump the actions group with 3 updates
+          - `#50 <https://github.com/ansys/scade-guitools/pull/50>`_
+
+        * - Fix: Enhance robustness
+          - `#53 <https://github.com/ansys/scade-guitools/pull/53>`_
+
+        * - Feat: Stub \`Command.on_activate\`
+          - `#54 <https://github.com/ansys/scade-guitools/pull/54>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Chore: Update license headers
+          - `#52 <https://github.com/ansys/scade-guitools/pull/52>`_
+
+
 `2.3.1 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.1>`_ - November 21, 2025
 ==========================================================================================
 
