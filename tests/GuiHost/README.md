@@ -19,7 +19,7 @@ It declares client pages.
 * Verify the `Messages` output tab displays the following text:
 
   ```
-  Loading GUI Host 2.3.2
+  Loading GUI Host 2.3.3
   ```
 * Open ``Project.vsw``
 
