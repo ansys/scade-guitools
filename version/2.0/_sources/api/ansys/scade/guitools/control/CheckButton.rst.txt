@@ -1,0 +1,136 @@
+
+
+
+
+
+
+:class:`CheckButton`
+====================
+
+.. py:class:: ansys.scade.guitools.control.CheckButton(owner, text: str, x: int, y: int, w: int, h: int = c.CHECK_BUTTON_HEIGHT, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.widgets.CheckBox`
+
+
+   
+   Defines a check box control with a default height.
+
+
+   :Parameters:
+
+       **owner** : :obj:`Any`
+           owner of check button
+
+       **text** : :class:`python:str`
+           Text of check button.
+
+       **x** : :class:`python:int`
+           Horizontal position of the check button.
+
+       **y** : :class:`python:int`
+           Vertical position of the check button.
+
+       **w** : :class:`python:int`
+           Width of the check button.
+
+       **h** : :class:`python:int`
+           Height of the check button, default csts.CHECK_BUTTON_HEIGHT.
+
+       **kwargs** : :obj:`Any`
+           Other parameters of ``scade.tool.suite.gui.widgets.CheckBox``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: CheckButton
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_layout`
+            - Declare the constraints with respect to the owner.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~owner`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import CheckButton
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: owner
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_layout()
+
+   
+   Declare the constraints with respect to the owner.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

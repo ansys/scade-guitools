@@ -1,0 +1,233 @@
+
+
+
+
+
+
+:class:`SettingsPageEx`
+=======================
+
+.. py:class:: ansys.scade.guitools.page.SettingsPageEx(label_width: int, *args, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.settings.Page`, :py:obj:`ContainerPage`
+
+
+   
+   Provides a base class for settings pages.
+
+   It introduces a new abstract method that must be implemented
+   for building the controls.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+.. py:currentmodule:: SettingsPageEx
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build_ex`
+            - Build the controls and return an optional object for managing the persistence.
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build`
+            - Build the settings page.
+          * - :py:attr:`~on_display`
+            - Update the page with the properties read from the project.
+          * - :py:attr:`~on_layout`
+            - Specify how controls are moved or resized.
+          * - :py:attr:`~on_validate`
+            - Update the project with the properties read from the page.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~ddx`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.page import SettingsPageEx
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: ddx
+   :type:  Optional[ansys.scade.guitools.interfaces.ISettingsDataExchange]
+   :value: None
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_build()
+
+   
+   Build the settings page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_build_ex() -> Optional[ansys.scade.guitools.interfaces.ISettingsDataExchange]
+   :abstractmethod:
+
+
+   
+   Build the controls and return an optional object for managing the persistence.
+
+
+
+
+
+   :Returns:
+
+       :obj:`Optional`\[:obj:`ISettingsDataExchange`]
+           Object for exchanging data between the project and the controls.
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_display(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+
+   
+   Update the page with the properties read from the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_layout()
+
+   
+   Specify how controls are moved or resized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_validate(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+
+   
+   Update the project with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

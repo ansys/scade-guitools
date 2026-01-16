@@ -1,0 +1,92 @@
+
+
+
+
+
+
+The ``interfaces.py`` module
+============================
+
+.. py:module:: ansys.scade.guitools.interfaces
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: interfaces
+.. tab-set::
+
+
+
+    .. tab-item:: Interfaces
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.interfaces.IGuiHostClient`
+            - Defines the interface for hosted pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.interfaces.IPropertiesDataExchange`
+            - Interface for exchanging data between a property page and the model.
+
+
+          * - :py:obj:`~ansys.scade.guitools.interfaces.ISettingsDataExchange`
+            - Interface for exchanging data between a settings page and the model.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_interface"></span> IGuiHostClient</api/ansys/scade/guitools/interfaces/IGuiHostClient>
+    <span class="nf nf-cod-symbol_interface"></span> IPropertiesDataExchange</api/ansys/scade/guitools/interfaces/IPropertiesDataExchange>
+    <span class="nf nf-cod-symbol_interface"></span> ISettingsDataExchange</api/ansys/scade/guitools/interfaces/ISettingsDataExchange>
+
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Interfaces for GUI Host pages and data persistence.
+
+
+
+
+
+
+
+
