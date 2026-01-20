@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name="guihost-ut"
-version="2.3.3"
+version="2.3.4"
 description ="GuiHost client pages for tests."
 readme="README.md"
 
