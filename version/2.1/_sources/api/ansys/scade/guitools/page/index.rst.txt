@@ -1,0 +1,172 @@
+
+
+
+
+
+
+The ``page.py`` module
+======================
+
+.. py:module:: ansys.scade.guitools.page
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: page
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.ContainerPage`
+            - Base class for property or settings pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.GuiHostClientPage`
+            - Default implementation for GuiHost pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.PropertyPageEx`
+            - Provides a base class for property pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.SettingsPageEx`
+            - Provides a base class for settings pages.
+
+
+
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~Getter`
+            - Signature for getting control's value.
+
+
+          * - :py:obj:`~Page`
+            - 
+
+
+          * - :py:obj:`~Setter`
+            - Signature for setting control's value.
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> ContainerPage</api/ansys/scade/guitools/page/ContainerPage>
+    <span class="nf nf-cod-symbol_class"></span> GuiHostClientPage</api/ansys/scade/guitools/page/GuiHostClientPage>
+    <span class="nf nf-cod-symbol_class"></span> PropertyPageEx</api/ansys/scade/guitools/page/PropertyPageEx>
+    <span class="nf nf-cod-symbol_class"></span> SettingsPageEx</api/ansys/scade/guitools/page/SettingsPageEx>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Extension for the Page classes.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: Getter
+
+   
+   Signature for getting control's value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: Page
+
+.. py:data:: Setter
+
+   
+   Signature for setting control's value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+

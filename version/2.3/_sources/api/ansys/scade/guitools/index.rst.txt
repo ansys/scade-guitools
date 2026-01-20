@@ -1,0 +1,186 @@
+
+
+
+
+
+
+The ``ansys.scade.guitools`` library
+====================================
+
+.. py:module:: ansys.scade.guitools
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: guitools
+.. tab-set::
+
+
+    .. tab-item:: Submodules
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.command`
+            - Provides a SCADE IDE Command base class.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control`
+            - Provides extensions for new or existing controls.
+
+
+          * - :py:obj:`~ansys.scade.guitools.csts`
+            - Provides default metrics for designing dialog boxes and controls.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data`
+            - Provides extensions for the persistence of settings and properties.
+
+
+          * - :py:obj:`~ansys.scade.guitools.dialog`
+            - Provides an extension for the Dialog class.
+
+
+          * - :py:obj:`~ansys.scade.guitools.enable_debugpy`
+            - Enables remote debugging with ``debugpy``.
+
+
+          * - :py:obj:`~ansys.scade.guitools.guihost`
+            - Provides access to GUI server for property pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.ide`
+            - SCADE IDE abstraction.
+
+
+          * - :py:obj:`~ansys.scade.guitools.interfaces`
+            - Interfaces for GUI Host pages and data persistence.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page`
+            - Provides an extension for the Page classes.
+
+
+          * - :py:obj:`~ansys.scade.guitools.register`
+            - Registers the Ansys SCADE GUI Tools extension registry files (SRG).
+
+
+          * - :py:obj:`~ansys.scade.guitools.stubs`
+            - Stubs for unit tests.
+
+
+          * - :py:obj:`~ansys.scade.guitools.studio`
+            - ``Ide`` interface implementation.
+
+
+          * - :py:obj:`~ansys.scade.guitools.studio_ext`
+            - ``Ide`` interface implementation for custom extensions.
+
+
+          * - :py:obj:`~ansys.scade.guitools.unregister`
+            - Unregisters the Ansys SCADE GUI Tools extension registry files (SRG).
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.get_srg_name`
+            - Return the name of the registration file for Ansys SCADE IDE.
+
+
+          * - :py:obj:`~ansys.scade.guitools.srg`
+            - Return the path of the SCADE Studio registry file.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~__version__`
+            - 
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-fa-file"></span> command</api/ansys/scade/guitools/command/index>
+    <span class="nf nf-fa-file"></span> control</api/ansys/scade/guitools/control/index>
+    <span class="nf nf-fa-file"></span> csts</api/ansys/scade/guitools/csts/index>
+    <span class="nf nf-fa-file"></span> data</api/ansys/scade/guitools/data/index>
+    <span class="nf nf-fa-file"></span> dialog</api/ansys/scade/guitools/dialog/index>
+    <span class="nf nf-fa-file"></span> enable_debugpy</api/ansys/scade/guitools/enable_debugpy/index>
+    <span class="nf nf-fa-file"></span> guihost</api/ansys/scade/guitools/guihost/index>
+    <span class="nf nf-fa-file"></span> ide</api/ansys/scade/guitools/ide/index>
+    <span class="nf nf-fa-file"></span> interfaces</api/ansys/scade/guitools/interfaces/index>
+    <span class="nf nf-fa-file"></span> page</api/ansys/scade/guitools/page/index>
+    <span class="nf nf-fa-file"></span> register</api/ansys/scade/guitools/register/index>
+    <span class="nf nf-fa-file"></span> stubs</api/ansys/scade/guitools/stubs/index>
+    <span class="nf nf-fa-file"></span> studio</api/ansys/scade/guitools/studio/index>
+    <span class="nf nf-fa-file"></span> studio_ext</api/ansys/scade/guitools/studio_ext/index>
+    <span class="nf nf-fa-file"></span> unregister</api/ansys/scade/guitools/unregister/index>
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> get_srg_name</api/ansys/scade/guitools/get_srg_name>
+    <span class="nf nf-md-function_variant"></span> srg</api/ansys/scade/guitools/srg>
+
+
+
+
+
+
+Description
+-----------
+
+Provides a Python library to extend the Ansys SCADE IDE GUI.
+
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: __version__
+
+
+

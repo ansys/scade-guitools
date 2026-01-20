@@ -1,0 +1,193 @@
+
+
+
+
+
+
+:class:`ContainerPage`
+======================
+
+
+.. py:class:: ansys.scade.guitools.page.ContainerPage(page: Optional[Page], label_width: int)
+
+   Base class for property or settings pages.
+
+   It maintains a list of controls for automatic layout,
+   or to show or hide an entire page.
+
+   The controls are automatically added on two columns: labels and edits.
+
+   Parameters
+   ----------
+   page : Page | None
+       Owner page for controls.
+
+       If this parameter is not known at initialization, make sure
+       the attribute ``self.page`` is defined before creating any control.
+
+   label_width : int
+       Width of the first column.
+
+
+
+.. py:currentmodule:: ContainerPage
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~add_check_button`
+            - Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page.
+          * - :py:attr:`~add_combo_box`
+            - Add a :class:`ComboBox <ansys.scade.guitools.control.ComboBox>` control to the page.
+          * - :py:attr:`~add_control`
+            - Add an existing control to the page's list of controls.
+          * - :py:attr:`~add_edit`
+            - Add a :class:`Edit <ansys.scade.guitools.control.Edit>` control to the page.
+          * - :py:attr:`~add_file_selector`
+            - Add a :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` to the page.
+          * - :py:attr:`~add_group_radio_box`
+            - Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page.
+          * - :py:attr:`~add_object_combo_box`
+            - Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page.
+          * - :py:attr:`~add_radio_box`
+            - Add a :class:`RadioBox <ansys.scade.guitools.control.RadioBox>` control to the page.
+          * - :py:attr:`~add_static_combo_box`
+            - Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page.
+          * - :py:attr:`~add_static_edit`
+            - Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page.
+          * - :py:attr:`~add_static_object_combo_box`
+            - Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page.
+          * - :py:attr:`~add_static_radio_box`
+            - Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page.
+          * - :py:attr:`~layout_controls`
+            - Declare the contained control's constraints.
+          * - :py:attr:`~show_controls`
+            - Show or hide the contained controls.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~controls`
+            - 
+          * - :py:attr:`~label_width`
+            - 
+          * - :py:attr:`~page`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.page import ContainerPage
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: controls
+   :value: []
+
+
+.. py:attribute:: label_width
+
+.. py:attribute:: page
+
+
+
+Method detail
+-------------
+
+.. py:method:: add_check_button(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.CheckButton
+
+   Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page.
+
+
+.. py:method:: add_combo_box(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.ComboBox
+
+   Add a :class:`ComboBox <ansys.scade.guitools.control.ComboBox>` control to the page.
+
+
+.. py:method:: add_control(control)
+
+   Add an existing control to the page's list of controls.
+
+
+.. py:method:: add_edit(y: int, **kwargs) -> ansys.scade.guitools.control.Edit
+
+   Add a :class:`Edit <ansys.scade.guitools.control.Edit>` control to the page.
+
+
+.. py:method:: add_file_selector(y: int, text: str, extension: str, dir: str, filter: str, mode: ansys.scade.guitools.control.FSM, **kwargs) -> ansys.scade.guitools.control.FileSelector
+
+   Add a :class:`FileSelector <ansys.scade.guitools.control.FileSelector>` to the page.
+
+
+.. py:method:: add_group_radio_box(y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs) -> ansys.scade.guitools.control.GroupRadioBox
+
+   Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page.
+
+
+.. py:method:: add_object_combo_box(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.ObjectComboBox
+
+   Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page.
+
+
+.. py:method:: add_radio_box(y: int, buttons: List[Tuple[Any, str]], **kwargs) -> ansys.scade.guitools.control.RadioBox
+
+   Add a :class:`RadioBox <ansys.scade.guitools.control.RadioBox>` control to the page.
+
+
+.. py:method:: add_static_combo_box(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.StaticComboBox
+
+   Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page.
+
+
+.. py:method:: add_static_edit(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.StaticEdit
+
+   Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page.
+
+
+.. py:method:: add_static_object_combo_box(y: int, text: str, **kwargs) -> ansys.scade.guitools.control.StaticObjectComboBox
+
+   Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page.
+
+
+.. py:method:: add_static_radio_box(y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs) -> ansys.scade.guitools.control.StaticRadioBox
+
+   Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page.
+
+
+.. py:method:: layout_controls()
+
+   Declare the contained control's constraints.
+
+
+.. py:method:: show_controls(show: bool)
+
+   Show or hide the contained controls.
+
+
+
+
+

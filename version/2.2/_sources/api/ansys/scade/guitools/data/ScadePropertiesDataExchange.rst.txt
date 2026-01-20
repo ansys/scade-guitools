@@ -1,0 +1,73 @@
+
+
+
+
+
+
+:class:`ScadePropertiesDataExchange`
+====================================
+
+
+.. py:class:: ansys.scade.guitools.data.ScadePropertiesDataExchange(id: str)
+
+   Bases: :py:obj:`ansys.scade.guitools.interfaces.IPropertiesDataExchange`, :py:obj:`PragmaDataExchange`
+
+
+   Default implementation for managing the persistence of most usual controls in the model.
+
+   Initialize the SCADE properties data exchange instance.
+
+
+
+.. py:currentmodule:: ScadePropertiesDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~model_to_page`
+            - Update the page with the properties read from the model element.
+          * - :py:attr:`~page_to_model`
+            - Update the model element with the properties read from the page.
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import ScadePropertiesDataExchange
+
+
+
+Method detail
+-------------
+
+.. py:method:: model_to_page(object_: scade.model.suite.Annotable)
+
+   Update the page with the properties read from the model element.
+
+
+.. py:method:: page_to_model(object_: scade.model.suite.Annotable)
+
+   Update the model element with the properties read from the page.
+
+
+
+
+

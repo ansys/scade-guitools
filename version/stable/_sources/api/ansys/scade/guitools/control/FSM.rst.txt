@@ -1,0 +1,31 @@
+
+
+
+
+
+
+:class:`FSM`
+============
+
+
+.. py:class:: ansys.scade.guitools.control.FSM(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Mode for the file selector.
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import FSM
+
+
+
+
+

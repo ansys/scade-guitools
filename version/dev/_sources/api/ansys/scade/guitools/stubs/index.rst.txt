@@ -1,0 +1,113 @@
+
+
+
+
+
+
+The ``stubs.py`` module
+=======================
+
+.. py:module:: ansys.scade.guitools.stubs
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: stubs
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.stubs.StubIde`
+            - SCADE IDE instantiation for unit tests.
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.stubs.log`
+            - Log the message. Temporary implementation.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~studio`
+            - 
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> StubIde</api/ansys/scade/guitools/stubs/StubIde>
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> log</api/ansys/scade/guitools/stubs/log>
+
+
+
+
+
+
+Description
+-----------
+
+Stubs for unit tests.
+
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: studio
+
+
+
