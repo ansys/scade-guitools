@@ -25,7 +25,7 @@
 """Provides an extension for the Page classes."""
 
 from abc import abstractmethod
-from typing import Any, Callable, List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union
 
 from scade.model.project.stdproject import Configuration, Project
 from scade.tool.suite.gui.properties import Page as PropertyPage
@@ -56,11 +56,6 @@ from ansys.scade.guitools.interfaces import (
 _WF = 100
 
 Page = Union[PropertyPage, SettingsPage]
-
-Getter = Callable[[], Any]
-"""Signature for getting control's value."""
-Setter = Callable[[Any], None]
-"""Signature for setting control's value."""
 
 
 class ContainerPage:
