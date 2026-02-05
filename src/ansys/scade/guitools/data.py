@@ -40,11 +40,6 @@ from ansys.scade.apitools.prop import get_pragma_json, set_pragma_json
 from ansys.scade.guitools.control import ComboBox, ObjectComboBox, RadioBox
 from ansys.scade.guitools.interfaces import IPropertiesDataExchange, ISettingsDataExchange
 
-Getter = Callable[[], Any]
-"""Signature for getting control value."""
-Setter = Callable[[Any], None]
-"""Signature for setting control value."""
-
 
 class DataExchange:
     """Base class for accessing controls data."""
@@ -52,9 +47,11 @@ class DataExchange:
     def __init__(self):
         """Initialize the data exchange instance."""
         # get, set, name, default, empty
-        self.properties = []  # type: List[Tuple[Getter, Setter, str, Any, Any]]
+        self.properties = []  # type: List[Tuple[Callable[[], Any], Callable[[Any], None], str, Any, Any]]
 
-    def get_control_accessors(self, control: Widget) -> Tuple[Optional[Getter], Optional[Setter]]:
+    def get_control_accessors(
+        self, control: Widget
+    ) -> Tuple[Optional[Callable[[], Any]], Optional[Callable[[Any], None]]]:
         """
         Return the get and set accessors for a control, or None if not applicable.
 
