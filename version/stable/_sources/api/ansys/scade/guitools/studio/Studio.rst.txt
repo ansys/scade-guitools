@@ -1,0 +1,350 @@
+
+
+
+
+
+
+:class:`Studio`
+===============
+
+
+.. py:class:: ansys.scade.guitools.studio.Studio
+
+   Bases: :py:obj:`ansys.scade.guitools.ide.Ide`
+
+
+   Implementation for SCADE IDE.
+
+
+
+.. py:currentmodule:: Studio
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~activate`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~activate_browser`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~activate_project`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~activate_tab`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~browse_directory`
+            - Stub ``scade.tool.suite.gui.dialogs.browse_directory``.
+          * - :py:attr:`~browser_report`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~clear_tab`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~command`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~create_browser`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~create_report`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~file_open`
+            - Stub ``scade.tool.suite.gui.dialogs.file_open``.
+          * - :py:attr:`~file_save`
+            - Stub ``scade.tool.suite.gui.dialogs.file_save``.
+          * - :py:attr:`~get_active_configuration`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~get_active_project`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~get_projects`
+            - Redirect the call to the API.
+          * - :py:attr:`~get_sessions`
+            - Redirect the call to the API.
+          * - :py:attr:`~locate`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~locate_ex`
+            - Redirect the call to the API.
+          * - :py:attr:`~log`
+            - Redirect the call to the local log function.
+          * - :py:attr:`~message_box`
+            - Stub ``scade.tool.suite.gui.dialogs.message_box``.
+          * - :py:attr:`~open_document_view`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~open_html_in_browser`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~open_html_view`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~open_source_code_view`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~output_log`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~print`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~print_ssl`
+            - Redirect the call to the API.
+          * - :py:attr:`~printer_setup`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~register_decoration`
+            - Redirect the call to the API.
+          * - :py:attr:`~register_load_model_callable`
+            - Stub ``scade.tool.suite.gui.register_load_model_callable``.
+          * - :py:attr:`~register_terminate_callable`
+            - Stub ``scade.tool.suite.gui.register_terminate_callable``.
+          * - :py:attr:`~register_unload_model_callable`
+            - Stub ``scade.tool.suite.gui.register_unload_model_callable``.
+          * - :py:attr:`~report`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~set_decoration`
+            - Redirect the call to the API.
+          * - :py:attr:`~set_output_tab`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~set_style`
+            - Redirect the call to the API.
+          * - :py:attr:`~tabput`
+            - Redirect the call to SCADE IDE.
+          * - :py:attr:`~unset_decoration`
+            - Redirect the call to the API.
+          * - :py:attr:`~version`
+            - Redirect the call to SCADE IDE.
+
+
+   .. tab-item:: Properties
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~selection`
+            - Redirect the call to SCADE IDE.
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.studio import Studio
+
+Property detail
+---------------
+
+.. py:property:: selection
+   :type: List[Any]
+
+
+   Redirect the call to SCADE IDE.
+
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: activate(object_: Any)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: activate_browser(tab_name: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: activate_project(project_name: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: activate_tab(tab: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: browse_directory(initial_directory: str = '') -> str
+
+   Stub ``scade.tool.suite.gui.dialogs.browse_directory``.
+
+
+.. py:method:: browser_report(child_object: Any, parent_object: Any = None, expanded: bool = False, user_data: Any = None, name: str = '', icon_file: str = '')
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: clear_tab(tab: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: command(extension_id: str, command_id: int, command: str = 'activate') -> Optional[str]
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: create_browser(name: str, icon_file: Optional[str] = None, keep: bool = False, callback: Callable[[Any, Any], None] = None)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: create_report(tab_name: str, *header: Tuple[str, int, int], check: bool = False)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: file_open(filter: str = '', directory: str = '') -> str
+
+   Stub ``scade.tool.suite.gui.dialogs.file_open``.
+
+
+.. py:method:: file_save(file_name: str, extension: str = '', directory: str = '', filter: str = '') -> str
+
+   Stub ``scade.tool.suite.gui.dialogs.file_save``.
+
+
+.. py:method:: get_active_configuration(project: scade.model.project.stdproject.Project, tool_name: str) -> Optional[scade.model.project.stdproject.Configuration]
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: get_active_project() -> scade.model.project.stdproject.Project
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: get_projects() -> List[scade.model.project.stdproject.Project]
+
+   Redirect the call to the API.
+
+
+.. py:method:: get_sessions() -> List[scade.model.suite.Session]
+
+   Redirect the call to the API.
+
+
+.. py:method:: locate(locate_string: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: locate_ex(tuples: Union[List[scade.model.suite.Object], List[Tuple]])
+
+   Redirect the call to the API.
+
+
+.. py:method:: log(text: str)
+
+   Redirect the call to the local log function.
+
+
+.. py:method:: message_box(name: str, message: str, style: str = 'ok', icon: str = 'information') -> int
+
+   Stub ``scade.tool.suite.gui.dialogs.message_box``.
+
+
+.. py:method:: open_document_view(file_name: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: open_html_in_browser(file_name: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: open_html_view(file: Union[str, List[str]], use: Optional[str] = None, delete: bool = False)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: open_source_code_view(file_name: str, line: int = 1, col: int = 1)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: output_log(tab_name: str, command: str, path_name: str = '', separator: str = '')
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: print(source_object: Any, path_name: str, format: str, rotation: int = 0)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: print_ssl(scade_operator: scade.model.suite.Operator, path_name: str, format: str, rotation: int = 0)
+
+   Redirect the call to the API.
+
+
+.. py:method:: printer_setup(printer_name: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: register_decoration(name: str, small_icon: str, large_icon: str)
+
+   Redirect the call to the API.
+
+
+.. py:method:: register_load_model_callable(callable)
+
+   Stub ``scade.tool.suite.gui.register_load_model_callable``.
+
+
+.. py:method:: register_terminate_callable(callable)
+
+   Stub ``scade.tool.suite.gui.register_terminate_callable``.
+
+
+.. py:method:: register_unload_model_callable(callable)
+
+   Stub ``scade.tool.suite.gui.register_unload_model_callable``.
+
+
+.. py:method:: report(item: Any, *columns: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: set_decoration(object_: scade.model.suite.Object, name: str)
+
+   Redirect the call to the API.
+
+
+.. py:method:: set_output_tab(tab: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: set_style(presentation_element: scade.model.suite.PresentationElement, style_name: str)
+
+   Redirect the call to the API.
+
+
+.. py:method:: tabput(tab: str, text: str)
+
+   Redirect the call to SCADE IDE.
+
+
+.. py:method:: unset_decoration(object_: scade.model.suite.Object)
+
+   Redirect the call to the API.
+
+
+.. py:method:: version(kind: str) -> str
+
+   Redirect the call to SCADE IDE.
+
+
+
+
+
