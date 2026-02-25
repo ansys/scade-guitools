@@ -680,6 +680,12 @@ class RadioBox(GroupBox):
         for button in self.buttons.values():
             button.set_visible(show)
 
+    def set_enable(self, enable: bool):
+        """Enable or disable the control."""
+        super().set_enable(enable)
+        for button in self.buttons.values():
+            button.set_enable(enable)
+
     def get_value(self) -> str:
         """Return the value of the selected button, or ``""`` when none is selected."""
         for value, button in self.buttons.items():
