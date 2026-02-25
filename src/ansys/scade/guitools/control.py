@@ -676,7 +676,7 @@ class RadioBox(GroupBox):
 
     def set_visible(self, show: bool):
         """Show or hide the control."""
-        self.set_visible(show)
+        super().set_visible(show)
         for button in self.buttons.values():
             button.set_visible(show)
 
