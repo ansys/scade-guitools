@@ -1,0 +1,106 @@
+
+
+
+
+
+
+:class:`StudioExt`
+==================
+
+
+.. py:class:: ansys.scade.guitools.studio_ext.StudioExt
+
+   Bases: :py:obj:`ansys.scade.guitools.studio.Studio`
+
+
+   Implementation for SCADE IDE.
+
+
+
+.. py:currentmodule:: StudioExt
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~browse_directory`
+            - Redirect the call to the API.
+          * - :py:attr:`~file_open`
+            - Redirect the call to the API.
+          * - :py:attr:`~file_save`
+            - Redirect the call to the API.
+          * - :py:attr:`~message_box`
+            - Redirect the call to the API.
+          * - :py:attr:`~register_load_model_callable`
+            - Redirect the call to the API.
+          * - :py:attr:`~register_terminate_callable`
+            - Redirect the call to the API.
+          * - :py:attr:`~register_unload_model_callable`
+            - Redirect the call to the API.
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.studio_ext import StudioExt
+
+
+
+Method detail
+-------------
+
+.. py:method:: browse_directory(initial_directory: str = '') -> str
+
+   Redirect the call to the API.
+
+
+.. py:method:: file_open(filter: str = '', directory: str = '') -> str
+
+   Redirect the call to the API.
+
+
+.. py:method:: file_save(file_name: str, extension: str = '', directory: str = '', filter: str = '') -> str
+
+   Redirect the call to the API.
+
+
+.. py:method:: message_box(name: str, message: str, style: str = 'ok', icon: str = 'information') -> int
+
+   Redirect the call to the API.
+
+
+.. py:method:: register_load_model_callable(callable)
+
+   Redirect the call to the API.
+
+
+.. py:method:: register_terminate_callable(callable)
+
+   Redirect the call to the API.
+
+
+.. py:method:: register_unload_model_callable(callable)
+
+   Redirect the call to the API.
+
+
+
+
+

@@ -1,0 +1,682 @@
+
+
+
+
+
+
+The ``csts.py`` module
+======================
+
+.. py:module:: ansys.scade.guitools.csts
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: csts
+.. tab-set::
+
+
+
+
+
+
+
+
+
+    .. tab-item:: Constants
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~BOTTOM_MARGIN`
+            - Bottom margin of a dialog box or page.
+
+
+          * - :py:obj:`~BUTTON_HEIGHT`
+            - Default height of a push button control.
+
+
+          * - :py:obj:`~BUTTON_WIDTH`
+            - Default width of a push button control.
+
+
+          * - :py:obj:`~CHECK_BUTTON_HEIGHT`
+            - Default height of a check button control.
+
+
+          * - :py:obj:`~COMBO_BOX_HEIGHT`
+            - Default height of a combo box control.
+
+
+          * - :py:obj:`~DOTS_HEIGHT`
+            - Default height of the ``...`` push button control.
+
+
+          * - :py:obj:`~DOTS_WIDTH`
+            - Default width of a ``...`` push button control.
+
+
+          * - :py:obj:`~DY`
+            - Default vertical offset between 2 lines.
+
+
+          * - :py:obj:`~EDIT_HEIGHT`
+            - Default height of an edit control.
+
+
+          * - :py:obj:`~GROUP_RADIO_BOX_HEIGHT`
+            - Default height of a group radio box control.
+
+
+          * - :py:obj:`~H_TITLE`
+            - Default height of the title area of a dialog box.
+
+
+          * - :py:obj:`~LEFT_MARGIN`
+            - Left margin of a dialog box or page.
+
+
+          * - :py:obj:`~NC_BOTTOM`
+            - Non client area bottom margin of a dialog box.
+
+
+          * - :py:obj:`~NC_LEFT`
+            - Non client area left margin of a dialog box.
+
+
+          * - :py:obj:`~NC_RIGHT`
+            - Non client area right margin of a dialog box.
+
+
+          * - :py:obj:`~NC_TOP`
+            - Non client area top margin of a dialog box.
+
+
+          * - :py:obj:`~RADIO_BOX_DY`
+            - Default vertical offset for a group radio box control.
+
+
+          * - :py:obj:`~RADIO_BUTTON_HEIGHT`
+            - Default height of a radio button control.
+
+
+          * - :py:obj:`~RIGHT_MARGIN`
+            - Right margin of a dialog box or page.
+
+
+          * - :py:obj:`~STATIC_HEIGHT`
+            - Default height of a static control.
+
+
+          * - :py:obj:`~TOP_MARGIN`
+            - Top margin of a dialog box or page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Provides default metrics for designing dialog boxes and controls.
+
+These metrics may depend on your version of Windows or selected theme.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: BOTTOM_MARGIN
+   :value: 7
+
+
+   
+   Bottom margin of a dialog box or page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: BUTTON_HEIGHT
+   :value: 23
+
+
+   
+   Default height of a push button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: BUTTON_WIDTH
+   :value: 75
+
+
+   
+   Default width of a push button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: CHECK_BUTTON_HEIGHT
+   :value: 20
+
+
+   
+   Default height of a check button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: COMBO_BOX_HEIGHT
+   :value: 130
+
+
+   
+   Default height of a combo box control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: DOTS_HEIGHT
+   :value: 22
+
+
+   
+   Default height of the ``...`` push button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: DOTS_WIDTH
+   :value: 30
+
+
+   
+   Default width of a ``...`` push button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: DY
+   :value: 30
+
+
+   
+   Default vertical offset between 2 lines.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: EDIT_HEIGHT
+   :value: 20
+
+
+   
+   Default height of an edit control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: GROUP_RADIO_BOX_HEIGHT
+   :value: 43
+
+
+   
+   Default height of a group radio box control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: H_TITLE
+   :value: 28
+
+
+   
+   Default height of the title area of a dialog box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: LEFT_MARGIN
+   :value: 6
+
+
+   
+   Left margin of a dialog box or page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: NC_BOTTOM
+   :value: 8
+
+
+   
+   Non client area bottom margin of a dialog box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: NC_LEFT
+   :value: 8
+
+
+   
+   Non client area left margin of a dialog box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: NC_RIGHT
+   :value: 8
+
+
+   
+   Non client area right margin of a dialog box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: NC_TOP
+   :value: 31
+
+
+   
+   Non client area top margin of a dialog box.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: RADIO_BOX_DY
+   :value: 53
+
+
+   
+   Default vertical offset for a group radio box control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: RADIO_BUTTON_HEIGHT
+   :value: 20
+
+
+   
+   Default height of a radio button control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: RIGHT_MARGIN
+   :value: 6
+
+
+   
+   Right margin of a dialog box or page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: STATIC_HEIGHT
+   :value: 16
+
+
+   
+   Default height of a static control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: TOP_MARGIN
+   :value: 7
+
+
+   
+   Top margin of a dialog box or page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+

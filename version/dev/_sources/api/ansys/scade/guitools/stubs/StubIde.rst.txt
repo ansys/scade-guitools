@@ -1,0 +1,424 @@
+
+
+
+
+
+
+:class:`StubIde`
+================
+
+
+.. py:class:: ansys.scade.guitools.stubs.StubIde
+
+   Bases: :py:obj:`ansys.scade.guitools.ide.Ide`
+
+
+   SCADE IDE instantiation for unit tests.
+
+   This class stubs most popular functions by storing inputs so that they
+   can be compared with expected data.
+
+   It can be sub-classed for specific use-cases.
+
+
+
+.. py:currentmodule:: StubIde
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~activate`
+            - Ignore the call.
+          * - :py:attr:`~activate_browser`
+            - Ignore the call.
+          * - :py:attr:`~activate_project`
+            - Ignore the call.
+          * - :py:attr:`~activate_tab`
+            - Ignore the call.
+          * - :py:attr:`~browse_directory`
+            - Ignore the call.
+          * - :py:attr:`~browser_report`
+            - Stub ``scade.browser_report``.
+          * - :py:attr:`~clear_tab`
+            - Ignore the call.
+          * - :py:attr:`~command`
+            - Ignore the call.
+          * - :py:attr:`~create_browser`
+            - Stub ``scade.create_browser``.
+          * - :py:attr:`~create_report`
+            - Stub ``scade.create_report``.
+          * - :py:attr:`~file_open`
+            - Ignore the call.
+          * - :py:attr:`~file_save`
+            - Ignore the call.
+          * - :py:attr:`~get_active_configuration`
+            - Stub ``scade.get_active_configuration``.
+          * - :py:attr:`~get_active_project`
+            - Stub ``scade.get_active_project``.
+          * - :py:attr:`~get_projects`
+            - Stub ``scade.model.project.stdproject.get_roots``.
+          * - :py:attr:`~get_sessions`
+            - Stub ``scade.model.suite.get_roots``.
+          * - :py:attr:`~locate`
+            - Ignore the call.
+          * - :py:attr:`~locate_ex`
+            - Ignore the call.
+          * - :py:attr:`~log`
+            - Redirect the call to the local log function.
+          * - :py:attr:`~message_box`
+            - Ignore the call.
+          * - :py:attr:`~open_document_view`
+            - Ignore the call.
+          * - :py:attr:`~open_html_in_browser`
+            - Ignore the call.
+          * - :py:attr:`~open_html_view`
+            - Ignore the call.
+          * - :py:attr:`~open_source_code_view`
+            - Ignore the call.
+          * - :py:attr:`~output_log`
+            - Ignore the call.
+          * - :py:attr:`~print`
+            - Ignore the call.
+          * - :py:attr:`~print_ssl`
+            - Ignore the call.
+          * - :py:attr:`~printer_setup`
+            - Ignore the call.
+          * - :py:attr:`~register_decoration`
+            - Stub suite.register_decoration.
+          * - :py:attr:`~register_load_model_callable`
+            - Ignore the call.
+          * - :py:attr:`~register_terminate_callable`
+            - Ignore the call.
+          * - :py:attr:`~register_unload_model_callable`
+            - Ignore the call.
+          * - :py:attr:`~report`
+            - Stub ``scade.report``.
+          * - :py:attr:`~save_browser`
+            - Store the current browser as a json file.
+          * - :py:attr:`~set_decoration`
+            - Stub suite.set_decoration.
+          * - :py:attr:`~set_output_tab`
+            - Ignore the call.
+          * - :py:attr:`~set_style`
+            - Ignore the call.
+          * - :py:attr:`~tabput`
+            - Ignore the call.
+          * - :py:attr:`~unset_decoration`
+            - Ignore the call.
+          * - :py:attr:`~version`
+            - Stub ``scade.version``.
+
+
+   .. tab-item:: Properties
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~selection`
+            - Stub return scade.selection.
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~browser`
+            - 
+          * - :py:attr:`~browser_items`
+            - 
+          * - :py:attr:`~decorated_items`
+            - 
+          * - :py:attr:`~decorations`
+            - 
+          * - :py:attr:`~project`
+            - 
+          * - :py:attr:`~report_items`
+            - 
+          * - :py:attr:`~report_tab`
+            - 
+          * - :py:attr:`~session`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.stubs import StubIde
+
+Property detail
+---------------
+
+.. py:property:: selection
+   :type: List[Any]
+
+
+   Stub return scade.selection.
+
+
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: browser
+   :value: None
+
+
+.. py:attribute:: browser_items
+   :type:  Dict[Any, Any]
+
+.. py:attribute:: decorated_items
+   :type:  Dict[scade.model.suite.Object, str]
+
+.. py:attribute:: decorations
+   :type:  list[str]
+   :value: []
+
+
+.. py:attribute:: project
+   :type:  Optional[scade.model.project.stdproject.Project]
+   :value: None
+
+
+.. py:attribute:: report_items
+   :type:  List[list]
+   :value: []
+
+
+.. py:attribute:: report_tab
+   :type:  str
+   :value: ''
+
+
+.. py:attribute:: session
+   :type:  Optional[scade.model.suite.Session]
+   :value: None
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: activate(object_: Any)
+
+   Ignore the call.
+
+
+.. py:method:: activate_browser(tab_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: activate_project(project_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: activate_tab(tab: str)
+
+   Ignore the call.
+
+
+.. py:method:: browse_directory(initial_directory: str = '') -> str
+
+   Ignore the call.
+
+
+.. py:method:: browser_report(child_object: Any, parent_object: Any = None, expanded: bool = False, user_data: Any = None, name: str = '', icon_file: str = '')
+
+   Stub ``scade.browser_report``.
+
+
+.. py:method:: clear_tab(tab: str)
+
+   Ignore the call.
+
+
+.. py:method:: command(extension_id: str, command_id: int, command: str = 'activate') -> Optional[str]
+
+   Ignore the call.
+
+
+.. py:method:: create_browser(name: str, icon_file: Optional[str] = None, keep: bool = False, callback: Callable[[Any, Any], None] = None)
+
+   Stub ``scade.create_browser``.
+
+
+.. py:method:: create_report(tab_name: str, *header: Tuple[str, int, int], check: bool = False)
+
+   Stub ``scade.create_report``.
+
+
+.. py:method:: file_open(filter: str = '', directory: str = '') -> str
+
+   Ignore the call.
+
+
+.. py:method:: file_save(file_name: str, extension: str = '', directory: str = '', filter: str = '') -> str
+
+   Ignore the call.
+
+
+.. py:method:: get_active_configuration(project: scade.model.project.stdproject.Project, tool_name: str) -> Optional[scade.model.project.stdproject.Configuration]
+
+   Stub ``scade.get_active_configuration``.
+
+
+.. py:method:: get_active_project() -> scade.model.project.stdproject.Project
+
+   Stub ``scade.get_active_project``.
+
+
+.. py:method:: get_projects() -> List[scade.model.project.stdproject.Project]
+
+   Stub ``scade.model.project.stdproject.get_roots``.
+
+
+.. py:method:: get_sessions() -> List[scade.model.suite.Session]
+
+   Stub ``scade.model.suite.get_roots``.
+
+
+.. py:method:: locate(locate_string: str)
+
+   Ignore the call.
+
+
+.. py:method:: locate_ex(tuples: Union[List[scade.model.suite.Object], List[Tuple]])
+
+   Ignore the call.
+
+
+.. py:method:: log(text: str)
+
+   Redirect the call to the local log function.
+
+
+.. py:method:: message_box(name: str, message: str, style: str = 'ok', icon: str = 'information') -> int
+
+   Ignore the call.
+
+
+.. py:method:: open_document_view(file_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: open_html_in_browser(file_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: open_html_view(file: Union[str, List[str]], use: Optional[str] = None, delete: bool = False)
+
+   Ignore the call.
+
+
+.. py:method:: open_source_code_view(file_name: str, line: int = 1, col: int = 1)
+
+   Ignore the call.
+
+
+.. py:method:: output_log(tab_name: str, command: str, path_name: str = '', separator: str = '')
+
+   Ignore the call.
+
+
+.. py:method:: print(source_object: Any, path_name: str, format: str, rotation: int = 0)
+
+   Ignore the call.
+
+
+.. py:method:: print_ssl(scade_operator: scade.model.suite.Operator, path_name: str, format: str, rotation: int = 0)
+
+   Ignore the call.
+
+
+.. py:method:: printer_setup(printer_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: register_decoration(name: str, small_icon: str, large_icon: str)
+
+   Stub suite.register_decoration.
+
+
+.. py:method:: register_load_model_callable(callable)
+
+   Ignore the call.
+
+
+.. py:method:: register_terminate_callable(callable)
+
+   Ignore the call.
+
+
+.. py:method:: register_unload_model_callable(callable)
+
+   Ignore the call.
+
+
+.. py:method:: report(item: Any, *columns: str)
+
+   Stub ``scade.report``.
+
+
+.. py:method:: save_browser(path: pathlib.Path)
+
+   Store the current browser as a json file.
+
+
+.. py:method:: set_decoration(object_: scade.model.suite.Object, name: str)
+
+   Stub suite.set_decoration.
+
+
+.. py:method:: set_output_tab(tab: str)
+
+   Ignore the call.
+
+
+.. py:method:: set_style(presentation_element: scade.model.suite.PresentationElement, style_name: str)
+
+   Ignore the call.
+
+
+.. py:method:: tabput(tab: str, text: str)
+
+   Ignore the call.
+
+
+.. py:method:: unset_decoration(object_: scade.model.suite.Object)
+
+   Ignore the call.
+
+
+.. py:method:: version(kind: str) -> str
+
+   Stub ``scade.version``.
+
+
+
+
+

@@ -1,0 +1,7 @@
+ansys.scade.guitools.register.main
+==================================
+
+.. py:function:: ansys.scade.guitools.register.main() -> int
+
+   Implement the ``ansys.scade.guitools.register`` packages's project script.
+

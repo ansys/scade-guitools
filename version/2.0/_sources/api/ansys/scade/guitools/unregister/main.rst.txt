@@ -1,0 +1,25 @@
+ansys.scade.guitools.unregister.main
+====================================
+
+.. py:function:: ansys.scade.guitools.unregister.main() -> int
+
+   
+   Implement the ``ansys.scade.guitools.unregister`` packages's project script.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

@@ -1,0 +1,381 @@
+
+
+
+
+
+
+:class:`HostPage`
+=================
+
+.. py:class:: ansys.scade.guitools.guihost.HostPage(name: str, optional: bool, *args, **kwargs)
+
+   Bases: :py:obj:`ansys.scade.guitools.page.PropertyPageEx`
+
+
+   
+   Defines a property page for hosting client pages.
+
+
+   :Parameters:
+
+       **name** : :class:`python:str`
+           Name of the property Page.
+
+       **optional** : :ref:`bool <python:bltin-boolean-values>`
+           Whether the combo box for selecting clients is hidden
+           when there is only one client.
+
+       **args** : :obj:`Any`
+           Additional parameters for the property page.
+
+       **kwargs** : :obj:`Any`
+           Additional parameters for the property page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: HostPage
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~add_client`
+            - Add a client to the page.
+          * - :py:attr:`~is_available`
+            - Return whether the page is available for the current selection.
+          * - :py:attr:`~on_build`
+            - Build the property page and its clients.
+          * - :py:attr:`~on_close`
+            - Perform any cleaning before the page is closed.
+          * - :py:attr:`~on_context`
+            - Declare the models the page should consider.
+          * - :py:attr:`~on_display`
+            - Display the property page and its clients.
+          * - :py:attr:`~on_layout`
+            - Declare the contained control's constraints.
+          * - :py:attr:`~on_sel_change`
+            - Display the selected client.
+          * - :py:attr:`~on_validate`
+            - Validate the property page's clients.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~active_clients`
+            - 
+          * - :py:attr:`~categories`
+            - 
+          * - :py:attr:`~category`
+            - 
+          * - :py:attr:`~cb_clients`
+            - 
+          * - :py:attr:`~optional`
+            - 
+          * - :py:attr:`~proxies`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.guihost import HostPage
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: active_clients
+   :type:  Dict[str, ProxyPageClient]
+
+.. py:attribute:: categories
+   :type:  List[str]
+   :value: []
+
+
+.. py:attribute:: category
+   :value: ''
+
+
+.. py:attribute:: cb_clients
+   :value: None
+
+
+.. py:attribute:: optional
+
+.. py:attribute:: proxies
+   :type:  List[ProxyPageClient]
+   :value: []
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: add_client(proxy: ProxyPageClient)
+
+   
+   Add a client to the page.
+
+
+   :Parameters:
+
+       **proxy** : :obj:`ProxyPageClient`
+           Client page proxy.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: is_available(models: List[Any]) -> bool
+
+   
+   Return whether the page is available for the current selection.
+
+   The page is available for the selected models
+   if at least one of its clients is available
+
+   :Parameters:
+
+       **models** : :obj:`List`\[:obj:`Any`]
+           List of selected objects in the IDE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_build()
+
+   
+   Build the property page and its clients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_close()
+
+   
+   Perform any cleaning before the page is closed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_context(models: List[Any])
+
+   
+   Declare the models the page should consider.
+
+
+   :Parameters:
+
+       **models** : :obj:`List`\[:obj:`Any`]
+           List of selected objects in the IDE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_display()
+
+   
+   Display the property page and its clients.
+
+   Activate the last active client when possible.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_layout()
+
+   
+   Declare the contained control's constraints.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_sel_change(combobox: ansys.scade.guitools.control.ComboBox, index: int)
+
+   
+   Display the selected client.
+
+
+   :Parameters:
+
+       **combobox** : :obj:`ComboBox`
+           Control initiating the notification. Unused.
+
+       **index** : :class:`python:int`
+           Index of the selected element.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_validate()
+
+   
+   Validate the property page's clients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

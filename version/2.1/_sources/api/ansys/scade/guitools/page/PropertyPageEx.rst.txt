@@ -1,0 +1,276 @@
+
+
+
+
+
+
+:class:`PropertyPageEx`
+=======================
+
+.. py:class:: ansys.scade.guitools.page.PropertyPageEx(label_width: int, *args, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.properties.Page`, :py:obj:`ContainerPage`
+
+
+   
+   Provides a base class for property pages.
+
+   This class also provides means to manage the sizing
+   of most common controls and their serialization.
+
+   It introduces a new abstract method that must be implemented
+   for building the controls.
+
+   :Parameters:
+
+       **label_width** : :class:`python:int`
+           Width of the labels, displayed before the controls on the same line.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+.. py:currentmodule:: PropertyPageEx
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build_ex`
+            - Build the controls and return an optional object for managing the persistence.
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build`
+            - Build the properties page.
+          * - :py:attr:`~on_context`
+            - Declare the models the page should consider.
+          * - :py:attr:`~on_display`
+            - Update the page with the properties read from the models.
+          * - :py:attr:`~on_layout`
+            - Specify how controls are moved or resized.
+          * - :py:attr:`~on_validate`
+            - Update the models with the properties read from the page.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~ddx`
+            - 
+          * - :py:attr:`~models`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.page import PropertyPageEx
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: ddx
+   :type:  Optional[ansys.scade.guitools.interfaces.IPropertiesDataExchange]
+   :value: None
+
+
+.. py:attribute:: models
+   :type:  List[Any]
+   :value: []
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_build()
+
+   
+   Build the properties page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_build_ex() -> Optional[ansys.scade.guitools.interfaces.IPropertiesDataExchange]
+   :abstractmethod:
+
+
+   
+   Build the controls and return an optional object for managing the persistence.
+
+
+
+
+
+   :Returns:
+
+       :obj:`Optional`\[:obj:`IPropertiesDataExchange`]
+           Object for exchanging data between the models and the controls.
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_context(models: List[Any])
+
+   
+   Declare the models the page should consider.
+
+
+   :Parameters:
+
+       **models** : :obj:`List`\[:obj:`Any`]
+           List of selected objects in the IDE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_display()
+
+   
+   Update the page with the properties read from the models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_layout()
+
+   
+   Specify how controls are moved or resized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_validate()
+
+   
+   Update the models with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

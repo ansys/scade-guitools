@@ -1,0 +1,86 @@
+
+
+
+
+
+
+:class:`ProxyPageClient`
+========================
+
+.. py:class:: ansys.scade.guitools.guihost.ProxyPageClient(category: str, client: ansys.scade.guitools.interfaces.IGuiHostClient)
+
+   
+   Maintains a reference to a client page and the name of its category.
+
+
+   :Parameters:
+
+       **category** : :class:`python:str`
+           Name of the page.
+
+       **client** : :obj:`IGuiHostClient`
+           Instance of the hosted page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: ProxyPageClient
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~category`
+            - 
+          * - :py:attr:`~client`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.guihost import ProxyPageClient
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: category
+
+.. py:attribute:: client
+
+
+
+
+

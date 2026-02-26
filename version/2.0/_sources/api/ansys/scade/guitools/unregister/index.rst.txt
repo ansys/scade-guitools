@@ -1,0 +1,107 @@
+
+
+
+
+
+
+The ``unregister.py`` module
+============================
+
+.. py:module:: ansys.scade.guitools.unregister
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: unregister
+.. tab-set::
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.unregister.main`
+            - Implement the ``ansys.scade.guitools.unregister`` packages's project script.
+
+
+          * - :py:obj:`~ansys.scade.guitools.unregister.unregister`
+            - Implement the ``ansys.scade.registry/unregister`` entry point.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~code`
+            - 
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> main</api/ansys/scade/guitools/unregister/main>
+    <span class="nf nf-md-function_variant"></span> unregister</api/ansys/scade/guitools/unregister/unregister>
+
+
+
+
+
+
+Description
+-----------
+
+Unregisters the Ansys SCADE GUI Tools extension registry files (SRG).
+
+Refer to the :ref:`installation <getting-started/index:install in user mode>`
+steps for more information.
+
+It addresses SCADE 2024 R1 and prior releases.
+SCADE 2024 R2 and later use the package's
+``ansys.scade.registry`` entry point.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: code
+
+
+

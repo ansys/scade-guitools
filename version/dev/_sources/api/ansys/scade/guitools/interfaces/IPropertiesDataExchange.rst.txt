@@ -1,0 +1,87 @@
+
+
+
+
+
+
+:class:`IPropertiesDataExchange`
+================================
+
+
+.. py:class:: ansys.scade.guitools.interfaces.IPropertiesDataExchange
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Interface for exchanging data between a property page and the model.
+
+
+
+
+
+.. py:currentmodule:: IPropertiesDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~model_to_page`
+            - Update the page with the properties read from the model.
+          * - :py:attr:`~page_to_model`
+            - Update the model with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.interfaces import IPropertiesDataExchange
+
+
+
+Method detail
+-------------
+
+.. py:method:: model_to_page(model: Any)
+   :abstractmethod:
+
+
+   Update the page with the properties read from the model.
+
+   Parameters
+   ----------
+   model : Any
+       Selected model element.
+
+
+.. py:method:: page_to_model(model: Any)
+   :abstractmethod:
+
+
+   Update the model with the properties read from the page.
+
+   Parameters
+   ----------
+   model : Any
+       Selected model element.
+
+
+
+
+

@@ -1,0 +1,25 @@
+ansys.scade.guitools.enable_debugpy.attach_to_debugger
+======================================================
+
+.. py:function:: ansys.scade.guitools.enable_debugpy.attach_to_debugger(port: int = 5678)
+
+   
+   Start the debug server and wait for a client to connect.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!

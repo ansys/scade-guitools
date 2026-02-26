@@ -1,0 +1,133 @@
+
+
+
+
+
+
+:class:`ComboBox`
+=================
+
+.. py:class:: ansys.scade.guitools.control.ComboBox(owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.widgets.ComboBox`
+
+
+   
+   Defines a combo box control with a default height.
+
+
+   :Parameters:
+
+       **owner** : :obj:`Any`
+           owner of the combo box control
+
+       **x** : :class:`python:int`
+           Horizontal position of the combo box control.
+
+       **y** : :class:`python:int`
+           Vertical position of the combo box control.
+
+       **w** : :class:`python:int`
+           Width of the combo box control.
+
+       **h** : :class:`python:int`
+           Height of the combo box control, default csts.COMBO_BOX_HEIGHT.
+
+       **kwargs** : :obj:`Any`
+           Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: ComboBox
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_layout`
+            - Declare the constraints with respect to the owner.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~owner`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import ComboBox
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: owner
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_layout()
+
+   
+   Declare the constraints with respect to the owner.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

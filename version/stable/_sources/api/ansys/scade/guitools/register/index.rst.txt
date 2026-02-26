@@ -1,0 +1,107 @@
+
+
+
+
+
+
+The ``register.py`` module
+==========================
+
+.. py:module:: ansys.scade.guitools.register
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: register
+.. tab-set::
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.register.main`
+            - Implement the ``ansys.scade.guitools.register`` packages's project script.
+
+
+          * - :py:obj:`~ansys.scade.guitools.register.register`
+            - Implement the ``ansys.scade.registry/register`` entry point.
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~code`
+            - 
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> main</api/ansys/scade/guitools/register/main>
+    <span class="nf nf-md-function_variant"></span> register</api/ansys/scade/guitools/register/register>
+
+
+
+
+
+
+Description
+-----------
+
+Registers the Ansys SCADE GUI Tools extension registry files (SRG).
+
+Refer to the :ref:`installation <getting_started_install_user>`
+steps for more information.
+
+It addresses SCADE 2024 R1 and prior releases.
+SCADE 2024 R2 and later use the package's
+``ansys.scade.registry`` entry point.
+
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: code
+   :value: 0
+
+
+
+

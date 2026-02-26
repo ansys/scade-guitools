@@ -1,0 +1,7 @@
+ansys.scade.guitools.unregister.unregister
+==========================================
+
+.. py:function:: ansys.scade.guitools.unregister.unregister() -> Tuple[int, str]
+
+   Implement the ``ansys.scade.registry/unregister`` entry point.
+

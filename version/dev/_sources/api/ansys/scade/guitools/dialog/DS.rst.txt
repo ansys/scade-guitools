@@ -1,0 +1,31 @@
+
+
+
+
+
+
+:class:`DS`
+===========
+
+
+.. py:class:: ansys.scade.guitools.dialog.DS(*args, **kwds)
+
+   Bases: :py:obj:`enum.Enum`
+
+
+   Style for dialog box validation buttons.
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.dialog import DS
+
+
+
+
+
