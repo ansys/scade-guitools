@@ -676,9 +676,15 @@ class RadioBox(GroupBox):
 
     def set_visible(self, show: bool):
         """Show or hide the control."""
-        self.set_visible(show)
+        super().set_visible(show)
         for button in self.buttons.values():
             button.set_visible(show)
+
+    def set_enable(self, enable: bool):
+        """Enable or disable the control."""
+        super().set_enable(enable)
+        for button in self.buttons.values():
+            button.set_enable(enable)
 
     def get_value(self) -> str:
         """Return the value of the selected button, or ``""`` when none is selected."""
