@@ -9,6 +9,45 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`2.3.5 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.5>`_ - February 26, 2026
+==========================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Suppress useless zizmor configuration file
+          - `#60 <https://github.com/ansys/scade-guitools/pull/60>`_
+
+        * - Fix radio box visibility and enabling methods
+          - `#61 <https://github.com/ansys/scade-guitools/pull/61>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump the dependencies group across 1 directory with 3 updates
+          - `#57 <https://github.com/ansys/scade-guitools/pull/57>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump actions/download-artifact from 6.0.0 to 7.0.0 in the actions group
+          - `#56 <https://github.com/ansys/scade-guitools/pull/56>`_
+
+
 `2.3.3 <https://github.com/ansys/scade-guitools/releases/tag/v2.3.3>`_ - January 16, 2026
 =========================================================================================
 
