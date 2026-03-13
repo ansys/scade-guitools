@@ -30,6 +30,7 @@ classifiers=[
     "Topic :: Software Development :: Embedded Systems",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
     "Operating System :: Microsoft :: Windows",
 ]
 keywords=["Scade", "IDE", "GUI", "Dialog", "Menu", "Toolbar", "Page", "Settings", "Properties"]

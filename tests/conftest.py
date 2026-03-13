@@ -27,6 +27,8 @@ import difflib
 import os
 from pathlib import Path
 
+import pytest
+
 # shall modify sys.path to access SCADE APIs
 import ansys.scade.apitools  # noqa: F401
 
@@ -35,6 +37,17 @@ import ansys.scade.apitools  # noqa: F401
 import scade
 import scade.model.project.stdproject as std
 import scade.model.suite as suite
+
+
+def pytest_ignore_collect(collection_path: Path, config: pytest.Config) -> bool:
+    """
+    Ignore integration tests.
+
+    This hook is required for pytest 7.4.4/Python 3.7: ignore directives
+    from pyproject.toml are not considered
+    """
+    relative_path = collection_path.relative_to(config.rootpath).as_posix()
+    return any([relative_path.startswith(_) for _ in ['tests/Integration', 'tests/GuiHost']])
 
 
 def load_session(path: Path, with_project: bool = False) -> suite.Session:
