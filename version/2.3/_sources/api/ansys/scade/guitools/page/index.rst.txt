@@ -1,0 +1,116 @@
+
+
+
+
+
+
+The ``page.py`` module
+======================
+
+.. py:module:: ansys.scade.guitools.page
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: page
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.ContainerPage`
+            - Base class for property or settings pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.GuiHostClientPage`
+            - Default implementation for GuiHost pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.PropertyPageEx`
+            - Provides a base class for property pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.page.SettingsPageEx`
+            - Provides a base class for settings pages.
+
+
+
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~Page`
+            - 
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> ContainerPage</api/ansys/scade/guitools/page/ContainerPage>
+    <span class="nf nf-cod-symbol_class"></span> GuiHostClientPage</api/ansys/scade/guitools/page/GuiHostClientPage>
+    <span class="nf nf-cod-symbol_class"></span> PropertyPageEx</api/ansys/scade/guitools/page/PropertyPageEx>
+    <span class="nf nf-cod-symbol_class"></span> SettingsPageEx</api/ansys/scade/guitools/page/SettingsPageEx>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Provides an extension for the Page classes.
+
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: Page
+
+
+

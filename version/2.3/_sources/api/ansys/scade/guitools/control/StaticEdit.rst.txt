@@ -1,0 +1,111 @@
+
+
+
+
+
+
+:class:`StaticEdit`
+===================
+
+
+.. py:class:: ansys.scade.guitools.control.StaticEdit(owner, text: str, wl: int, x: int, y: int, w: int, h: int = c.EDIT_HEIGHT, **kwargs)
+
+   Bases: :py:obj:`Edit`
+
+
+   Defines a bundle made of a static and an edit control.
+
+   Parameters
+   ----------
+   owner : Any
+       Owner of the control.
+
+   text : str
+       Text of the static control.
+
+   wl : int
+       Width of the static control.
+
+   x : int
+       Horizontal position of the control.
+
+   y : int
+       Vertical position of the control.
+
+   w : int
+       Width of the control.
+
+   h : int
+       Height of the control, default csts.EDIT_HEIGHT.
+
+   kwargs : Any
+       Other parameters of ``scade.tool.suite.gui.widgets.EditBox``.
+
+   Initialize the static edit control with the given parameters.
+
+
+
+.. py:currentmodule:: StaticEdit
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~set_visible`
+            - Show or hide the control.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~label`
+            - 
+          * - :py:attr:`~owner`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import StaticEdit
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: label
+
+.. py:attribute:: owner
+
+
+
+Method detail
+-------------
+
+.. py:method:: set_visible(show: bool)
+
+   Show or hide the control.
+
+
+
+
+
