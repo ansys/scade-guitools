@@ -220,7 +220,8 @@ class Studio(Ide):
 
     def version(
         self,
-        kind: str,  # 'number' | 'folderName' | 'buildNumber' | 'endYear' | 'versionName' | 'copyright'
+        # 'number' | 'folderName' | 'buildNumber' | 'endYear' | 'versionName' | 'copyright'
+        kind: str,
     ) -> str:
         """Redirect the call to SCADE IDE."""
         return scade.version(kind)  # type: ignore
