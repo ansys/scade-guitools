@@ -1,0 +1,83 @@
+
+
+
+
+
+
+The ``command.py`` module
+=========================
+
+.. py:module:: ansys.scade.guitools.command
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: command
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.command.Command`
+            - Base class for commands.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> Command</api/ansys/scade/guitools/command/Command>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Provides a SCADE IDE Command base class.
+
+This module provides Command base class that stubs
+``scade.tool.suite.gui.commands.Command`` when not available.
+
+This allows to create unit tests for commands.
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+
+
+
+
+
+
+:class:`GroupRadioBox`
+======================
+
+
+.. py:class:: ansys.scade.guitools.control.GroupRadioBox(owner, text: str, buttons: List[Tuple[str, str]], x: int, y: int, w: int, h: int = c.GROUP_RADIO_BOX_HEIGHT)
+
+   Bases: :py:obj:`RadioBox`
+
+
+   Defines a bundle made of a group and a set of radio button controls.
+
+   Parameters
+   ----------
+   owner : Any
+       Owner of the control.
+
+   text : str
+       Text of the group control.
+
+   buttons : list[tuple[str, str]]
+       Descriptions of the buttons: value and text associated to the buttons.
+
+   x : int
+       Horizontal position of the control.
+
+   y : int
+       Vertical position of the control.
+
+   w : int
+       Width of the control.
+
+   h : int
+       Height of the control, default csts.RADIO_BOX_HEIGHT.
+
+   kwargs : Any
+       Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+
+   Initialize the group radio box with the given parameters.
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import GroupRadioBox
+
+
+
+
+

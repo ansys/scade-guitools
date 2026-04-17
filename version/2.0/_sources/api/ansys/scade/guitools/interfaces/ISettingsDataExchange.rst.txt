@@ -1,0 +1,144 @@
+
+
+
+
+
+
+:class:`ISettingsDataExchange`
+==============================
+
+.. py:class:: ansys.scade.guitools.interfaces.ISettingsDataExchange
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   
+   Interface for exchanging data between a settings page and the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+
+.. py:currentmodule:: ISettingsDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~model_to_page`
+            - Update the page with the properties read from the project for a given configuration.
+          * - :py:attr:`~page_to_model`
+            - Update the project with the properties read from the page for a given configuration.
+
+
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.interfaces import ISettingsDataExchange
+
+
+
+Method detail
+-------------
+
+.. py:method:: model_to_page(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+   :abstractmethod:
+
+
+   
+   Update the page with the properties read from the project for a given configuration.
+
+
+   :Parameters:
+
+       **project** : :obj:`Project`
+           Input Project.
+
+       **configuration** : :obj:`Configuration`
+           Input configuration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: page_to_model(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+   :abstractmethod:
+
+
+   
+   Update the project with the properties read from the page for a given configuration.
+
+
+   :Parameters:
+
+       **project** : :obj:`Project`
+           Input Project.
+
+       **configuration** : :obj:`Configuration`
+           Input configuration.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

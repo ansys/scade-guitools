@@ -1,0 +1,318 @@
+
+
+
+
+
+
+:class:`IGuiHostClient`
+=======================
+
+.. py:class:: ansys.scade.guitools.interfaces.IGuiHostClient
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   
+   Defines the interface for hosted pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: IGuiHostClient
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~is_available`
+            - Return whether the page is available for the current selection.
+          * - :py:attr:`~on_build`
+            - Build the controls.
+          * - :py:attr:`~on_close`
+            - Perform any cleaning before the page is closed.
+          * - :py:attr:`~on_display`
+            - Update the page with the properties read from the models.
+          * - :py:attr:`~on_layout`
+            - Declare the contained control's constraints.
+          * - :py:attr:`~on_validate`
+            - Update the models with the properties read from the page.
+          * - :py:attr:`~set_models`
+            - Declare the models the page should consider.
+          * - :py:attr:`~show`
+            - Show or hide the page.
+
+
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.interfaces import IGuiHostClient
+
+
+
+Method detail
+-------------
+
+.. py:method:: is_available(models: List[Any]) -> bool
+   :abstractmethod:
+
+
+   
+   Return whether the page is available for the current selection.
+
+
+   :Parameters:
+
+       **models** : :obj:`List`\[:obj:`Any`]
+           List of selected objects in the IDE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_build(page: scade.tool.suite.gui.properties.Page, y: int) -> int
+   :abstractmethod:
+
+
+   
+   Build the controls.
+
+
+   :Parameters:
+
+       **page** : :obj:`PropertyPage`
+           Owning property page, to create controls.
+
+       **y** : :class:`python:int`
+           Start vertical position.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_close()
+   :abstractmethod:
+
+
+   
+   Perform any cleaning before the page is closed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_display()
+   :abstractmethod:
+
+
+   
+   Update the page with the properties read from the models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_layout()
+   :abstractmethod:
+
+
+   
+   Declare the contained control's constraints.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_validate()
+   :abstractmethod:
+
+
+   
+   Update the models with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: set_models(models: List[Any])
+   :abstractmethod:
+
+
+   
+   Declare the models the page should consider.
+
+
+   :Parameters:
+
+       **models** : :obj:`List`\[:obj:`Any`]
+           List of selected objects in the IDE.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: show(show: bool)
+   :abstractmethod:
+
+
+   
+   Show or hide the page.
+
+   This consists in showing or hiding the contained controls.
+
+   :Parameters:
+
+       **show** : :ref:`bool <python:bltin-boolean-values>`
+           Whether the page should be shown or hidden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+
