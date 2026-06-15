@@ -92,7 +92,7 @@ class ContainerPage:
         return edit
 
     def add_static_edit(self, y: int, text: str, **kwargs) -> StaticEdit:
-        """Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page."""
+        """Add a :class:`StaticEdit <ansys.scade.guitools.control.StaticEdit>` control to the page."""  # noqa: E501
         wl = kwargs.pop('wl', self.label_width)
         x = kwargs.pop('x', c.LEFT_MARGIN)
         edit = StaticEdit(self.page, text, wl, x, y, _WF, **kwargs)
@@ -122,7 +122,7 @@ class ContainerPage:
         return file
 
     def add_check_button(self, y: int, text: str, **kwargs) -> CheckButton:
-        """Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page."""
+        """Add a :class:`CheckButton <ansys.scade.guitools.control.CheckButton>` control to the page."""  # noqa: E501
         x = kwargs.pop('x', c.LEFT_MARGIN)
         w = kwargs.pop('w', self.label_width)
         cb = CheckButton(self.page, text, x, y, w, **kwargs)
@@ -137,14 +137,14 @@ class ContainerPage:
         return cb
 
     def add_object_combo_box(self, y: int, text: str, **kwargs) -> ObjectComboBox:
-        """Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page."""
+        """Add a :class:`ObjectComboBox <ansys.scade.guitools.control.ObjectComboBox>` control to the page."""  # noqa: E501
         x = kwargs.pop('x', c.LEFT_MARGIN)
         cb = ObjectComboBox(self.page, x, y, _WF, **kwargs)
         self.controls.append(cb)
         return cb
 
     def add_static_combo_box(self, y: int, text: str, **kwargs) -> StaticComboBox:
-        """Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page."""
+        """Add a :class:`StaticComboBox <ansys.scade.guitools.control.StaticComboBox>` control to the page."""  # noqa: E501
         wl = kwargs.pop('wl', self.label_width)
         x = kwargs.pop('x', c.LEFT_MARGIN)
         cb = StaticComboBox(self.page, text, wl, x, y, _WF, **kwargs)
@@ -152,7 +152,7 @@ class ContainerPage:
         return cb
 
     def add_static_object_combo_box(self, y: int, text: str, **kwargs) -> StaticObjectComboBox:
-        """Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page."""
+        """Add a :class:`StaticObjectComboBox <ansys.scade.guitools.control.StaticObjectComboBox>` control to the page."""  # noqa: E501
         wl = kwargs.pop('wl', self.label_width)
         x = kwargs.pop('x', c.LEFT_MARGIN)
         cb = StaticObjectComboBox(self.page, text, wl, x, y, _WF, **kwargs)
@@ -169,7 +169,7 @@ class ContainerPage:
     def add_group_radio_box(
         self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
     ) -> GroupRadioBox:
-        """Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page."""
+        """Add a :class:`GroupRadioBox <ansys.scade.guitools.control.GroupRadioBox>` control to the page."""  # noqa: E501
         x = kwargs.pop('x', c.LEFT_MARGIN)
         grb = GroupRadioBox(self.page, text, buttons, x, y, _WF, **kwargs)
         self.controls.append(grb)
@@ -178,7 +178,7 @@ class ContainerPage:
     def add_static_radio_box(
         self, y: int, text: str, buttons: List[Tuple[Any, str]], **kwargs
     ) -> StaticRadioBox:
-        """Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page."""
+        """Add a :class:`StaticRadioBox <ansys.scade.guitools.control.StaticRadioBox>` control to the page."""  # noqa: E501
         wl = kwargs.pop('wl', self.label_width)
         x = kwargs.pop('x', c.LEFT_MARGIN)
         srb = StaticRadioBox(self.page, text, wl, buttons, x, y, _WF, **kwargs)
