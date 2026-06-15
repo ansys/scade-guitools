@@ -1,0 +1,7 @@
+ansys.scade.guitools.register.register
+======================================
+
+.. py:function:: ansys.scade.guitools.register.register() -> Tuple[int, str]
+
+   Implement the ``ansys.scade.registry/register`` entry point.
+

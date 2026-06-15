@@ -1,0 +1,98 @@
+
+
+
+
+
+
+The ``dialog.py`` module
+========================
+
+.. py:module:: ansys.scade.guitools.dialog
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: dialog
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.dialog.DialogBox`
+            - Defines a dialog box with optional default button management.
+
+
+
+    .. tab-item:: Enums
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.dialog.DS`
+            - Style for dialog box validation buttons.
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> DialogBox</api/ansys/scade/guitools/dialog/DialogBox>
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_enum"></span> DS</api/ansys/scade/guitools/dialog/DS>
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Provides an extension for the Dialog class.
+
+
+
+
+
+
+
+

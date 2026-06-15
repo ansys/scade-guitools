@@ -1,0 +1,141 @@
+
+
+
+
+
+
+:class:`ObjectComboBox`
+=======================
+
+
+.. py:class:: ansys.scade.guitools.control.ObjectComboBox(owner, x: int, y: int, w: int, h: int = c.COMBO_BOX_HEIGHT, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.widgets.ObjectComboBox`
+
+
+   Defines an object combo box control with a default height and extensions for serialization.
+
+   This class provides an optional map for accessing an item with a string. This allows
+   to persist the current selection in a file, or restore it from a value.
+
+   Parameters
+   ----------
+   owner : Any
+       owner of the combo box control
+
+   x : int
+       Horizontal position of the combo box control.
+
+   y : int
+       Vertical position of the combo box control.
+
+   w : int
+       Width of the combo box control.
+
+   h : int
+       Height of the combo box control, default csts.COMBO_BOX_HEIGHT.
+
+   kwargs : Any
+       Other parameters of ``scade.tool.suite.gui.widgets.ComboBox``.
+
+   Initialize the object combo box with the given parameters.
+
+
+
+.. py:currentmodule:: ObjectComboBox
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~get_selected_name`
+            - Return the name of the selected item.
+          * - :py:attr:`~on_layout`
+            - Declare the constraints with respect to the owner.
+          * - :py:attr:`~select_name`
+            - Select the item corresponding to name.
+          * - :py:attr:`~set_items`
+            - Set the combo box items, with an optional mapping.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~items`
+            - 
+          * - :py:attr:`~names`
+            - 
+          * - :py:attr:`~owner`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import ObjectComboBox
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: items
+   :type:  List[Any]
+   :value: []
+
+
+.. py:attribute:: names
+   :type:  List[str]
+   :value: []
+
+
+.. py:attribute:: owner
+
+
+
+Method detail
+-------------
+
+.. py:method:: get_selected_name() -> str
+
+   Return the name of the selected item.
+
+
+.. py:method:: on_layout()
+
+   Declare the constraints with respect to the owner.
+
+
+.. py:method:: select_name(name: str)
+
+   Select the item corresponding to name.
+
+
+.. py:method:: set_items(items: List[Any], names: Optional[List[str]] = None)
+
+   Set the combo box items, with an optional mapping.
+
+   This mapping is used for serializing the selected item.
+
+
+
+
+

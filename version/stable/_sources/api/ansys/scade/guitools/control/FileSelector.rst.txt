@@ -1,0 +1,165 @@
+
+
+
+
+
+
+:class:`FileSelector`
+=====================
+
+
+.. py:class:: ansys.scade.guitools.control.FileSelector(owner, text: str, extension: str, directory: str, filter: str, mode: FSM, wl: int, x: int, y: int, w: int, h: int = c.EDIT_HEIGHT, reference: str = '', **kwargs)
+
+   Bases: :py:obj:`StaticEdit`
+
+
+   Defines a bundle made of a static, an edit, and a button control.
+
+   Parameters
+   ----------
+   owner : Any
+       Owner of the control.
+
+   text : str
+       Text of the static control.
+
+   extension : str
+       Default extension of the files.
+       This option is ignored when ``mode`` is ``FSM.DIR``.
+
+   directory : str
+       Initial directory of the file selector dialog box, or the current directory when empty.
+
+   filter : str
+       Description of the format of the visible files in the file selector dialog box.
+       This option is ignored when ``mode`` is ``FSM.DIR``.
+
+   mode : FSM
+       Mode of the file seclector dialog box, either ``FSM.LOAD``, ``FSM.SAVE``,
+       or ``FSM.DIR`` for browsing directories.
+
+   wl : int
+       Width of the static control.
+
+   x : int
+       Horizontal position of the control.
+
+   y : int
+       Vertical position of the control.
+
+   w : int
+       Width of the control.
+
+   h : int
+       Height of the control, default csts.EDIT_HEIGHT.
+
+   reference : str
+       Reference directory to resolve or compute a relative path when not empty.
+
+   kwargs : Any
+       Other parameters of ``scade.tool.suite.gui.widgets.EditBox``.
+
+   Initialize the file selector with the given parameters.
+
+
+
+.. py:currentmodule:: FileSelector
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_click`
+            - Call the Windows standard open or save selection commands.
+          * - :py:attr:`~on_layout`
+            - Declare the constraints with respect to the owner.
+          * - :py:attr:`~set_visible`
+            - Show or hide the control.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~btn_dots`
+            - 
+          * - :py:attr:`~directory`
+            - 
+          * - :py:attr:`~extension`
+            - 
+          * - :py:attr:`~filter`
+            - 
+          * - :py:attr:`~mode`
+            - 
+          * - :py:attr:`~owner`
+            - 
+          * - :py:attr:`~reference`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import FileSelector
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: btn_dots
+
+.. py:attribute:: directory
+
+.. py:attribute:: extension
+
+.. py:attribute:: filter
+
+.. py:attribute:: mode
+
+.. py:attribute:: owner
+
+.. py:attribute:: reference
+   :value: ''
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_click(button: scade.tool.suite.gui.widgets.Button)
+
+   Call the Windows standard open or save selection commands.
+
+
+.. py:method:: on_layout()
+
+   Declare the constraints with respect to the owner.
+
+
+.. py:method:: set_visible(show: bool)
+
+   Show or hide the control.
+
+
+
+
+

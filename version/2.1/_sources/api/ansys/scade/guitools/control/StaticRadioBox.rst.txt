@@ -1,0 +1,140 @@
+
+
+
+
+
+
+:class:`StaticRadioBox`
+=======================
+
+.. py:class:: ansys.scade.guitools.control.StaticRadioBox(owner, text: str, wl: int, buttons: List[Tuple[str, str]], x: int, y: int, w: int)
+
+   Bases: :py:obj:`RadioBox`
+
+
+   
+   Defines a bundle made of a static and a group of radio button controls.
+
+   The group is not visible and is used to set relative constraints.
+
+   :Parameters:
+
+       **owner** : :obj:`Any`
+           owner of the control
+
+       **text** : :class:`python:str`
+           Text of the static control.
+
+       **wl** : :class:`python:int`
+           Width of the static control.
+
+       **buttons** : :class:`python:list`\[:class:`python:tuple`\[:class:`python:str`, :class:`python:str`]]
+           Descriptions of the buttons: value and text associated to the buttons.
+
+       **x** : :class:`python:int`
+           Horizontal position of the control.
+
+       **y** : :class:`python:int`
+           Vertical position of the control.
+
+       **w** : :class:`python:int`
+           Width of the control.
+
+       **kwargs** : :obj:`Any`
+           Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: StaticRadioBox
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~set_visible`
+            - Show or hide the control.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~label`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import StaticRadioBox
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: label
+
+
+
+Method detail
+-------------
+
+.. py:method:: set_visible(show: bool)
+
+   
+   Show or hide the control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

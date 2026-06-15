@@ -1,0 +1,7 @@
+ansys.scade.guitools.guihost.main
+=================================
+
+.. py:function:: ansys.scade.guitools.guihost.main()
+
+   Create the server property pages from the installed clients.
+

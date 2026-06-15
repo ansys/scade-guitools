@@ -1,0 +1,96 @@
+
+
+
+
+
+
+:class:`PragmaDataExchange`
+===========================
+
+
+.. py:class:: ansys.scade.guitools.data.PragmaDataExchange(id: str)
+
+   Bases: :py:obj:`DataExchange`
+
+
+   Means to serialize values as SCADE Suite pragmas.
+
+   SCADE Suite pragmas are either text or XML. This class
+   uses a textual pragma made of a json string.
+
+   Parameters
+   ----------
+   id : str
+       Identifier of the pragma.
+
+   Initialize the pragma data exchange instance.
+
+
+
+.. py:currentmodule:: PragmaDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~display`
+            - Update the page with the properties read from the model.
+          * - :py:attr:`~validate`
+            - Update the model with the properties read from the page.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~id`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import PragmaDataExchange
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: id
+
+
+
+Method detail
+-------------
+
+.. py:method:: display(object_: scade.model.suite.Annotable)
+
+   Update the page with the properties read from the model.
+
+
+.. py:method:: validate(object_: scade.model.suite.Annotable)
+
+   Update the model with the properties read from the page.
+
+
+
+
+

@@ -1,0 +1,124 @@
+
+
+
+
+
+
+:class:`SettingsDataExchange`
+=============================
+
+.. py:class:: ansys.scade.guitools.data.SettingsDataExchange(tool: str)
+
+   Bases: :py:obj:`ansys.scade.guitools.interfaces.ISettingsDataExchange`, :py:obj:`ToolPropDataExchange`
+
+
+   
+   Default implementation for managing the persistence of most usual controls in the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: SettingsDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~model_to_page`
+            - Update the page with the properties read from the model.
+          * - :py:attr:`~page_to_model`
+            - Update the model with the properties read from the page.
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import SettingsDataExchange
+
+
+
+Method detail
+-------------
+
+.. py:method:: model_to_page(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+
+   
+   Update the page with the properties read from the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: page_to_model(project: scade.model.project.stdproject.Project, configuration: scade.model.project.stdproject.Configuration)
+
+   
+   Update the model with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

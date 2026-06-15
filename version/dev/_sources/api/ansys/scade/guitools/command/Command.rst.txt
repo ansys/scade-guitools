@@ -1,0 +1,66 @@
+
+
+
+
+
+
+:class:`Command`
+================
+
+
+.. py:class:: ansys.scade.guitools.command.Command(ide: ansys.scade.guitools.ide.Ide, *args, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.commands.Command`
+
+
+   Base class for commands.
+
+   Parameters
+   ----------
+   ide : Ide
+       SCADE IDE abstraction.
+
+
+
+.. py:currentmodule:: Command
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~ide`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.command import Command
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: ide
+
+
+
+
+

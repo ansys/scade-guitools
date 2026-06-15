@@ -1,0 +1,177 @@
+
+
+
+
+
+
+The ``control.py`` module
+=========================
+
+.. py:module:: ansys.scade.guitools.control
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: control
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.CheckButton`
+            - Defines a check box control with a default height.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.ComboBox`
+            - Defines a combo box control with a default height.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.Edit`
+            - Defines a edit box control with a default height.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.FileSelector`
+            - Defines a bundle made of a static, an edit, and a button control.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.GroupRadioBox`
+            - Defines a bundle made of a group and a set of radio button controls.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.ObjectComboBox`
+            - Defines an object combo box control with a default height and extensions for serialization.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.PushButton`
+            - Defines a button control with a default size.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.RadioBox`
+            - Defines a bundle made of a group and a set of radio button controls.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.StaticComboBox`
+            - Defines a bundle made of a static and a combo box control.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.StaticEdit`
+            - Defines a bundle made of a static and an edit control.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.StaticObjectComboBox`
+            - Defines a bundle made of a static and an object combo box control.
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.StaticRadioBox`
+            - Defines a bundle made of a static and a group of radio button controls.
+
+
+
+    .. tab-item:: Enums
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.control.FSM`
+            - Mode for the file selector.
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> CheckButton</api/ansys/scade/guitools/control/CheckButton>
+    <span class="nf nf-cod-symbol_class"></span> ComboBox</api/ansys/scade/guitools/control/ComboBox>
+    <span class="nf nf-cod-symbol_class"></span> Edit</api/ansys/scade/guitools/control/Edit>
+    <span class="nf nf-cod-symbol_class"></span> FileSelector</api/ansys/scade/guitools/control/FileSelector>
+    <span class="nf nf-cod-symbol_class"></span> GroupRadioBox</api/ansys/scade/guitools/control/GroupRadioBox>
+    <span class="nf nf-cod-symbol_class"></span> ObjectComboBox</api/ansys/scade/guitools/control/ObjectComboBox>
+    <span class="nf nf-cod-symbol_class"></span> PushButton</api/ansys/scade/guitools/control/PushButton>
+    <span class="nf nf-cod-symbol_class"></span> RadioBox</api/ansys/scade/guitools/control/RadioBox>
+    <span class="nf nf-cod-symbol_class"></span> StaticComboBox</api/ansys/scade/guitools/control/StaticComboBox>
+    <span class="nf nf-cod-symbol_class"></span> StaticEdit</api/ansys/scade/guitools/control/StaticEdit>
+    <span class="nf nf-cod-symbol_class"></span> StaticObjectComboBox</api/ansys/scade/guitools/control/StaticObjectComboBox>
+    <span class="nf nf-cod-symbol_class"></span> StaticRadioBox</api/ansys/scade/guitools/control/StaticRadioBox>
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_enum"></span> FSM</api/ansys/scade/guitools/control/FSM>
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Provides extensions for existing controls or new ones.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+

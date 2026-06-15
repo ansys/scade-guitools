@@ -1,0 +1,230 @@
+
+
+
+
+
+
+:class:`RadioBox`
+=================
+
+.. py:class:: ansys.scade.guitools.control.RadioBox(owner, buttons: List[Tuple[str, str]], x: int, y: int, w: int, text: str = '', h: int = c.GROUP_RADIO_BOX_HEIGHT)
+
+   Bases: :py:obj:`scade.tool.suite.gui.widgets.GroupBox`
+
+
+   
+   Defines a bundle made of a group and a set of radio button controls.
+
+   The group is hidden when text is empty.
+
+   :Parameters:
+
+       **owner** : :obj:`Any`
+           owner of the control
+
+       **buttons** : :class:`python:list`\[:class:`python:tuple`\[:class:`python:str`, :class:`python:str`]]
+           Descriptions of the buttons: value and text associated to the buttons.
+
+       **x** : :class:`python:int`
+           Horizontal position of the control.
+
+       **y** : :class:`python:int`
+           Vertical position of the control.
+
+       **w** : :class:`python:int`
+           Width of the control.
+
+       **h** : :class:`python:int`
+           Height of the control, default 0
+
+       **text** : :class:`python:str`
+           Text of the group control, default empty.
+
+       **kwargs** : :obj:`Any`
+           Other parameters of ``scade.tool.suite.gui.widgets.GroupBox``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: RadioBox
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~get_value`
+            - Return the value of the selected button, or ``""`` when none is selected.
+          * - :py:attr:`~on_layout`
+            - Declare the constraints with respect to the owner.
+          * - :py:attr:`~set_value`
+            - Select the button corresponding to the input value.
+          * - :py:attr:`~set_visible`
+            - Show or hide the control.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~buttons`
+            - 
+          * - :py:attr:`~owner`
+            - 
+          * - :py:attr:`~text`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import RadioBox
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: buttons
+   :type:  Dict[str, scade.tool.suite.gui.widgets.RadioButton]
+
+.. py:attribute:: owner
+
+.. py:attribute:: text
+
+
+
+Method detail
+-------------
+
+.. py:method:: get_value() -> str
+
+   
+   Return the value of the selected button, or ``""`` when none is selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: on_layout()
+
+   
+   Declare the constraints with respect to the owner.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: set_value(value: str)
+
+   
+   Select the button corresponding to the input value.
+
+   * No button is selected when ``value`` is ``""``.
+   * The first button is selected if ``value`` does not correspond to any button.
+
+   :Parameters:
+
+       **value** : :class:`python:str`
+           Input value corresponding to a button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: set_visible(show: bool)
+
+   
+   Show or hide the control.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

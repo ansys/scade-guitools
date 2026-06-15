@@ -1,0 +1,11 @@
+ansys.scade.guitools.srg
+========================
+
+.. py:function:: ansys.scade.guitools.srg() -> str
+
+   Return the path of the SCADE Studio registry file.
+
+   This function implements the entry point "ansys.scade.registry/srg"
+   introduced in SCADE 2024 R2. It avoids creating an explicit srg file
+   in ``%APPDATA%\Scade\Customize`` when the package is installed.
+

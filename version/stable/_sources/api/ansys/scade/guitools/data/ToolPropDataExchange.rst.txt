@@ -1,0 +1,99 @@
+
+
+
+
+
+
+:class:`ToolPropDataExchange`
+=============================
+
+
+.. py:class:: ansys.scade.guitools.data.ToolPropDataExchange(tool: str)
+
+   Bases: :py:obj:`DataExchange`
+
+
+   Means to serialize values as project *tool properties*.
+
+   A *tool property* is a project property which name has the following syntax:
+   ``@<TOOL>:<NAME>``, where ``<TOOL>`` is a name for discriminating homonymous
+   properties and ``<NAME>`` is the name of the property.
+
+   For example: ``@GENERATOR:TARGET_DIR``
+
+   Parameters
+   ----------
+   tool : str
+       Name of the tool to build the project property's name: first token after ``@``.
+
+   Initialize the tool property data exchange instance.
+
+
+
+.. py:currentmodule:: ToolPropDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~display`
+            - Update the page with the properties read from the model.
+          * - :py:attr:`~validate`
+            - Update the model with the properties read from the page.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~tool`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import ToolPropDataExchange
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: tool
+
+
+
+Method detail
+-------------
+
+.. py:method:: display(project: scade.model.project.stdproject.Project, configuration: Optional[scade.model.project.stdproject.Configuration])
+
+   Update the page with the properties read from the model.
+
+
+.. py:method:: validate(project: scade.model.project.stdproject.Project, configuration: Optional[scade.model.project.stdproject.Configuration])
+
+   Update the model with the properties read from the page.
+
+
+
+
+

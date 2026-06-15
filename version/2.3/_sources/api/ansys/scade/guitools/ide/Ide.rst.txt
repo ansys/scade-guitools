@@ -1,0 +1,470 @@
+
+
+
+
+
+
+:class:`Ide`
+============
+
+
+.. py:class:: ansys.scade.guitools.ide.Ide
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   SCADE IDE abstraction.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: Ide
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~activate`
+            - Abstract ``scade.activate``.
+          * - :py:attr:`~activate_browser`
+            - Abstract ``scade.activate_browser``.
+          * - :py:attr:`~activate_project`
+            - Abstract ``scade.activate_project``.
+          * - :py:attr:`~activate_tab`
+            - Abstract ``scade.activate_tab``.
+          * - :py:attr:`~browse_directory`
+            - Abstract ``scade.tool.suite.gui.dialogs.file_save``.
+          * - :py:attr:`~browser_report`
+            - Abstract ``scade.browser_report``.
+          * - :py:attr:`~clear_tab`
+            - Abstract ``scade.clear_tab``.
+          * - :py:attr:`~command`
+            - Abstract ``scade.command (undocumented API)``.
+          * - :py:attr:`~create_browser`
+            - Abstract ``scade.create_browser``.
+          * - :py:attr:`~create_report`
+            - Abstract ``scade.create_report``.
+          * - :py:attr:`~file_open`
+            - Abstract ``scade.tool.suite.gui.dialogs.file_open``.
+          * - :py:attr:`~file_save`
+            - Abstract ``scade.tool.suite.gui.dialogs.file_save``.
+          * - :py:attr:`~get_active_configuration`
+            - Abstract ``scade.get_active_configuration``.
+          * - :py:attr:`~get_active_project`
+            - Abstract ``scade.get_active_project``.
+          * - :py:attr:`~get_projects`
+            - Abstract ``scade.model.project.stdproject.get_roots``.
+          * - :py:attr:`~get_sessions`
+            - Abstract ``scade.model.suite.get_roots``.
+          * - :py:attr:`~locate`
+            - Abstract ``scade.locate``.
+          * - :py:attr:`~locate_ex`
+            - Abstract ``scade.model.suite.locate``.
+          * - :py:attr:`~log`
+            - Abstract ``scade.output``.
+          * - :py:attr:`~message_box`
+            - Abstract ``scade.tool.suite.gui.dialogs.message_box``.
+          * - :py:attr:`~open_document_view`
+            - Abstract ``scade.open_document_view``.
+          * - :py:attr:`~open_html_in_browser`
+            - Abstract ``scade.open_html_in_browser``.
+          * - :py:attr:`~open_html_view`
+            - Abstract ``scade.open_html_view``.
+          * - :py:attr:`~open_source_code_view`
+            - Abstract ``scade.open_source_code_view``.
+          * - :py:attr:`~output_log`
+            - Abstract ``scade.output_log``.
+          * - :py:attr:`~print`
+            - Abstract ``scade.print``.
+          * - :py:attr:`~print_ssl`
+            - Abstract ``scade.model.suite.print_ssl``.
+          * - :py:attr:`~printer_setup`
+            - Abstract ``scade.printer_setup``.
+          * - :py:attr:`~register_decoration`
+            - Abstract ``scade.model.suite.register_decoration``.
+          * - :py:attr:`~register_load_model_callable`
+            - Abstract ``scade.tool.suite.gui.register_load_model_callable``.
+          * - :py:attr:`~register_terminate_callable`
+            - Abstract ``scade.tool.suite.gui.register_terminate_callable``.
+          * - :py:attr:`~register_unload_model_callable`
+            - Abstract ``scade.tool.suite.gui.register_unload_model_callable``.
+          * - :py:attr:`~report`
+            - Abstract ``scade.report``.
+          * - :py:attr:`~set_decoration`
+            - Abstract ``scade.model.suite.set_decoration``.
+          * - :py:attr:`~set_output_tab`
+            - Abstract ``scade.set_output_tab``.
+          * - :py:attr:`~set_style`
+            - Abstract ``scade.model.suite.set_style``.
+          * - :py:attr:`~tabput`
+            - Abstract ``scade.tabput``.
+          * - :py:attr:`~unset_decoration`
+            - Abstract ``scade.model.suite.set_decoration``.
+
+
+
+
+   .. tab-item:: Properties
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~selection`
+            - Abstract ``scade.selection``.
+          * - :py:attr:`~version`
+            - Abstract ``scade.version``.
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.ide import Ide
+
+Property detail
+---------------
+
+.. py:property:: selection
+   :type: List[Any]
+
+   :abstractmethod:
+
+
+   Abstract ``scade.selection``.
+
+
+.. py:property:: version
+   :type: str
+
+   :abstractmethod:
+
+
+   Abstract ``scade.version``.
+
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: activate(object_: Any)
+   :abstractmethod:
+
+
+   Abstract ``scade.activate``.
+
+
+.. py:method:: activate_browser(tab_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.activate_browser``.
+
+
+.. py:method:: activate_project(project_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.activate_project``.
+
+
+.. py:method:: activate_tab(tab: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.activate_tab``.
+
+
+.. py:method:: browse_directory(initial_directory: str = '') -> str
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.dialogs.file_save``.
+
+
+.. py:method:: browser_report(child_object: Any, parent_object: Any = None, expanded: bool = False, user_data: Any = None, name: str = '', icon_file: str = '')
+   :abstractmethod:
+
+
+   Abstract ``scade.browser_report``.
+
+
+.. py:method:: clear_tab(tab: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.clear_tab``.
+
+
+.. py:method:: command(extension_id: str, command_id: int, command: str = 'activate') -> Optional[str]
+   :abstractmethod:
+
+
+   Abstract ``scade.command (undocumented API)``.
+
+
+.. py:method:: create_browser(name: str, icon_file: Optional[str] = None, keep: bool = False, callback: Callable[[Any, Any], None] = None)
+   :abstractmethod:
+
+
+   Abstract ``scade.create_browser``.
+
+
+.. py:method:: create_report(tab_name: str, *header: Tuple[str, int, int], check: bool = False)
+   :abstractmethod:
+
+
+   Abstract ``scade.create_report``.
+
+
+.. py:method:: file_open(filter: str = '', directory: str = '') -> str
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.dialogs.file_open``.
+
+
+.. py:method:: file_save(file_name: str, extension: str = '', directory: str = '', filter: str = '') -> str
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.dialogs.file_save``.
+
+
+.. py:method:: get_active_configuration(project: scade.model.project.stdproject.Project, tool_name: str) -> Optional[scade.model.project.stdproject.Configuration]
+   :abstractmethod:
+
+
+   Abstract ``scade.get_active_configuration``.
+
+
+.. py:method:: get_active_project() -> Optional[scade.model.project.stdproject.Project]
+   :abstractmethod:
+
+
+   Abstract ``scade.get_active_project``.
+
+
+.. py:method:: get_projects() -> List[scade.model.project.stdproject.Project]
+   :abstractmethod:
+
+
+   Abstract ``scade.model.project.stdproject.get_roots``.
+
+
+.. py:method:: get_sessions() -> List[scade.model.suite.Session]
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.get_roots``.
+
+
+.. py:method:: locate(locate_string: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.locate``.
+
+
+.. py:method:: locate_ex(tuples: Union[List[scade.model.suite.Object], List[Tuple]])
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.locate``.
+
+
+.. py:method:: log(text: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.output``.
+
+
+.. py:method:: message_box(name: str, message: str, style: str = 'ok', icon: str = 'information') -> int
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.dialogs.message_box``.
+
+
+.. py:method:: open_document_view(file_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.open_document_view``.
+
+
+.. py:method:: open_html_in_browser(file_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.open_html_in_browser``.
+
+
+.. py:method:: open_html_view(file: Union[str, List[str]], use: Optional[str] = None, delete: bool = False)
+   :abstractmethod:
+
+
+   Abstract ``scade.open_html_view``.
+
+
+.. py:method:: open_source_code_view(file_name: str, line: int = 1, col: int = 1)
+   :abstractmethod:
+
+
+   Abstract ``scade.open_source_code_view``.
+
+
+.. py:method:: output_log(tab_name: str, command: str, path_name: str = '', separator: str = '')
+   :abstractmethod:
+
+
+   Abstract ``scade.output_log``.
+
+
+.. py:method:: print(source_object: Any, path_name: str, format: str, rotation: int = 0)
+   :abstractmethod:
+
+
+   Abstract ``scade.print``.
+
+
+.. py:method:: print_ssl(scade_operator: scade.model.suite.Operator, path_name: str, format: str, rotation: int = 0)
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.print_ssl``.
+
+
+.. py:method:: printer_setup(printer_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.printer_setup``.
+
+
+.. py:method:: register_decoration(name: str, small_icon: str, large_icon: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.register_decoration``.
+
+
+.. py:method:: register_load_model_callable(callable)
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.register_load_model_callable``.
+
+
+.. py:method:: register_terminate_callable(callable)
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.register_terminate_callable``.
+
+
+.. py:method:: register_unload_model_callable(callable)
+   :abstractmethod:
+
+
+   Abstract ``scade.tool.suite.gui.register_unload_model_callable``.
+
+
+.. py:method:: report(item: Any, *columns: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.report``.
+
+
+.. py:method:: set_decoration(object_: scade.model.suite.Object, name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.set_decoration``.
+
+
+.. py:method:: set_output_tab(tab: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.set_output_tab``.
+
+
+.. py:method:: set_style(presentation_element: scade.model.suite.PresentationElement, style_name: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.set_style``.
+
+
+.. py:method:: tabput(tab: str, text: str)
+   :abstractmethod:
+
+
+   Abstract ``scade.tabput``.
+
+
+.. py:method:: unset_decoration(object_: scade.model.suite.Object)
+   :abstractmethod:
+
+
+   Abstract ``scade.model.suite.set_decoration``.
+
+
+
+
+

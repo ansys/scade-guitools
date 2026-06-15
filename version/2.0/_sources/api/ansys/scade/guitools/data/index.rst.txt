@@ -1,0 +1,180 @@
+
+
+
+
+
+
+The ``data.py`` module
+======================
+
+.. py:module:: ansys.scade.guitools.data
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: data
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.DataExchange`
+            - Base class for accessing controls' data.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.PragmaDataExchange`
+            - Means for serializing values as SCADE Suite pragmas.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.ProjectPropertiesDataExchange`
+            - Default implementation for managing the persistence of most usual controls in the project.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.ScadePropertiesDataExchange`
+            - Default implementation for managing the persistence of most usual controls in the model.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.SettingsDataExchange`
+            - Default implementation for managing the persistence of most usual controls in the project.
+
+
+          * - :py:obj:`~ansys.scade.guitools.data.ToolPropDataExchange`
+            - Means for serializing values as project *tool properties*.
+
+
+
+
+
+
+    .. tab-item:: Attributes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~Getter`
+            - Signature for getting control's value.
+
+
+          * - :py:obj:`~Setter`
+            - Signature for setting control's value.
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> DataExchange</api/ansys/scade/guitools/data/DataExchange>
+    <span class="nf nf-cod-symbol_class"></span> PragmaDataExchange</api/ansys/scade/guitools/data/PragmaDataExchange>
+    <span class="nf nf-cod-symbol_class"></span> ProjectPropertiesDataExchange</api/ansys/scade/guitools/data/ProjectPropertiesDataExchange>
+    <span class="nf nf-cod-symbol_class"></span> ScadePropertiesDataExchange</api/ansys/scade/guitools/data/ScadePropertiesDataExchange>
+    <span class="nf nf-cod-symbol_class"></span> SettingsDataExchange</api/ansys/scade/guitools/data/SettingsDataExchange>
+    <span class="nf nf-cod-symbol_class"></span> ToolPropDataExchange</api/ansys/scade/guitools/data/ToolPropDataExchange>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+Extensions for the persistence of the settings and properties.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+Module detail
+-------------
+
+.. py:data:: Getter
+
+   
+   Signature for getting control's value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:data:: Setter
+
+   
+   Signature for setting control's value.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+

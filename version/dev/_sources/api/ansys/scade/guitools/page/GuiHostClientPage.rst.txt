@@ -1,0 +1,195 @@
+
+
+
+
+
+
+:class:`GuiHostClientPage`
+==========================
+
+
+.. py:class:: ansys.scade.guitools.page.GuiHostClientPage(*args, **kwargs)
+
+   Bases: :py:obj:`ansys.scade.guitools.interfaces.IGuiHostClient`, :py:obj:`ContainerPage`
+
+
+   Default implementation for GuiHost pages.
+
+
+
+
+.. py:currentmodule:: GuiHostClientPage
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build_ex`
+            - Build the controls and return an optional object for managing the persistence.
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~get_selected_models`
+            - Return a new list of models from the selection.
+          * - :py:attr:`~is_available`
+            - Return whether the page is available for the current selection.
+          * - :py:attr:`~on_build`
+            - Build the property page.
+          * - :py:attr:`~on_close`
+            - Perform any cleaning before the page is closed.
+          * - :py:attr:`~on_display`
+            - Update the page with the properties read from the models.
+          * - :py:attr:`~on_layout`
+            - Declare the contained control's constraints.
+          * - :py:attr:`~on_validate`
+            - Update the models with the properties read from the page.
+          * - :py:attr:`~set_models`
+            - Declare the models the page should consider.
+          * - :py:attr:`~show`
+            - Show or hide the page.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~ddx`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.page import GuiHostClientPage
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: ddx
+   :type:  Optional[ansys.scade.guitools.interfaces.IPropertiesDataExchange]
+   :value: None
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: get_selected_models(models: List[Any]) -> List[Any]
+
+   Return a new list of models from the selection.
+
+   For example, replaces selected graphical elements by their
+   associated semantic ones.
+
+   Parameters
+   ----------
+   models : List[Any]
+       List of selected objects in the IDE.
+
+   Returns
+   -------
+   List[Any]
+       List of objects to consider.
+
+
+.. py:method:: is_available(models: List[Any]) -> bool
+
+   Return whether the page is available for the current selection.
+
+   Parameters
+   ----------
+   models : List[Any]
+       List of selected objects in the IDE.
+
+
+.. py:method:: on_build(page: scade.tool.suite.gui.properties.Page, y: int)
+
+   Build the property page.
+
+
+.. py:method:: on_build_ex(y: int) -> Optional[ansys.scade.guitools.interfaces.IPropertiesDataExchange]
+   :abstractmethod:
+
+
+   Build the controls and return an optional object for managing the persistence.
+
+   Parameters
+   ----------
+   y : int
+       Start vertical position.
+
+   Returns
+   -------
+   Optional[IPropertiesDataExchange]
+       Object for exchanging data between the models and the controls.
+
+
+.. py:method:: on_close()
+
+   Perform any cleaning before the page is closed.
+
+
+.. py:method:: on_display()
+
+   Update the page with the properties read from the models.
+
+
+.. py:method:: on_layout()
+
+   Declare the contained control's constraints.
+
+
+.. py:method:: on_validate()
+
+   Update the models with the properties read from the page.
+
+
+.. py:method:: set_models(models: List[Any])
+
+   Declare the models the page should consider.
+
+   Parameters
+   ----------
+   models : List[Any]
+       List of selected objects in the IDE.
+
+
+.. py:method:: show(show: bool)
+
+   Show or hide the page.
+
+   This consists in showing or hiding the contained controls.
+
+   Parameters
+   ----------
+   show : bool
+       Whether the page should be shown or hidden.
+
+
+
+
+

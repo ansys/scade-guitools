@@ -1,0 +1,7 @@
+ansys.scade.guitools.stubs.log
+==============================
+
+.. py:function:: ansys.scade.guitools.stubs.log(text: str)
+
+   Log the message. Temporary implementation.
+

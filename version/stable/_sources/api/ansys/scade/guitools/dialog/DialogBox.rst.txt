@@ -1,0 +1,180 @@
+
+
+
+
+
+
+:class:`DialogBox`
+==================
+
+
+.. py:class:: ansys.scade.guitools.dialog.DialogBox(title: str, width: int, height: int, nc: bool = False, style: DS = DS.NONE, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.dialogs.Dialog`
+
+
+   Defines a dialog box with optional default button management.
+
+   Parameters
+   ----------
+   title: str
+       Title of the dialog box.
+
+   width: int
+       Width of the client area if ``nc`` is ``False``, otherwise
+       overall width of the dialog box.
+
+   height: int
+       Height of the client area if ``nc`` is ``False``, otherwise
+       overall width of the dialog box.
+
+   nc: bool
+       Whether the provided dimensions are for the overall dialog box
+       or for its client area, default ``False``.
+
+   kwargs: Any
+       Other parameters of ``scade.tool.suite.gui.dialog.Dialog``.
+
+   Initialize the dialog box.
+
+
+
+
+.. py:currentmodule:: DialogBox
+
+Overview
+--------
+
+.. tab-set::
+
+   .. tab-item:: Abstract methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build_ex`
+            - Build the controls.
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~on_build`
+            - Build the dialog with the specified dialog validation buttons.
+          * - :py:attr:`~on_click_cancel`
+            - Close the dialog when Cancel is pressed.
+          * - :py:attr:`~on_click_close`
+            - Close the dialog when Close is pressed.
+          * - :py:attr:`~on_click_no`
+            - Close the dialog when No is pressed.
+          * - :py:attr:`~on_click_ok`
+            - Close the dialog when OK is pressed.
+          * - :py:attr:`~on_click_retry`
+            - Close the dialog when Retry is pressed.
+          * - :py:attr:`~on_click_yes`
+            - Close the dialog when Yes is pressed.
+
+
+   .. tab-item:: Properties
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~bottom`
+            - Return the bottom-most position of the dialog box.
+          * - :py:attr:`~right`
+            - Return the right-most position of the dialog box.
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.dialog import DialogBox
+
+Property detail
+---------------
+
+.. py:property:: bottom
+   :type: int
+
+
+   Return the bottom-most position of the dialog box.
+
+   This corresponds to the height of its client area
+   if there are no buttons, otherwise the vertical position
+   of the bottom buttons.
+
+
+.. py:property:: right
+   :type: int
+
+
+   Return the right-most position of the dialog box.
+
+   This corresponds to the width of its client area.
+
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: on_build()
+
+   Build the dialog with the specified dialog validation buttons.
+
+
+.. py:method:: on_build_ex()
+   :abstractmethod:
+
+
+   Build the controls.
+
+
+.. py:method:: on_click_cancel(*args)
+
+   Close the dialog when Cancel is pressed.
+
+
+.. py:method:: on_click_close(*args)
+
+   Close the dialog when Close is pressed.
+
+
+.. py:method:: on_click_no(*args)
+
+   Close the dialog when No is pressed.
+
+
+.. py:method:: on_click_ok(*args)
+
+   Close the dialog when OK is pressed.
+
+
+.. py:method:: on_click_retry(*args)
+
+   Close the dialog when Retry is pressed.
+
+
+.. py:method:: on_click_yes(*args)
+
+   Close the dialog when Yes is pressed.
+
+
+
+
+

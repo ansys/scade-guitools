@@ -1,0 +1,80 @@
+
+
+
+
+
+
+The ``enable_debugpy.py`` module
+================================
+
+.. py:module:: ansys.scade.guitools.enable_debugpy
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+.. py:currentmodule:: enable_debugpy
+.. tab-set::
+
+
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.enable_debugpy.attach_to_debugger`
+            - Start the debug server and wait for a client to connect.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> attach_to_debugger</api/ansys/scade/guitools/enable_debugpy/attach_to_debugger>
+
+
+
+
+
+
+Description
+-----------
+
+Enables remote debugging with ``debugpy``.
+
+Refer to :ref:`Debug <contributing_debug>` for more information.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+

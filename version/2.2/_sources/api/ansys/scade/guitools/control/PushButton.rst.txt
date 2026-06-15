@@ -1,0 +1,56 @@
+
+
+
+
+
+
+:class:`PushButton`
+===================
+
+
+.. py:class:: ansys.scade.guitools.control.PushButton(owner: Any, name: str, x: int, y: int, w: int = c.BUTTON_WIDTH, h: int = c.BUTTON_HEIGHT, **kwargs)
+
+   Bases: :py:obj:`scade.tool.suite.gui.widgets.Button`
+
+
+   Defines a button control with a default size.
+
+   Parameters
+   ----------
+   owner : Any
+       owner of the button
+
+   name : str
+       Name of the button.
+
+   x : int
+       Horizontal position of the push button.
+
+   y : int
+       Vertical position of the push button.
+
+   w : int
+       Width of the push button, default csts.BUTTON_WIDTH.
+
+   h : int
+       Height of the push button, default csts.BUTTON_HEIGHT.
+
+   kwargs : Any
+       Other parameters of ``scade.tool.suite.gui.widgets.Button``.
+
+   Initialize the push button with the given parameters.
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.control import PushButton
+
+
+
+
+

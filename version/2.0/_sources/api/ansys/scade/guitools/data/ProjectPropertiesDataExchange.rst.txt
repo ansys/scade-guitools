@@ -1,0 +1,124 @@
+
+
+
+
+
+
+:class:`ProjectPropertiesDataExchange`
+======================================
+
+.. py:class:: ansys.scade.guitools.data.ProjectPropertiesDataExchange(tool: str)
+
+   Bases: :py:obj:`ansys.scade.guitools.interfaces.IPropertiesDataExchange`, :py:obj:`ToolPropDataExchange`
+
+
+   
+   Default implementation for managing the persistence of most usual controls in the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: ProjectPropertiesDataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~model_to_page`
+            - Update the page with the properties read from the model.
+          * - :py:attr:`~page_to_model`
+            - Update the model with the properties read from the page.
+
+
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import ProjectPropertiesDataExchange
+
+
+
+Method detail
+-------------
+
+.. py:method:: model_to_page(model: scade.model.project.stdproject.ProjectEntity)
+
+   
+   Update the page with the properties read from the model.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: page_to_model(model: scade.model.project.stdproject.ProjectEntity)
+
+   
+   Update the model with the properties read from the page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

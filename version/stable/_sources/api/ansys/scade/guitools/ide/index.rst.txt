@@ -1,0 +1,78 @@
+
+
+
+
+
+
+The ``ide.py`` module
+=====================
+
+.. py:module:: ansys.scade.guitools.ide
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: ide
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.ide.Ide`
+            - SCADE IDE abstraction.
+
+
+
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> Ide</api/ansys/scade/guitools/ide/Ide>
+
+
+
+
+
+
+
+
+
+Description
+-----------
+
+SCADE IDE abstraction.
+
+
+
+
+
+
+
+

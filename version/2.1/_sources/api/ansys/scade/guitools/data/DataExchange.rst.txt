@@ -1,0 +1,177 @@
+
+
+
+
+
+
+:class:`DataExchange`
+=====================
+
+.. py:class:: ansys.scade.guitools.data.DataExchange
+
+   
+   Base class for accessing controls' data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+.. py:currentmodule:: DataExchange
+
+Overview
+--------
+
+.. tab-set::
+
+
+
+   .. tab-item:: Methods
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~ddx_control`
+            - Declare a property for automatic serialization.
+          * - :py:attr:`~get_control_accessors`
+            - Return the get and set accessors for a control, or None if not applicable.
+
+
+
+   .. tab-item:: Attributes
+
+      .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+          * - :py:attr:`~properties`
+            - 
+
+
+
+
+
+
+Import detail
+-------------
+
+.. code-block:: python
+
+    from ansys.scade.guitools.data import DataExchange
+
+
+Attribute detail
+----------------
+
+.. py:attribute:: properties
+   :type:  List[Tuple[Getter, Setter, str, Any, Any]]
+   :value: []
+
+
+
+
+Method detail
+-------------
+
+.. py:method:: ddx_control(control: scade.tool.suite.gui.widgets.Widget, name: str, default: Any, empty: Any = None)
+
+   
+   Declare a property for automatic serialization.
+
+   When the page is displayed, the control is updated with the value read from the model.
+   When the page is validated, the model is updated with the value read from the control.
+
+   :Parameters:
+
+       **control** : :obj:`Widget`
+           Control associated to the property.
+
+       **name**
+           Name of the property.
+
+       **default** : :obj:`Any`
+           Default value of the property.
+
+       **empty** : :obj:`Any` | :data:`python:None`
+           Value to display when it is empty, default ``default``.
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Examples
+
+   .. code-block::
+
+       # on_build_ex method of a page
+       self.tp = ToolPropDataExchange('MY_TOOL')
+       ...
+       edit = self.add_edit(y)
+       self.tp.ddx_control(edit, name='MY_PROP', default='')
+       y += csts.DY
+       cb = self.add_check_button(y, 'Option')
+       self.tp.ddx_control(cb, name='MY_OPTION', default=False)
+       y += csts.DY
+
+   ..
+       !! processed by numpydoc !!
+
+.. py:method:: get_control_accessors(control: scade.tool.suite.gui.widgets.Widget) -> Tuple[Optional[Getter], Optional[Setter]]
+
+   
+   Return the get and set accessors for a control, or None if not applicable.
+
+   Override this method in a derived class to define custom
+   implementation for not supported controls.
+
+   :Parameters:
+
+       **control** : :obj:`Widget`
+           input control
+
+
+
+   :Returns:
+
+       :class:`python:tuple`\[:obj:`Getter`, :obj:`Setter`]
+           ..
+
+
+
+
+
+
+
+
+
+
+
+   ..
+       !! processed by numpydoc !!
+
+
+
+

@@ -1,0 +1,105 @@
+
+
+
+
+
+
+The ``guihost.py`` module
+=========================
+
+.. py:module:: ansys.scade.guitools.guihost
+
+
+Summary
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+.. py:currentmodule:: guihost
+.. tab-set::
+
+
+
+
+    .. tab-item:: Classes
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.guihost.HostPage`
+            - Defines a property page for hosting client pages.
+
+
+          * - :py:obj:`~ansys.scade.guitools.guihost.ProxyPageClient`
+            - Maintains a reference to a client page and the name of its category.
+
+
+
+
+
+    .. tab-item:: Functions
+
+        .. list-table::
+          :header-rows: 0
+          :widths: auto
+
+
+          * - :py:obj:`~ansys.scade.guitools.guihost.main`
+            - Create the server property pages from the installed clients.
+
+
+
+
+
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-cod-symbol_class"></span> HostPage</api/ansys/scade/guitools/guihost/HostPage>
+    <span class="nf nf-cod-symbol_class"></span> ProxyPageClient</api/ansys/scade/guitools/guihost/ProxyPageClient>
+
+
+
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+    <span class="nf nf-md-function_variant"></span> main</api/ansys/scade/guitools/guihost/main>
+
+
+
+
+
+
+Description
+-----------
+
+GUI server for property pages.
+
+..
+    !! processed by numpydoc !!
+
+
+
+
+
+
+
